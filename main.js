@@ -80,7 +80,7 @@ function initActiveSectionHighlighting() {
  * Scroll animations for premium feel (reveals cards on scroll)
  */
 function initScrollAnimations() {
-  const animElements = document.querySelectorAll('.step-card, .benefit-item, .feature-card, .phone-mockup-wrapper');
+  const animElements = document.querySelectorAll('.step-card, .benefit-item, .feature-card');
 
   // Add initial state class in JS so standard CSS works if JS is disabled
   animElements.forEach(el => {

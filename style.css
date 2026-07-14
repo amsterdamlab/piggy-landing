@@ -93,7 +93,7 @@ header {
 }
 
 .nav-logo {
-  height: 48px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   transition: transform var(--trans-spring);
@@ -200,7 +200,7 @@ header {
 .hero-section {
   position: relative;
   min-height: 100vh;
-  padding: 140px 0 80px 0;
+  padding: 140px 0 0 0;
   background: radial-gradient(circle at 70% 45%, var(--hero-bg-light) 0%, var(--hero-bg-dark) 80%);
   display: flex;
   align-items: center;
@@ -433,7 +433,8 @@ header {
 .hero-visual {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  align-self: flex-end;
   position: relative;
   z-index: 4;
 }
@@ -442,19 +443,13 @@ header {
   width: 100%;
   max-width: 440px;
   position: relative;
-  animation: phone-float 6s infinite ease-in-out;
 }
 
 .phone-mockup-image {
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4));
-}
-
-@keyframes phone-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
 }
 
 /* ==========================================================================
