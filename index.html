@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Piggy App — Tu granja de engorde en tus manos</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de criarlos, la logística y comercialización. Participa en el ciclo de engorde porcino digital." />
+  <meta name="keywords" content="agrofintech, porcicultura, inversion digital, piggy app, engorde porcino, colombia fintech" />
+  <meta name="author" content="Piggy App" />
+  <meta name="theme-color" content="#E91E63" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Piggy App — Tu granja de engorde en tus manos" />
+  <meta property="og:description" content="Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de criarlos, la logística y comercialización." />
+  <meta property="og:image" content="/assets/hero-phone.png" />
+
+  <!-- Google Fonts: Outfit (headings) & Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  
+  <!-- Styling -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header id="header-root">
+    <div class="header-container">
+      <a href="#inicio" class="logo-link" id="logo-nav-link" aria-label="Piggy App Inicio">
+        <img src="/assets/logo.png" alt="Piggy Logo" class="nav-logo" />
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#nosotros" class="nav-item-link" id="link-nosotros">Nosotros</a></li>
+          <li><a href="#como-funciona" class="nav-item-link" id="link-como-funciona">Cómo funciona</a></li>
+          <li><a href="#beneficios" class="nav-item-link" id="link-beneficios">Beneficios</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://wa.me/573000000000?text=Hola,%20quiero%20comenzar%20en%20Piggy%20App" target="_blank" rel="noopener" class="btn-cta" id="cta-header">Comienza aquí</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Inicio Section -->
+    <section id="inicio" class="hero-section">
+      <!-- Glow & Sparkles backgrounds -->
+      <div class="bg-glow"></div>
+      <div class="sparkles-container">
+        <div class="sparkle sparkle-1">✦</div>
+        <div class="sparkle sparkle-2">✦</div>
+        <div class="sparkle sparkle-3">✦</div>
+      </div>
+
+      <div class="hero-container">
+        <!-- Left Side Content -->
+        <div class="hero-content">
+          <div class="badge-connect">
+            <span class="badge-icon">🌿</span>
+            <span class="badge-text">Conecta con el campo</span>
+          </div>
+
+          <h1 class="hero-title">
+            Tu granja de engorde <br />
+            <span class="highlight">en tus manos.</span>
+          </h1>
+
+          <p class="hero-description">
+            Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de criarlos, la logística y comercialización. Tú solo decides cuántos Piggys quieres tener en tu granja.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/573000000000?text=Hola,%20quiero%20comprar%20mi%20Piggy" target="_blank" rel="noopener" class="btn btn-primary" id="cta-hero-buy">
+              <span class="btn-icon">💰</span>
+              Quiero mi Piggy
+            </a>
+            <a href="#como-funciona" class="btn btn-outline nav-item-link" id="cta-hero-watch">
+              <span class="btn-icon">▶</span>
+              Ver cómo funciona
+            </a>
+          </div>
+
+          <!-- Stats/Features Grid -->
+          <div class="features-grid">
+            <div class="feature-card" id="feat-roi">
+              <div class="feature-icon-wrapper">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3>8% - 13%</h3>
+                <p>Beneficio por ciclo</p>
+              </div>
+            </div>
+
+            <div class="feature-card" id="feat-duration">
+              <div class="feature-icon-wrapper">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3>4.3 meses</h3>
+                <p>Duración de engorde</p>
+              </div>
+            </div>
+
+            <div class="feature-card" id="feat-farm">
+              <div class="feature-icon-wrapper">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3>Granja Porcina</h3>
+                <p>Certificada y Avalada</p>
+              </div>
+            </div>
+
+            <div class="feature-card" id="feat-backing">
+              <div class="feature-icon-wrapper">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3>Respaldo</h3>
+                <p>100% en carne real</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Mockup Image -->
+        <div class="hero-visual">
+          <div class="phone-mockup-wrapper">
+            <img src="/assets/hero-phone.png" alt="Piggy App interfaz del móvil con cerditos Ponky y Flash" class="phone-mockup-image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder Section: Nosotros -->
+    <section id="nosotros" class="content-section">
+      <div class="section-container">
+        <span class="section-badge">Sobre Nosotros</span>
+        <h2 class="section-title">¿Quiénes somos en Piggy App?</h2>
+        <p class="section-text">
+          Somos una plataforma Agro-Fintech nacida en Colombia con la misión de democratizar la porcicultura. Conectamos a inversores digitales y entusiastas del agro con granjas porcinas certificadas y tecnificadas, permitiéndoles participar en los beneficios del engorde porcino de manera transparente y eficiente.
+        </p>
+        <div class="section-placeholder-visual">
+          <div class="placeholder-graphic">🐷</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder Section: Cómo Funciona -->
+    <section id="como-funciona" class="content-section alternate-bg">
+      <div class="section-container">
+        <span class="section-badge">El Proceso</span>
+        <h2 class="section-title">¿Cómo funciona la granja digital?</h2>
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3>Adquieres tu Piggy</h3>
+            <p>Eliges cuántos cerditos quieres patrocinar. Cada uno inicia con un peso promedio y entra a la granja digital.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3>Monitoreas el engorde</h3>
+            <p>Desde la app ves crecer tu cerdito día a día. Haces check-in en misiones diarias y sigues su aumento de peso.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3>Recibes tu beneficio</h3>
+            <p>Al cabo de 19 semanas (4.3 meses), el ciclo culmina. Eliges entre monetizar tu ganancia o reclamar carne de primera calidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder Section: Beneficios -->
+    <section id="beneficios" class="content-section">
+      <div class="section-container">
+        <span class="section-badge">Ventajas</span>
+        <h2 class="section-title">¿Por qué elegir Piggy App?</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <h4>Rentabilidad Superior</h4>
+            <p>Beneficio neto de hasta el 13% por ciclo de 19 semanas, superando con creces las opciones financieras tradicionales.</p>
+          </div>
+          <div class="benefit-item">
+            <h4>Activos Tangibles</h4>
+            <p>Tu dinero está respaldado en cerdos reales alimentados con los mejores estándares en nuestras granjas asociadas.</p>
+          </div>
+          <div class="benefit-item">
+            <h4>Impacto Social</h4>
+            <p>Apoyas directamente al campo colombiano, financiando el crecimiento de productores y mejorando la cadena de suministro porcina.</p>
+          </div>
+          <div class="benefit-item">
+            <h4>Cero Preocupaciones</h4>
+            <p>Nosotros nos encargamos de todo el cuidado del animal, vacunas, logística y venta final. Tú solo disfrutas los resultados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Piggy App. Todos los derechos reservados. Diseñado para impactar el agro.</p>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#beneficios">Beneficios</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
