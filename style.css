@@ -527,10 +527,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF;
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px solid #F0E6E9;
+  background-color: transparent;
+  padding: 0;
+  border: none;
 }
 
 .endorsement-logo {
@@ -552,8 +551,8 @@ header {
 }
 
 .bullet-check-wrapper {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -566,9 +565,10 @@ header {
 }
 
 .bullet-text {
-  font-size: 0.95rem;
+  font-size: 11px;
   font-weight: 700;
   color: #1C0D26;
+  white-space: nowrap;
 }
 
 /* Video visual */
@@ -803,8 +803,15 @@ header {
   padding: 100px 0;
   background-color: #FFFFFF;
   position: relative;
+  overflow: hidden;
   z-index: 5;
   border-top: 1px solid #F0E6E9;
+}
+
+.beneficios-section .section-overtitle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .beneficios-container {
@@ -824,11 +831,22 @@ header {
 }
 
 .beneficios-split {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 60px;
-  align-items: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
   margin-bottom: 80px;
+}
+
+.beneficios-list-wrapper {
+  width: 58%;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 32px;
+  border-radius: 24px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(28, 13, 38, 0.04);
+  border: 1px solid rgba(240, 230, 233, 0.5);
 }
 
 .beneficios-list {
@@ -865,18 +883,33 @@ header {
 }
 
 .beneficios-image-wrapper {
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 46%;
+  height: calc(100% - 140px);
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .pig-feeding-img {
   width: 100%;
-  max-width: 480px;
-  height: auto;
-  border-radius: 24px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform var(--trans-base);
+}
+
+.beneficios-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 15%, transparent 35%),
+              linear-gradient(to bottom, #FFFFFF 0%, transparent 10%, transparent 90%, #FFFFFF 100%);
 }
 
 .pig-feeding-img:hover {
@@ -1409,12 +1442,39 @@ header {
 
   /* Beneficios Tablet */
   .beneficios-split {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .beneficios-list-wrapper {
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
   }
 
   .beneficios-image-wrapper {
-    order: -1; /* Pig image above text in mobile */
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 320px;
+    order: -1;
+    margin-bottom: 20px;
+    border-radius: 24px;
+  }
+
+  .pig-feeding-img {
+    border-radius: 24px;
+    opacity: 1;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .beneficios-image-wrapper::after {
+    display: none;
   }
 
   .allies-logos-flex {
@@ -1474,7 +1534,7 @@ header {
   }
 
   .nav-logo {
-    height: 72px; /* 40% larger than original mobile logo */
+    height: 72px;
   }
 
   .mobile-menu-toggle {
@@ -1505,7 +1565,7 @@ header {
   }
 
   .header-actions {
-    display: none; /* Hide standard header button, will add scroll-actions if needed, or keep minimal */
+    display: none;
   }
 
   .hero-section {
@@ -1596,4 +1656,86 @@ header {
   .footer-badge-ica {
     margin: 0 auto;
   }
+}
+
+/* ==========================================================================
+   VIDEO MODAL POPUP STYLING
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 4, 37, 0.85);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--trans-base);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background-color: #0F0425;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform var(--trans-base);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--trans-fast), transform var(--trans-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+.video-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
