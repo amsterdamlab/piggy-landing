@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveSectionHighlighting();
   initFAQAccordion();
   initScrollAnimations();
+  initVideoModal();
 });
 
 /**
@@ -159,5 +160,49 @@ function initScrollAnimations() {
 
   animElements.forEach(el => {
     animationObserver.observe(el);
+  });
+}
+
+/**
+ * YouTube Video Modal Popup
+ */
+function initVideoModal() {
+  const openBtn = document.getElementById('open-video-btn');
+  const modal = document.getElementById('video-modal');
+  const closeBtn = document.getElementById('close-video-btn');
+  const iframe = document.getElementById('video-iframe');
+  
+  // Use embed URL with autoplay parameter
+  const youtubeEmbedUrl = "https://www.youtube.com/embed/1AAZCAOxV0c?autoplay=1&rel=0";
+
+  if (!openBtn || !modal || !closeBtn || !iframe) return;
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    iframe.src = youtubeEmbedUrl;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  const closeModal = () => {
+    iframe.src = "";
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn.addEventListener('click', closeModal);
+  
+  // Close modal when clicking on the blurred background
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
   });
 }

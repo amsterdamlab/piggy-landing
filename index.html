@@ -170,13 +170,10 @@
           <span class="section-overtitle">SOBRE NOSOTROS</span>
           <h2 class="nosotros-title">Conoce Piggy</h2>
           <p class="nosotros-paragraph">
-            Somos una plataforma de agro-comercio digital respaldada por <strong>Granja Valle Morales</strong>.
+            Somos una plataforma de agro-comercio digital respaldada por la <strong>Comercializadora Valle Morales</strong>.
           </p>
           <p class="nosotros-paragraph">
-            Conectamos a las personas directamente con la producción real de carne de cerdo de la mejor calidad. Puedes comprar desde un cerdo de engorde, sin importar dónde estés, participando así en la producción y comercialización.
-          </p>
-          <p class="nosotros-paragraph">
-            Al finalizar, tú decides si recibes tus comisiones de venta en productos cárnicos o en dinero.
+            Conectamos a las personas directamente con la producción de carne de cerdo de la mejor calidad. Permitimos que adquieras desde un cerdo y, sin importar dónde estés, puedas participar en la producción y obtener un beneficio.
           </p>
           
           <!-- Valle Morales Endorsement -->
@@ -215,7 +212,7 @@
 
         <!-- Right Video Visual -->
         <div class="nosotros-visual">
-          <div class="video-card-wrapper">
+          <div class="video-card-wrapper" id="open-video-btn">
             <div class="video-card">
               <!-- Overlay play button -->
               <div class="video-play-btn">
@@ -430,27 +427,27 @@
           <div class="allies-logos-flex">
             <!-- La Rosita -->
             <div class="ally-logo-card">
-              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=La+Rosita" alt="La Rosita Logo" />
+              <img src="https://img.icons8.com/fluency/96/shop.png" alt="La Rosita Logo" />
               <span>La Rosita</span>
             </div>
             <!-- Restaurante Valle -->
             <div class="ally-logo-card">
-              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=Restaurante+Valle" alt="Restaurante Valle Logo" />
+              <img src="https://img.icons8.com/fluency/96/restaurant.png" alt="Restaurante Valle Logo" />
               <span>Restaurante Valle</span>
             </div>
             <!-- El Novillo -->
             <div class="ally-logo-card">
-              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=El+Novillo" alt="El Novillo Logo" />
+              <img src="https://img.icons8.com/fluency/96/steak.png" alt="El Novillo Logo" />
               <span>El Novillo</span>
             </div>
             <!-- La Parrilla -->
             <div class="ally-logo-card">
-              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=La+Parrilla" alt="La Parrilla Logo" />
+              <img src="https://img.icons8.com/fluency/96/barbecue.png" alt="La Parrilla Logo" />
               <span>La Parrilla</span>
             </div>
             <!-- Carnes El Porvenir -->
             <div class="ally-logo-card">
-              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=El+Porvenir" alt="Carnes El Porvenir Logo" />
+              <img src="https://img.icons8.com/fluency/96/butcher.png" alt="Carnes El Porvenir Logo" />
               <span>Carnes El Porvenir</span>
             </div>
           </div>
@@ -612,6 +609,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Video Modal Popup -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-video-btn" class="modal-close-btn" aria-label="Cerrar video">&times;</button>
+      <div class="video-iframe-wrapper">
+        <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- Script -->
   <script type="module" src="/main.js"></script>
