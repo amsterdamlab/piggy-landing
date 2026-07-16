@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initActiveSectionHighlighting();
+  initFAQAccordion();
   initScrollAnimations();
 });
 
@@ -77,22 +78,73 @@ function initActiveSectionHighlighting() {
 }
 
 /**
+ * FAQ Accordion Interaction
+ */
+function initFAQAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    const panel = item.querySelector('.faq-panel');
+
+    if (!trigger || !panel) return;
+
+    trigger.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all other panels for accordion behavior
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          const otherTrigger = otherItem.querySelector('.faq-trigger');
+          const otherPanel = otherItem.querySelector('.faq-panel');
+          if (otherTrigger && otherPanel) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            otherPanel.style.maxHeight = null;
+            otherItem.classList.remove('active');
+          }
+        }
+      });
+
+      // Toggle current panel
+      trigger.setAttribute('aria-expanded', !isExpanded);
+      if (!isExpanded) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        item.classList.add('active');
+      } else {
+        panel.style.maxHeight = null;
+        item.classList.remove('active');
+      }
+    });
+  });
+}
+
+/**
  * Scroll animations for premium feel (reveals cards on scroll)
  */
 function initScrollAnimations() {
-  const animElements = document.querySelectorAll('.step-card, .benefit-item, .feature-card');
+  const animSelectors = [
+    '.step-flow-card',
+    '.endorsement-box',
+    '.video-card-wrapper',
+    '.welcome-bonus-banner',
+    '.faq-item',
+    '.pig-feeding-img',
+    '.ally-logo-card'
+  ];
+  
+  const animElements = document.querySelectorAll(animSelectors.join(', '));
 
-  // Add initial state class in JS so standard CSS works if JS is disabled
+  // Add initial state styles dynamically
   animElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(25px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.1)';
+    el.style.transition = 'opacity 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1)';
   });
 
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -100px 0px',
-    threshold: 0.15
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.1
   };
 
   const animationObserver = new IntersectionObserver((entries, observer) => {

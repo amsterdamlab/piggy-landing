@@ -49,11 +49,12 @@
           <li><a href="#nosotros" class="nav-item-link" id="link-nosotros">Nosotros</a></li>
           <li><a href="#como-funciona" class="nav-item-link" id="link-como-funciona">Cómo funciona</a></li>
           <li><a href="#beneficios" class="nav-item-link" id="link-beneficios">Beneficios</a></li>
+          <li><a href="#faq" class="nav-item-link" id="link-faq">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn-cta" id="cta-header">Comienza aquí</a>
+        <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn-cta" id="cta-header">Iniciar sesión</a>
       </div>
     </div>
   </header>
@@ -161,80 +162,438 @@
       </div>
     </section>
 
-    <!-- Placeholder Section: Nosotros -->
-    <section id="nosotros" class="content-section">
-      <div class="section-container">
-        <span class="section-badge">Sobre Nosotros</span>
-        <h2 class="section-title">¿Quiénes somos en Piggy App?</h2>
-        <p class="section-text">
-          Somos una plataforma Agro-Fintech nacida en Colombia con la misión de democratizar la porcicultura. Conectamos a inversores digitales y entusiastas del agro con granjas porcinas certificadas y tecnificadas, permitiéndoles participar en los beneficios del engorde porcino de manera transparente y eficiente.
-        </p>
-        <div class="section-placeholder-visual">
-          <div class="placeholder-graphic">🐷</div>
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="nosotros-section">
+      <div class="nosotros-container">
+        <!-- Left content -->
+        <div class="nosotros-content">
+          <span class="section-overtitle">SOBRE NOSOTROS</span>
+          <h2 class="nosotros-title">Conoce Piggy</h2>
+          <p class="nosotros-paragraph">
+            Somos una plataforma de agro-comercio digital respaldada por la <strong>Comercializadora Valle Morales</strong>.
+          </p>
+          <p class="nosotros-paragraph">
+            Conectamos a las personas directamente con la producción de carne de cerdo de la mejor calidad. Permitimos que adquieras desde un cerdo y, sin importar dónde estés, puedas participar en la producción y obtener un beneficio.
+          </p>
+          
+          <!-- Valle Morales Endorsement -->
+          <div class="endorsement-box">
+            <div class="endorsement-logo-wrapper">
+              <img src="/assets/vallemorales_logo.png" alt="Valle Morales Logo" class="endorsement-logo" />
+            </div>
+            <ul class="endorsement-list">
+              <li>
+                <span class="bullet-check">✓</span> 
+                <span class="bullet-text">100% Granja porcina certificada</span>
+              </li>
+              <li>
+                <span class="bullet-check">✓</span> 
+                <span class="bullet-text">Producción de excelente calidad</span>
+              </li>
+              <li>
+                <span class="bullet-check">✓</span> 
+                <span class="bullet-text">Negocio seguro en el sector agro</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Video Visual -->
+        <div class="nosotros-visual">
+          <div class="video-card-wrapper">
+            <div class="video-card">
+              <!-- Overlay play button -->
+              <div class="video-play-btn">
+                <span class="play-arrow">▶</span>
+                <span class="play-text">Ver video</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Placeholder Section: Cómo Funciona -->
-    <section id="como-funciona" class="content-section alternate-bg">
-      <div class="section-container">
-        <span class="section-badge">El Proceso</span>
-        <h2 class="section-title">¿Cómo funciona la granja digital?</h2>
-        <div class="steps-container">
-          <div class="step-card">
-            <div class="step-num">01</div>
-            <h3>Adquieres tu Piggy</h3>
-            <p>Eliges cuántos cerditos quieres patrocinar. Cada uno inicia con un peso promedio y entra a la granja digital.</p>
+    <!-- Cómo Funciona Section -->
+    <section id="como-funciona" class="como-funciona-section">
+      <div class="como-funciona-container">
+        <span class="section-overtitle">CÓMO FUNCIONA</span>
+        <h2 class="como-funciona-title">Vive del campo sin fronteras</h2>
+        
+        <!-- Steps flow -->
+        <div class="steps-flow">
+          <!-- Step 1 -->
+          <div class="step-flow-card" id="step-1">
+            <div class="step-icon-circle">
+              <!-- Cart Icon -->
+              <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="9" cy="21" r="1"/>
+                <circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+              </svg>
+              <div class="step-badge-num">1</div>
+            </div>
+            <h3>COMPRA TU PIGGY</h3>
+            <p>Adquiere tu piggy en nuestra app con un precio de lanzamiento. Comienza el ciclo de engorde.</p>
           </div>
-          <div class="step-card">
-            <div class="step-num">02</div>
-            <h3>Monitoreas el engorde</h3>
-            <p>Desde la app ves crecer tu cerdito día a día. Haces check-in en misiones diarias y sigues su aumento de peso.</p>
+
+          <!-- Arrow -->
+          <div class="step-arrow-divider">
+            <span class="arrow-symbol">➔</span>
           </div>
-          <div class="step-card">
-            <div class="step-num">03</div>
-            <h3>Recibes tu beneficio</h3>
-            <p>Al cabo de 19 semanas (4.3 meses), el ciclo culmina. Eliges entre monetizar tu ganancia o reclamar carne de primera calidad.</p>
+
+          <!-- Step 2 -->
+          <div class="step-flow-card" id="step-2">
+            <div class="step-icon-circle">
+              <!-- Barn / Care Icon -->
+              <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              <div class="step-badge-num">2</div>
+            </div>
+            <h3>NOS ENCARGAMOS</h3>
+            <p>La granja Valle Morales desarrollará todo el proceso de engorde, cuidado, alimentación y posterior venta comercial de tu activo.</p>
           </div>
+
+          <!-- Arrow -->
+          <div class="step-arrow-divider">
+            <span class="arrow-symbol">➔</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-flow-card" id="step-3">
+            <div class="step-icon-circle">
+              <!-- Mobile App Check Icon -->
+              <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                <polyline points="9 10 11 12 15 8"/>
+              </svg>
+              <div class="step-badge-num">3</div>
+            </div>
+            <h3>SIGUE EL PROCESO</h3>
+            <p>Visualiza en tu móvil en tiempo real cómo crece, su peso y, de manera interactiva, puedes ver el progreso del engorde.</p>
+          </div>
+
+          <!-- Arrow -->
+          <div class="step-arrow-divider">
+            <span class="arrow-symbol">➔</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-flow-card" id="step-4">
+            <div class="step-icon-circle">
+              <!-- Benefits Graph Icon -->
+              <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+              <div class="step-badge-num">4</div>
+            </div>
+            <h3>BENEFICIOS</h3>
+            <p>Al finalizar el ciclo de engorde obtienes un beneficio del margen comercial o la opción de canjearlo en cortes de carne premium.</p>
+          </div>
+        </div>
+
+        <!-- Banner Call to Action -->
+        <div class="como-funciona-banner">
+          <p class="banner-text">Haz parte de la comunidad PIGGY con tu granja porcina desde tu celular.</p>
+          <a href="https://wa.me/573000000000?text=Hola,%20quiero%20comprar%20mi%20primer%20Piggy" target="_blank" rel="noopener" class="btn btn-primary" id="cta-buy-first">
+            <span class="btn-icon">🛒</span>
+            Compra mi primer Piggy
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Placeholder Section: Beneficios -->
-    <section id="beneficios" class="content-section">
-      <div class="section-container">
-        <span class="section-badge">Ventajas</span>
-        <h2 class="section-title">¿Por qué elegir Piggy App?</h2>
-        <div class="benefits-grid">
-          <div class="benefit-item">
-            <h4>Rentabilidad Superior</h4>
-            <p>Beneficio neto de hasta el 13% por ciclo de 19 semanas, superando con creces las opciones financieras tradicionales.</p>
+    <!-- Beneficios Section ("Por qué elegirnos") -->
+    <section id="beneficios" class="beneficios-section">
+      <div class="beneficios-container">
+        <span class="section-overtitle">BENEFICIOS</span>
+        <h2 class="beneficios-title">Por qué elegirnos</h2>
+
+        <div class="beneficios-split">
+          <!-- Left side list -->
+          <div class="beneficios-list-wrapper">
+            <ul class="beneficios-list">
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Empresa colombiana 100% legal y constituida en Colombia.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Cada Piggy está respaldado por cerdos reales en nuestro centro productivo.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>La carne de cerdo es un producto de alta demanda y necesidad.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Monitorea tu Piggy en tiempo real mediante la aplicación móvil.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Toda compra en Piggy está respaldada por un contrato legal.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Tú decides al final: recibir dinero o tu beneficio en carne premium.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Apoyas al campo y a los productores en zonas rurales de Colombia.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Precios transparentes y sin costos ocultos.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Tu inversión está protegida mediante pólizas y seguros.</span>
+              </li>
+              <li>
+                <div class="check-circle">
+                  <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span>Nuestra granja cuenta con certificación y regulación del ICA.</span>
+              </li>
+            </ul>
           </div>
-          <div class="benefit-item">
-            <h4>Activos Tangibles</h4>
-            <p>Tu dinero está respaldado en cerdos reales alimentados con los mejores estándares en nuestras granjas asociadas.</p>
+
+          <!-- Right side image (flush or blended as in design) -->
+          <div class="beneficios-image-wrapper">
+            <img src="/assets/pig-feeding.jpg" alt="Cerdito alimentándose en Valle Morales" class="pig-feeding-img" />
           </div>
-          <div class="benefit-item">
-            <h4>Impacto Social</h4>
-            <p>Apoyas directamente al campo colombiano, financiando el crecimiento de productores y mejorando la cadena de suministro porcina.</p>
+        </div>
+
+        <!-- Allies Carousel/Grid -->
+        <div class="allies-block">
+          <div class="allies-intro">
+            <h3>Aliados</h3>
+            <p>Marcas y comercios que ya hacen parte de nuestra red de aliados comerciales.</p>
           </div>
-          <div class="benefit-item">
-            <h4>Cero Preocupaciones</h4>
-            <p>Nosotros nos encargamos de todo el cuidado del animal, vacunas, logística y venta final. Tú solo disfrutas los resultados.</p>
+          <div class="allies-logos-flex">
+            <!-- La Rosita -->
+            <div class="ally-logo-card">
+              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=La+Rosita" alt="La Rosita Logo" />
+              <span>La Rosita</span>
+            </div>
+            <!-- Restaurante Valle -->
+            <div class="ally-logo-card">
+              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=Restaurante+Valle" alt="Restaurante Valle Logo" />
+              <span>Restaurante Valle</span>
+            </div>
+            <!-- El Novillo -->
+            <div class="ally-logo-card">
+              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=El+Novillo" alt="El Novillo Logo" />
+              <span>El Novillo</span>
+            </div>
+            <!-- La Parrilla -->
+            <div class="ally-logo-card">
+              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=La+Parrilla" alt="La Parrilla Logo" />
+              <span>La Parrilla</span>
+            </div>
+            <!-- Carnes El Porvenir -->
+            <div class="ally-logo-card">
+              <img src="https://placehold.co/180x80/231252/FFFFFF/png?text=El+Porvenir" alt="Carnes El Porvenir Logo" />
+              <span>Carnes El Porvenir</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Welcome Bonus Banner -->
+        <div class="welcome-bonus-banner">
+          <div class="banner-inner">
+            <div class="banner-content">
+              <h3>¡Reclama tu Bono de Bienvenida!</h3>
+              <p>Crea tu cuenta <strong>HOY</strong> y recibe un bono especial de <strong>$50.000 COP</strong> para adquirir tu primer cerdo.</p>
+              <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary" id="cta-welcome-bonus">
+                <span class="btn-icon">🎁</span>
+                Crear mi cuenta
+              </a>
+            </div>
+            <div class="banner-visual">
+              <img src="/assets/welcome-couple.png" alt="Pareja sonriendo mirando el celular" class="welcome-couple-img" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section ("Preguntas Frecuentes") -->
+    <section id="faq" class="faq-section">
+      <div class="faq-container">
+        <span class="section-overtitle">PREGUNTAS FRECUENTES</span>
+        
+        <div class="faq-header-flex">
+          <h2 class="faq-title">Resolvemos tus dudas</h2>
+          <a href="https://wa.me/573000000000?text=Hola,%20tengo%20una%20pregunta%20sobre%20Piggy%20App" target="_blank" rel="noopener" class="btn-whatsapp" id="cta-faq-whatsapp">
+            <!-- WhatsApp Vector Logo -->
+            <svg class="whatsapp-svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.002-2.637-1.023-5.116-2.887-6.98C16.58 1.897 14.1 1.87 11.666 1.87c-5.439 0-9.865 4.42-9.867 9.867-.001 1.767.472 3.49 1.368 5.024L2.2 21.8l5.228-1.371z"/>
+              <path d="M17.472 14.382c-.3-.149-1.777-.878-2.046-.977-.269-.099-.465-.149-.662.15-.197.3-.763.966-.934 1.164-.173.199-.347.223-.647.074-.3-.149-1.267-.467-2.417-1.493-.896-.8-1.502-1.787-1.678-2.088-.178-.3-.02-.462.13-.611.135-.134.302-.35.453-.524.151-.174.202-.299.302-.498.101-.199.05-.373-.025-.524-.075-.15-.662-1.597-.909-2.193-.24-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.299-1.04 1.016-1.04 2.479 0 1.462 1.067 2.875 1.215 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.777-.726 2.027-1.43.25-.702.25-1.305.175-1.43-.075-.125-.27-.199-.57-.348z"/>
+            </svg>
+            Contactar Asesor
+          </a>
+        </div>
+
+        <!-- Accordions List -->
+        <div class="faq-accordion-wrapper">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">¿Necesito tener experiencia en porcicultura?</span>
+              <span class="faq-arrow-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                No. En Piggy App nos encargamos del 100% de la logística, cuidado, nutrición y posterior comercialización de los cerdos. Tú solo patrocinas el activo y sigues su crecimiento en tiempo real desde la aplicación.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">¿Qué pasa cuando termina el ciclo de engorde?</span>
+              <span class="faq-arrow-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                Al finalizar el ciclo de 19 semanas, se te habilitan dos opciones: monetizar tu inversión (recibiendo el capital base más el margen comercial generado) o canjearlo en cortes de carne premium en nuestra red de aliados.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">¿Puedo ir a visitar mi Piggy?</span>
+              <span class="faq-arrow-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                Por razones de bioseguridad, el acceso a las granjas es restringido. Sin embargo, recibes reportes y actualizaciones sobre el estado general del lote donde se encuentra tu activo.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer Section -->
   <footer class="main-footer">
     <div class="footer-container">
-      <p>&copy; 2026 Piggy App. Todos los derechos reservados. Diseñado para impactar el agro.</p>
-      <div class="footer-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#beneficios">Beneficios</a>
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <img src="/assets/logo.png" alt="Piggy Logo" class="footer-logo" />
+          <div class="social-flex">
+            <!-- Instagram -->
+            <a href="https://instagram.com/piggyapp" target="_blank" rel="noopener" aria-label="Piggy App en Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com/piggyapp" target="_blank" rel="noopener" aria-label="Piggy App en Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@piggyapp" target="_blank" rel="noopener" aria-label="Piggy App en TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.58-4.09-1.42-.76-.53-1.43-1.21-1.93-2.02v8.83c-.02 2.37-1.12 4.67-3.04 6.07-2.12 1.61-5.11 2.01-7.58 1.05C3.32 21.46 1.4 18.6 1.42 15.35c.05-3.32 2.5-6.22 5.8-6.61.94-.12 1.9-.03 2.81.24v4.04c-.75-.3-1.59-.39-2.37-.23-1.45.29-2.58 1.61-2.6 3.09-.03 1.83 1.52 3.43 3.35 3.39 1.77-.02 3.23-1.45 3.23-3.21.02-3.13.01-6.27.01-9.4 0-2.22.01-4.43.01-6.65z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal -->
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="https://piggy-app-v2-gvm.vercel.app/terminos-y-condiciones.html" target="_blank" rel="noopener">Términos de Servicio</a></li>
+            <li><a href="https://piggy-app-v2-gvm.vercel.app/tratamiento-de-datos.html" target="_blank" rel="noopener">Tratamiento de Datos</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><span class="footer-badge-ica">Registro ICA Certificado</span></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div class="footer-col">
+          <h4>Contáctanos</h4>
+          <p class="contact-email">Escríbenos a:</p>
+          <a href="mailto:hola@piggyapp.co" class="contact-link">hola@piggyapp.co</a>
+          <p class="contact-phone">WhatsApp:</p>
+          <a href="https://wa.me/573000000000" target="_blank" rel="noopener" class="contact-link">+57 300 000 0000</a>
+        </div>
+      </div>
+
+      <!-- Copyright bottom -->
+      <div class="footer-bottom">
+        <p>DISEÑADO POR AMSTERDAMLAB - COPYRIGHT 2026 - PIGGY APP</p>
       </div>
     </div>
   </footer>
