@@ -839,6 +839,8 @@ header {
 }
 
 .beneficios-list-wrapper {
+  position: relative;
+  z-index: 3;
   width: 58%;
   padding: 0 0 0 8px;
   background: transparent;
