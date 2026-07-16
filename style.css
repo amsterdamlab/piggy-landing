@@ -514,23 +514,22 @@ header {
 .endorsement-box {
   display: flex;
   gap: 24px;
-  background-color: #FCF5F7;
-  border: 1px solid #F0E6E9;
-  padding: 24px;
-  border-radius: 16px;
+  background-color: transparent;
+  border: none;
+  padding: 12px 0;
   margin-top: 24px;
   align-items: center;
 }
 
 .endorsement-logo-wrapper {
   flex-shrink: 0;
-  width: 110px;
+  width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #FFFFFF;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 16px;
   border: 1px solid #F0E6E9;
 }
 
@@ -543,24 +542,32 @@ header {
 .endorsement-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .endorsement-list li {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
-.bullet-check {
-  color: #4CAF50;
-  font-weight: 800;
-  font-size: 1.1rem;
+.bullet-check-wrapper {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bullet-check-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .bullet-text {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #1C0D26;
 }
 
