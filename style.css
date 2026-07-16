@@ -840,13 +840,12 @@ header {
 
 .beneficios-list-wrapper {
   width: 58%;
-  background: rgba(255, 255, 255, 0.88);
-  padding: 32px;
-  border-radius: 24px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(28, 13, 38, 0.04);
-  border: 1px solid rgba(240, 230, 233, 0.5);
+  padding: 0 0 0 8px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .beneficios-list {
@@ -884,20 +883,21 @@ header {
 
 .beneficios-image-wrapper {
   position: absolute;
-  top: 60px;
-  right: 0;
-  width: 46%;
-  height: calc(100% - 140px);
+  top: 40px;
+  right: 24px;
+  width: 52%;
+  height: calc(100% - 100px);
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
+  border-radius: 24px;
 }
 
 .pig-feeding-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
   transition: transform var(--trans-base);
 }
 
@@ -908,8 +908,8 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 15%, transparent 35%),
-              linear-gradient(to bottom, #FFFFFF 0%, transparent 10%, transparent 90%, #FFFFFF 100%);
+  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0.3) 20%, transparent 45%),
+              linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, transparent 8%, transparent 92%, rgba(255,255,255,0.3) 100%);
 }
 
 .pig-feeding-img:hover {
