@@ -598,8 +598,25 @@ header {
   transition: transform var(--trans-base);
 }
 
+.video-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6; /* Blends with the background gradient for readability */
+  transition: opacity var(--trans-base), transform var(--trans-base);
+  z-index: 1;
+}
+
 .video-card:hover {
   transform: scale(1.02);
+}
+
+.video-card:hover .video-card-img {
+  opacity: 0.75;
+  transform: scale(1.03);
 }
 
 .video-play-btn {
@@ -608,6 +625,8 @@ header {
   align-items: center;
   gap: 12px;
   color: #FFFFFF;
+  position: relative;
+  z-index: 2;
 }
 
 .play-arrow {
