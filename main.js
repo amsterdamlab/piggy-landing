@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQAccordion();
   initScrollAnimations();
   initVideoModal();
+  initNumberCounters();
 });
 
 /**
@@ -167,7 +168,7 @@ function initScrollAnimations() {
  * YouTube Video Modal Popup
  */
 function initVideoModal() {
-  const openBtn = document.getElementById('open-video-btn');
+  const openBtns = [document.getElementById('open-video-btn'), document.getElementById('cta-hero-watch')].filter(Boolean);
   const modal = document.getElementById('video-modal');
   const closeBtn = document.getElementById('close-video-btn');
   const iframe = document.getElementById('video-iframe');
@@ -175,13 +176,15 @@ function initVideoModal() {
   // Use embed URL with autoplay parameter
   const youtubeEmbedUrl = "https://www.youtube.com/embed/1AAZCAOxV0c?autoplay=1&rel=0";
 
-  if (!openBtn || !modal || !closeBtn || !iframe) return;
+  if (openBtns.length === 0 || !modal || !closeBtn || !iframe) return;
 
-  openBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    iframe.src = youtubeEmbedUrl;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      iframe.src = youtubeEmbedUrl;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
   });
 
   const closeModal = () => {
@@ -205,4 +208,80 @@ function initVideoModal() {
       closeModal();
     }
   });
+}
+
+/**
+ * Animated Number Counter for stats
+ */
+function initNumberCounters() {
+  const counterElements = document.querySelectorAll('.counter-num');
+  if (counterElements.length === 0) return;
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.5
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  counterElements.forEach(el => observer.observe(el));
+}
+
+function animateCounter(el) {
+  const type = el.dataset.type;
+  const duration = 1800; // ms
+  const startTime = performance.now();
+
+  if (type === 'range') {
+    const target1 = parseFloat(el.dataset.to1) || 8;
+    const target2 = parseFloat(el.dataset.to2) || 13;
+    const suffix = el.dataset.suffix || '%';
+
+    const update = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+      const current1 = Math.floor(easeProgress * target1);
+      const current2 = Math.floor(easeProgress * target2);
+
+      el.textContent = `${current1}${suffix} - ${current2}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = `${target1}${suffix} - ${target2}${suffix}`;
+      }
+    };
+    requestAnimationFrame(update);
+
+  } else if (type === 'decimal') {
+    const target = parseFloat(el.dataset.target) || 4.3;
+    const suffix = el.dataset.suffix || ' meses';
+
+    const update = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+      const current = (easeProgress * target).toFixed(1);
+
+      el.textContent = `${current}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = `${target}${suffix}`;
+      }
+    };
+    requestAnimationFrame(update);
+  }
 }
