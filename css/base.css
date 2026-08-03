@@ -65,10 +65,10 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 32px;
+  padding: 11px 28px;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   transition: all var(--trans-base);
   cursor: pointer;
   border: none;
@@ -83,10 +83,10 @@ ul {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
 .btn-piggy-img {
