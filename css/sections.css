@@ -956,6 +956,14 @@
     gap: 16px;
   }
 
+  .faq-container .section-overtitle {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .btn-whatsapp {
     width: 100%;
     justify-content: center;
