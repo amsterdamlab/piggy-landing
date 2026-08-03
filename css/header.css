@@ -104,24 +104,11 @@ header {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  animation: btnPulseGlow 8s infinite ease-in-out;
 }
 
 .btn-cta::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.6) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-25deg) translateX(-200%);
-  pointer-events: none;
-  animation: btnShineSweep 7s infinite ease-in-out;
+  display: none;
 }
 
 .btn-cta:hover {
@@ -179,14 +166,14 @@ header {
     margin-right: auto;
   }
 
-  /* Mobile Login Button: White background, Light pink border, Dark purple text, Pulse 8s, No Shine */
+  /* Mobile Login Button: White background, Light pink border, Intense purple text (var(--header-link)), Pulse 8s, No Shine */
   .header-actions .btn-cta {
     padding: 7px 16px;
     font-size: 0.82rem;
     font-weight: 700;
     border-radius: 50px;
     background-color: #FFFFFF;
-    color: #1C0D26;
+    color: var(--header-link);
     border: 1.5px solid #F8BBD0;
     box-shadow: 0 2px 8px rgba(28, 13, 38, 0.06);
     white-space: nowrap;
@@ -199,7 +186,7 @@ header {
 
   .header-actions .btn-cta:hover {
     background-color: #FCF5F7;
-    color: #1C0D26;
+    color: var(--header-link);
     border-color: #E91E63;
   }
 
