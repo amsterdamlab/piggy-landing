@@ -1,0 +1,169 @@
+/* ==========================================================================
+   PIGGY LANDING — 1. Base & Reset
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --header-bg: #FCF5F7;
+  --header-text: #1C0D26;
+  --header-link: #A31D56;
+  --header-link-hover: #E91E63;
+  --color-primary: #E91E63;
+  --color-primary-hover: #D81B60;
+  
+  /* Hero Violet Space */
+  --hero-bg-dark: #0F0425;
+  --hero-bg-light: #2C0E56;
+  --hero-text-primary: #FFFFFF;
+  --hero-text-secondary: #D4C9EC;
+  --hero-border-accent: rgba(255, 255, 255, 0.12);
+
+  /* Transition speeds */
+  --trans-fast: 0.2s ease;
+  --trans-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --trans-slow: 0.5s ease;
+  --trans-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for sticky header */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--hero-bg-dark);
+  color: #F3EEFB;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .btn {
+  font-family: 'Outfit', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Base Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all var(--trans-base);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.btn-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.btn-piggy-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Keyframe Animations */
+@keyframes float-sparkle {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-18px) scale(1.35) rotate(18deg); opacity: 0.9; }
+}
+
+@keyframes btnShineSweep {
+  0% { transform: skewX(-25deg) translateX(-200%); }
+  15% { transform: skewX(-25deg) translateX(320%); }
+  100% { transform: skewX(-25deg) translateX(320%); }
+}
+
+@keyframes btnPulseGlow {
+  0%, 75%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(28, 13, 38, 0.05);
+  }
+  85% {
+    transform: scale(1.04);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.35);
+  }
+  92% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(28, 13, 38, 0.05);
+  }
+}
+
+@keyframes btnMobilePulse {
+  0%, 75%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(28, 13, 38, 0.06);
+  }
+  85% {
+    transform: scale(1.06);
+    box-shadow: 0 6px 18px rgba(233, 30, 99, 0.25);
+  }
+  92% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(28, 13, 38, 0.06);
+  }
+}
+
+/* Decorative Section Sparkles */
+.section-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sec-sparkle {
+  position: absolute;
+  color: rgba(233, 30, 99, 0.25);
+  font-size: 1.4rem;
+  animation: float-sparkle 5s infinite ease-in-out;
+}
+
+.sec-sparkle-1 { top: 15%; left: 5%; animation-delay: 0.5s; color: rgba(233, 30, 99, 0.35); }
+.sec-sparkle-2 { top: 45%; right: 8%; animation-delay: 1.8s; color: rgba(255, 166, 201, 0.8); font-size: 1.6rem; }
+.sec-sparkle-3 { top: 75%; left: 12%; animation-delay: 3.2s; color: rgba(233, 30, 99, 0.25); }
+.sec-sparkle-4 { top: 85%; right: 25%; animation-delay: 0.9s; color: rgba(255, 215, 0, 0.6); }
+
+.sec-sparkle-5 { top: 20%; left: 8%; animation-delay: 2.2s; color: rgba(255, 215, 0, 0.65); }
+.sec-sparkle-6 { top: 60%; right: 12%; animation-delay: 0.3s; color: rgba(233, 30, 99, 0.3); }
+.sec-sparkle-7 { top: 80%; left: 45%; animation-delay: 4.1s; color: rgba(233, 30, 99, 0.25); }
+
+.sec-sparkle-8 { top: 15%; right: 15%; animation-delay: 1.5s; color: rgba(233, 30, 99, 0.35); }
+.sec-sparkle-9 { top: 50%; left: 6%; animation-delay: 2.9s; color: rgba(255, 166, 201, 0.7); font-size: 1.5rem; }
+.sec-sparkle-10 { top: 85%; right: 8%; animation-delay: 0.7s; color: rgba(255, 215, 0, 0.5); }

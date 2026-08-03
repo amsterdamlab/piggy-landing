@@ -1,0 +1,249 @@
+/* ==========================================================================
+   PIGGY LANDING — 2. Header & Navigation
+   ========================================================================== */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--header-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: all var(--trans-base);
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  order: 1;
+}
+
+.nav-logo {
+  height: 84px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--trans-spring);
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  order: 2;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-item-link {
+  color: var(--header-link);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 4px;
+  position: relative;
+  transition: color var(--trans-fast);
+}
+
+.nav-item-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--header-link-hover);
+  transition: all var(--trans-fast);
+  transform: translateX(-50%);
+}
+
+.nav-item-link:hover {
+  color: var(--header-link-hover);
+}
+
+.nav-item-link:hover::after,
+.nav-item-link.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  order: 3;
+}
+
+.btn-cta {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+  transition: all var(--trans-base);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg) translateX(-200%);
+  pointer-events: none;
+  animation: btnShineSweep 7s infinite ease-in-out;
+}
+
+.btn-cta:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  order: 4;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--header-link);
+  border-radius: 5px;
+  transition: all var(--trans-base);
+}
+
+/* Mobile Header Overrides */
+@media (max-width: 768px) {
+  header {
+    height: 70px;
+  }
+
+  .nav-logo {
+    height: 56px;
+  }
+
+  .logo-link {
+    order: 1;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    order: 2;
+    margin-left: 10px;
+    margin-right: auto;
+  }
+
+  /* Mobile Login Button: White background, Light pink border, Dark purple text, Pulse 8s, No Shine */
+  .header-actions .btn-cta {
+    padding: 7px 16px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 50px;
+    background-color: #FFFFFF;
+    color: #1C0D26;
+    border: 1.5px solid #F8BBD0;
+    box-shadow: 0 2px 8px rgba(28, 13, 38, 0.06);
+    white-space: nowrap;
+    animation: btnMobilePulse 8s infinite ease-in-out;
+  }
+
+  .header-actions .btn-cta::after {
+    display: none;
+  }
+
+  .header-actions .btn-cta:hover {
+    background-color: #FCF5F7;
+    color: #1C0D26;
+    border-color: #E91E63;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--header-bg);
+    overflow: hidden;
+    transition: height var(--trans-base);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-menu.open {
+    height: 220px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    padding: 24px 0;
+    width: 100%;
+  }
+
+  .nav-item-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 8px 16px;
+  }
+}

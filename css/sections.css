@@ -1,0 +1,999 @@
+/* ==========================================================================
+   PIGGY LANDING — 4. Section Components (Nosotros, Cómo Funciona, Beneficios, FAQ)
+   ========================================================================== */
+
+/* 4.1 Nosotros Section */
+.nosotros-section {
+  padding: 100px 0;
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid #F0E6E9;
+}
+
+.nosotros-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nosotros-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-overtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #A31D56;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.nosotros-title {
+  color: var(--color-primary);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.nosotros-paragraph {
+  font-size: 1.1rem;
+  color: #4C3C5C;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.nosotros-paragraph strong {
+  color: #1C0D26;
+}
+
+.endorsement-box {
+  display: flex;
+  gap: 24px;
+  background-color: transparent;
+  border: none;
+  padding: 12px 0;
+  margin-top: 24px;
+  align-items: center;
+}
+
+.endorsement-logo-wrapper {
+  flex-shrink: 0;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.endorsement-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.endorsement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.endorsement-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bullet-check-wrapper {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bullet-check-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bullet-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1C0D26;
+  white-space: nowrap;
+}
+
+.nosotros-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.video-card-wrapper {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16 / 10;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(28, 13, 38, 0.15);
+}
+
+.video-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2D0F5C 0%, #0F0425 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform var(--trans-base);
+}
+
+.video-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: opacity var(--trans-base), transform var(--trans-base);
+  z-index: 1;
+}
+
+.video-card:hover {
+  transform: scale(1.02);
+}
+
+.video-card:hover .video-card-img {
+  opacity: 0.75;
+  transform: scale(1.03);
+}
+
+.video-play-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 2;
+}
+
+.play-arrow {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding-left: 6px;
+  transition: all var(--trans-base);
+  backdrop-filter: blur(8px);
+}
+
+.video-card:hover .play-arrow {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(233, 30, 99, 0.55);
+}
+
+.play-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* 4.2 Cómo Funciona Section */
+.como-funciona-section {
+  padding: 100px 0;
+  background-color: #FCF5F7;
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid #F0E6E9;
+}
+
+.como-funciona-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.como-funciona-title {
+  color: #1C0D26;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 64px;
+  letter-spacing: -0.5px;
+}
+
+.steps-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 64px;
+}
+
+.step-flow-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #F0E6E9;
+  padding: 36px 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(28, 13, 38, 0.02);
+  transition: all var(--trans-base);
+}
+
+.step-flow-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.06);
+  border-color: rgba(233, 30, 99, 0.2);
+}
+
+.step-icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #FCF5F7;
+  border: 2px solid #F0E6E9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  position: relative;
+  margin-bottom: 24px;
+  transition: all var(--trans-base);
+}
+
+.step-flow-card:hover .step-icon-circle {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+.step-svg-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.step-badge-num {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 28px;
+  height: 28px;
+  background-color: #1C0D26;
+  color: #FFFFFF;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid #FFFFFF;
+}
+
+.step-flow-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1C0D26;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.step-flow-card p {
+  font-size: 0.9rem;
+  color: #5C527F;
+  line-height: 1.6;
+}
+
+.step-arrow-divider {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  color: rgba(233, 30, 99, 0.3);
+  font-size: 1.8rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.como-funciona-banner {
+  background: linear-gradient(135deg, #E91E63 0%, #FF4081 100%);
+  border-radius: 24px;
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  text-align: left;
+  box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+}
+
+.banner-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.btn-community {
+  background-color: #FFFFFF !important;
+  color: var(--color-primary) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  animation: btnPulseGlow 7s infinite ease-in-out;
+}
+
+.btn-community:hover {
+  background-color: #FCF5F7 !important;
+  color: var(--color-primary-hover) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4.3 Beneficios Section */
+.beneficios-section {
+  padding: 100px 0;
+  background-color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  border-top: 1px solid #F0E6E9;
+}
+
+.beneficios-section .section-overtitle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 4;
+}
+
+.beneficios-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.beneficios-title {
+  color: var(--color-primary);
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 56px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 4;
+}
+
+.beneficios-split {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 80px;
+}
+
+.beneficios-list-wrapper {
+  position: relative;
+  z-index: 3;
+  width: 58%;
+  padding: 0 0 0 8px;
+}
+
+.beneficios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beneficios-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 1.05rem;
+  color: #1C0D26;
+  font-weight: 500;
+}
+
+.check-circle {
+  width: 24px;
+  height: 24px;
+  background-color: #E8F5E9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4CAF50;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-svg {
+  width: 14px;
+  height: 14px;
+}
+
+.beneficios-image-wrapper {
+  position: absolute;
+  top: -80px;
+  bottom: -40px;
+  right: 0;
+  width: 52%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pig-feeding-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  transition: transform var(--trans-base);
+}
+
+.beneficios-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 20%, rgba(255,255,255,0.3) 40%, transparent 65%),
+              linear-gradient(to bottom, #FFFFFF 0%, transparent 12%, transparent 88%, #FFFFFF 100%);
+}
+
+.allies-block {
+  border-top: 1px solid #F0E6E9;
+  padding-top: 80px;
+  margin-bottom: 80px;
+}
+
+.allies-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.allies-intro h3 {
+  font-size: 2rem;
+  color: #1C0D26;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.allies-intro p {
+  font-size: 1.05rem;
+  color: #5C527F;
+}
+
+.allies-logos-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ally-logo-card {
+  flex: 1;
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background-color: #FFFFFF;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid #F0E6E9;
+  transition: all var(--trans-base);
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(28, 13, 38, 0.02);
+}
+
+.ally-logo-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(233, 30, 99, 0.2);
+  box-shadow: 0 12px 30px rgba(233, 30, 99, 0.06);
+}
+
+.ally-logo-img-wrapper {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.ally-logo-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--trans-base);
+}
+
+.ally-logo-card span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #8C1F4A;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Welcome Bonus Banner */
+.welcome-bonus-banner {
+  position: relative;
+  background-color: #1c0a42;
+  border-radius: 24px;
+  overflow: visible;
+  box-shadow: 0 15px 35px rgba(28, 13, 38, 0.2);
+  margin-top: 80px;
+}
+
+.banner-inner {
+  display: grid;
+  grid-template-columns: 1.25fr 0.8fr 1.05fr;
+  align-items: center;
+  gap: 24px;
+  padding: 0 48px;
+  min-height: 170px;
+  position: relative;
+}
+
+.banner-text-side {
+  text-align: left;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-title {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #D3FF00;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.banner-subtitle {
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.brand-highlight {
+  color: #FF2E93;
+  font-weight: 800;
+}
+
+.banner-disclaimer {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+.banner-image-side {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.welcome-couple-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 220px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 -5px 15px rgba(0, 0, 0, 0.2));
+  z-index: 5;
+  pointer-events: none;
+}
+
+.banner-button-side {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.banner-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #FF2E93;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all var(--trans-base);
+  box-shadow: 0 4px 15px rgba(255, 46, 147, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg) translateX(-200%);
+  pointer-events: none;
+  animation: btnShineSweep 7s infinite ease-in-out;
+}
+
+.banner-cta-button:hover {
+  background-color: #E01A7A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 46, 147, 0.4);
+}
+
+.banner-cta-icon-wrapper {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-cta-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* 4.4 FAQ Section */
+.faq-section {
+  padding: 100px 0;
+  background-color: #FCF5F7;
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid #F0E6E9;
+}
+
+.faq-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.faq-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.faq-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1C0D26;
+  letter-spacing: -0.5px;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+  transition: all var(--trans-base);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20BA5A;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+  transform: translateY(-2px);
+}
+
+.whatsapp-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.faq-accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #FFFFFF;
+  border: 1px solid #F0E6E9;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all var(--trans-base);
+  box-shadow: 0 4px 15px rgba(28, 13, 38, 0.01);
+}
+
+.faq-item:hover {
+  border-color: rgba(233, 30, 99, 0.15);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.03);
+}
+
+.faq-item.active {
+  border-color: rgba(233, 30, 99, 0.25);
+  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.05);
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--trans-base);
+}
+
+.faq-question {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1C0D26;
+  transition: color var(--trans-fast);
+}
+
+.faq-trigger:hover .faq-question, 
+.faq-item.active .faq-question {
+  color: var(--color-primary);
+}
+
+.faq-arrow-icon {
+  width: 24px;
+  height: 24px;
+  color: #A31D56;
+  transition: transform var(--trans-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.faq-item.active .faq-arrow-icon {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+.faq-arrow-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq-answer {
+  padding: 0 24px 24px 24px;
+  color: #5C527F;
+  font-size: 1rem;
+  line-height: 1.65;
+  border-top: 1px dashed #FCF5F7;
+}
+
+/* Tablet / Mobile Overrides for Sections */
+@media (max-width: 992px) {
+  .nosotros-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .nosotros-content {
+    align-items: center;
+  }
+
+  .endorsement-box {
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+  }
+
+  .steps-flow {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .step-flow-card {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .step-arrow-divider {
+    transform: rotate(90deg);
+    height: 32px;
+    justify-content: center;
+  }
+
+  .como-funciona-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 36px 24px;
+  }
+
+  .beneficios-split {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .beneficios-list-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .beneficios-image-wrapper {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 320px;
+    order: -1;
+    margin-bottom: 20px;
+    border-radius: 24px;
+  }
+
+  .allies-logos-flex {
+    justify-content: center;
+  }
+
+  .ally-logo-card {
+    min-width: calc(50% - 20px);
+  }
+
+  .welcome-bonus-banner {
+    overflow: hidden;
+    margin-top: 40px;
+  }
+
+  .banner-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 32px 24px;
+    gap: 20px;
+  }
+
+  .banner-text-side {
+    text-align: center;
+    padding: 0;
+    align-items: center;
+  }
+
+  .banner-image-side {
+    height: 180px;
+    order: -1;
+  }
+
+  .welcome-couple-img {
+    position: relative;
+    left: auto;
+    transform: none;
+    height: 100%;
+    max-height: 180px;
+  }
+
+  .banner-button-side {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .banner-cta-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .faq-header-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .nosotros-title, 
+  .como-funciona-title, 
+  .beneficios-title, 
+  .faq-title {
+    font-size: 2.1rem;
+  }
+
+  .endorsement-box {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ally-logo-card {
+    min-width: 100%;
+  }
+
+  .banner-title {
+    font-size: 1.45rem;
+  }
+
+  .banner-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .faq-trigger {
+    padding: 16px 20px;
+  }
+
+  .faq-question {
+    font-size: 1.05rem;
+  }
+}
