@@ -1,9 +1,6 @@
-/* ==========================================================================
-   PIGGY LANDING — Main Stylesheet Entry Point
-   ========================================================================== */
-
 @import '/css/base.css';
 @import '/css/header.css';
 @import '/css/hero.css';
+@import '/css/phone-screen.css';
 @import '/css/sections.css';
 @import '/css/footer.css';
