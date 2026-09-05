@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initVideoModal();
   initNumberCounters();
+  initPhoneScrollInteractions();
 });
 
 /**
@@ -284,4 +285,25 @@ function animateCounter(el) {
     };
     requestAnimationFrame(update);
   }
+}
+
+/**
+ * Handle scroll hint fading on inner phone screen interaction
+ */
+function initPhoneScrollInteractions() {
+  const viewport = document.getElementById('phone-screen-viewport');
+  const hint = document.getElementById('phone-scroll-hint');
+
+  if (!viewport || !hint) return;
+
+  const hideHint = () => {
+    hint.classList.add('hidden');
+    viewport.removeEventListener('scroll', hideHint);
+    viewport.removeEventListener('touchstart', hideHint);
+    viewport.removeEventListener('mousedown', hideHint);
+  };
+
+  viewport.addEventListener('scroll', hideHint, { passive: true });
+  viewport.addEventListener('touchstart', hideHint, { passive: true });
+  viewport.addEventListener('mousedown', hideHint, { passive: true });
 }
