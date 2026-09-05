@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PIGGY LANDING — Phone Device Mockup & Interactive Market Screen
+   PIGGY LANDING — Original 3D Phone Mockup & Interactive Market Screen
    ========================================================================== */
 
 .hero-visual {
@@ -11,106 +11,43 @@
 }
 
 .phone-mockup-wrapper {
-  width: 100%;
-  max-width: 390px;
   position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 546 / 1024;
   margin: 0 auto;
 }
 
-/* 3D Piggy Character Topper */
-.phone-piggy-topper {
-  position: relative;
-  width: 100%;
-  height: 125px;
-  margin-bottom: -15px;
-  z-index: 12;
-  pointer-events: none;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-
-.topper-img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: top center;
-  transform: translateY(-5px);
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.25));
-}
-
-/* Phone Hardware Chassis */
-.phone-hardware-body {
-  position: relative;
-  background: linear-gradient(155deg, #F3D9CB 0%, #C99A82 45%, #9E6B52 100%);
-  border-radius: 46px;
-  padding: 9px;
-  box-shadow: 
-    inset 0 1px 2px rgba(255, 255, 255, 0.8),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
-    0 22px 50px rgba(0, 0, 0, 0.45),
-    0 6px 16px rgba(233, 30, 99, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  z-index: 5;
-}
-
-/* Phone Screen Container */
-.phone-inner-screen {
-  background-color: #FAF7F9;
-  border-radius: 38px;
-  height: 560px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border: 3px solid #140E24;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Phone Speaker & Camera Notch */
-.phone-notch-bar {
+/* Original 3D Piggy + Gold Frame Overlay (Passes touch/clicks through) */
+.phone-frame-overlay {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 124px;
-  height: 22px;
-  background-color: #140E24;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-  z-index: 25;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
 }
 
-.notch-speaker {
-  width: 40px;
-  height: 3.5px;
-  background-color: #2F2942;
-  border-radius: 4px;
-}
-
-.notch-camera {
-  width: 8px;
-  height: 8px;
-  background-color: #1B2236;
-  border-radius: 50%;
-  border: 1px solid #2B3754;
-}
-
-/* Scrollable Viewport inside the phone */
+/* Scrollable Screen Viewport positioned inside the phone screen */
 .phone-screen-viewport {
-  flex: 1;
+  position: absolute;
+  top: 26.6%;
+  left: 7.2%;
+  width: 85.6%;
+  height: 73.0%;
+  border-radius: 0 0 38px 38px;
+  background-color: #FAF7F9;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 32px 13px 72px 13px;
+  padding: 44px 12px 64px 12px;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  z-index: 5;
 }
 
 .phone-screen-viewport::-webkit-scrollbar {
@@ -196,8 +133,8 @@
 
 .card-img-box {
   position: relative;
-  width: 88px;
-  height: 88px;
+  width: 86px;
+  height: 86px;
   border-radius: 16px;
   overflow: hidden;
   flex-shrink: 0;
@@ -351,11 +288,12 @@
 
 /* Phone Pinned Bottom Navigation Bar */
 .phone-bottom-nav {
-  position: absolute;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 56px;
+  margin: 16px -12px -64px -12px;
+  height: 54px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -363,9 +301,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 20;
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
+  z-index: 6;
+  border-bottom-left-radius: 38px;
+  border-bottom-right-radius: 38px;
   padding: 0 6px;
 }
 
@@ -387,14 +325,14 @@
 }
 
 .tab-svg {
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
 }
 
 /* Scroll Hint Bar (Discreet UX Guide) */
 .phone-scroll-hint {
   position: absolute;
-  bottom: 60px;
+  bottom: 58px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(24, 18, 54, 0.75);
@@ -408,7 +346,7 @@
   opacity: 0.9;
   transition: opacity 0.5s ease;
   animation: bounceHint 2.5s infinite ease-in-out;
-  z-index: 18;
+  z-index: 12;
 }
 
 .phone-scroll-hint.hidden {
@@ -422,15 +360,12 @@
 
 @media (max-width: 992px) {
   .phone-mockup-wrapper {
-    max-width: 360px;
+    max-width: 380px;
   }
 }
 
 @media (max-width: 768px) {
   .phone-mockup-wrapper {
-    max-width: 330px;
-  }
-  .phone-inner-screen {
-    height: 520px;
+    max-width: 320px;
   }
 }
