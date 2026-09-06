@@ -288,22 +288,47 @@ function animateCounter(el) {
 }
 
 /**
- * Handle scroll hint fading on inner phone screen interaction
+ * Handle scroll hint fading and seamless mobile touch scroll chaining
  */
 function initPhoneScrollInteractions() {
   const viewport = document.getElementById('phone-screen-viewport');
   const hint = document.getElementById('phone-scroll-hint');
 
-  if (!viewport || !hint) return;
+  if (!viewport) return;
 
-  const hideHint = () => {
-    hint.classList.add('hidden');
-    viewport.removeEventListener('scroll', hideHint);
-    viewport.removeEventListener('touchstart', hideHint);
-    viewport.removeEventListener('mousedown', hideHint);
-  };
+  if (hint) {
+    const hideHint = () => {
+      hint.classList.add('hidden');
+      viewport.removeEventListener('scroll', hideHint);
+      viewport.removeEventListener('touchstart', hideHint);
+      viewport.removeEventListener('mousedown', hideHint);
+    };
 
-  viewport.addEventListener('scroll', hideHint, { passive: true });
-  viewport.addEventListener('touchstart', hideHint, { passive: true });
-  viewport.addEventListener('mousedown', hideHint, { passive: true });
+    viewport.addEventListener('scroll', hideHint, { passive: true });
+    viewport.addEventListener('touchstart', hideHint, { passive: true });
+    viewport.addEventListener('mousedown', hideHint, { passive: true });
+  }
+
+  // Seamless Mobile Touch Scroll Chaining when reaching top/bottom boundary
+  let touchStartY = 0;
+
+  viewport.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', (e) => {
+    if (e.touches.length !== 1) return;
+    const touchCurrentY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchCurrentY; // positive = dragging content upwards (scrolling down)
+
+    const isAtBottom = viewport.scrollTop + viewport.clientHeight >= viewport.scrollHeight - 2;
+    const isAtTop = viewport.scrollTop <= 2;
+
+    if ((isAtBottom && deltaY > 0) || (isAtTop && deltaY < 0)) {
+      window.scrollBy(0, deltaY);
+      touchStartY = touchCurrentY;
+    }
+  }, { passive: true });
 }
