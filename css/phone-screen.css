@@ -24,17 +24,23 @@
 /* 3D Piggy Character Topper */
 .phone-piggy-topper {
   position: relative;
-  width: 88%;
-  max-width: 330px;
+  width: 100%;
+  max-width: 380px;
+  height: 185px;
+  overflow: hidden;
   z-index: 10;
-  margin-bottom: -22px;
+  margin-bottom: -32px;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
 }
 
 .topper-img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
+  object-position: top center;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
 }
 
@@ -422,6 +428,10 @@
   .phone-mockup-wrapper {
     max-width: 360px;
   }
+  .phone-piggy-topper {
+    height: 175px;
+    margin-bottom: -30px;
+  }
   .phone-hardware-body {
     height: 580px;
   }
@@ -430,6 +440,10 @@
 @media (max-width: 768px) {
   .phone-mockup-wrapper {
     max-width: 320px;
+  }
+  .phone-piggy-topper {
+    height: 155px;
+    margin-bottom: -26px;
   }
   .phone-hardware-body {
     height: 540px;
