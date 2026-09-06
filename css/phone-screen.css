@@ -45,7 +45,7 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  overscroll-behavior-y: auto;
   scrollbar-width: none;
   scroll-behavior: smooth;
   z-index: 5;
