@@ -49,7 +49,7 @@
       </a>
       
       <div class="header-actions">
-        <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn-cta" id="cta-header">Iniciar sesión</a>
+        <a href="https://app.migranjapiggy.com/" class="btn-cta" id="cta-header">Iniciar sesión</a>
       </div>
 
       <nav class="nav-menu" id="nav-menu">
@@ -158,220 +158,230 @@
         <!-- Right Side Interactive Phone Mockup -->
         <div class="hero-visual">
           <div class="phone-mockup-wrapper">
-            <!-- Scrollable Screen Viewport (Lives under the frame overlay) -->
-            <div class="phone-screen-viewport" id="phone-screen-viewport" tabindex="0" role="region" aria-label="Pantalla interactiva de Mercado Piggy">
-              <div class="piggy-market-screen">
-                <!-- Market Header -->
-                <header class="market-header">
-                  <h2 class="market-title">Mercado</h2>
-                  <p class="market-subtitle">Compra piggys exclusivos en el mercado para que tu granja siga creciendo.</p>
-                </header>
+            <!-- 3D Piggy Character Topper -->
+            <div class="phone-piggy-topper">
+              <img src="/assets/phone-topper.png" alt="Piggy 3D Character" class="topper-img" />
+            </div>
 
-                    <!-- Cards List -->
-                    <div class="market-cards-list">
-                      
-                      <!-- 1. MORALITA -->
-                      <article class="market-card" id="card-moralita">
-                        <div class="card-main">
-                          <div class="card-img-box">
-                            <img src="/assets/pigs/moralita.webp" alt="Cerdito Moralita" class="card-pig-img" loading="lazy" />
-                          </div>
-                          <div class="card-details">
-                            <h3 class="card-name">Moralita</h3>
-                            <p class="card-desc">Cerdo joven listo para crecer contigo.</p>
-                            <div class="card-stats">
-                              <div class="stat-item">
-                                <span class="stat-title">FALTAN</span>
-                                <span class="stat-value val-green">144 días</span>
-                              </div>
-                              <div class="stat-sep" aria-hidden="true"></div>
-                              <div class="stat-item">
-                                <span class="stat-title">PESO</span>
-                                <span class="stat-value">6 kg</span>
-                              </div>
+            <!-- Phone Hardware Body -->
+            <div class="phone-hardware-body">
+              <!-- Top Notch / Speaker & Camera -->
+              <div class="phone-notch-bar" aria-hidden="true">
+                <span class="notch-camera"></span>
+                <span class="notch-speaker"></span>
+              </div>
+
+              <!-- Scrollable Screen Viewport -->
+              <div class="phone-screen-viewport" id="phone-screen-viewport" tabindex="0" role="region" aria-label="Pantalla interactiva de Mercado Piggy">
+                <div class="piggy-market-screen">
+                  <!-- Market Header -->
+                  <header class="market-header">
+                    <h2 class="market-title">Mercado</h2>
+                    <p class="market-subtitle">Compra piggys exclusivos en el mercado para que tu granja siga creciendo.</p>
+                  </header>
+
+                  <!-- Cards List -->
+                  <div class="market-cards-list">
+                    
+                    <!-- 1. MORALITA -->
+                    <article class="market-card" id="card-moralita">
+                      <div class="card-main">
+                        <div class="card-img-box">
+                          <img src="/assets/pigs/moralita.png" alt="Cerdito Moralita" class="card-pig-img" loading="lazy" />
+                        </div>
+                        <div class="card-details">
+                          <h3 class="card-name">Moralita</h3>
+                          <p class="card-desc">Cerdo joven listo para crecer contigo.</p>
+                          <div class="card-stats">
+                            <div class="stat-item">
+                              <span class="stat-title">FALTAN</span>
+                              <span class="stat-value val-green">144 días</span>
+                            </div>
+                            <div class="stat-sep" aria-hidden="true"></div>
+                            <div class="stat-item">
+                              <span class="stat-title">PESO</span>
+                              <span class="stat-value">6 kg</span>
                             </div>
                           </div>
                         </div>
-                        <div class="card-action-row">
-                          <a href="https://piggy-app-v2-gvm.vercel.app/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdo Moralita">
-                            <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M4 4h2l2.5 11h10l2-8H7"/>
-                              <circle cx="9" cy="20" r="1.5"/>
-                              <circle cx="17" cy="20" r="1.5"/>
-                            </svg>
-                            Comprar
-                          </a>
-                          <div class="card-price-block">
-                            <span class="price-amount">$ 1.000.000</span>
-                            <span class="stock-label">6 disponibles</span>
-                          </div>
+                      </div>
+                      <div class="card-action-row">
+                        <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdo Moralita">
+                          <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h2l2.5 11h10l2-8H7"/>
+                            <circle cx="9" cy="20" r="1.5"/>
+                            <circle cx="17" cy="20" r="1.5"/>
+                          </svg>
+                          Comprar
+                        </a>
+                        <div class="card-price-block">
+                          <span class="price-amount">$ 1.000.000</span>
+                          <span class="stock-label">6 disponibles</span>
                         </div>
-                      </article>
+                      </div>
+                    </article>
 
-                      <!-- 2. LUNA (AVANZADO) -->
-                      <article class="market-card" id="card-luna">
-                        <div class="card-ribbon ribbon-purple" title="Nivel Avanzado">AVANZADO ⓘ</div>
-                        <div class="card-main">
-                          <div class="card-img-box">
-                            <span class="chip-save-days">⚡ Ahorra 60 días</span>
-                            <img src="/assets/pigs/luna.webp" alt="Cerdito Luna" class="card-pig-img" loading="lazy" />
-                          </div>
-                          <div class="card-details">
-                            <h3 class="card-name">Luna</h3>
-                            <p class="card-desc">Obtén un cerdito avanzado. Muy bien alimentado.</p>
-                            <div class="card-stats">
-                              <div class="stat-item">
-                                <span class="stat-title">FALTAN</span>
-                                <span class="stat-value val-green">84 días</span>
-                              </div>
-                              <div class="stat-sep" aria-hidden="true"></div>
-                              <div class="stat-item">
-                                <span class="stat-title">PESO</span>
-                                <span class="stat-value">38.9 kg</span>
-                              </div>
+                    <!-- 2. LUNA (AVANZADO) -->
+                    <article class="market-card" id="card-luna">
+                      <div class="card-ribbon ribbon-purple" title="Nivel Avanzado">AVANZADO ⓘ</div>
+                      <div class="card-main">
+                        <div class="card-img-box">
+                          <span class="chip-save-days">⚡ Ahorra 60 días</span>
+                          <img src="/assets/pigs/luna.png" alt="Cerdito Luna" class="card-pig-img" loading="lazy" />
+                        </div>
+                        <div class="card-details">
+                          <h3 class="card-name">Luna</h3>
+                          <p class="card-desc">Obtén un cerdito avanzado. Muy bien alimentado.</p>
+                          <div class="card-stats">
+                            <div class="stat-item">
+                              <span class="stat-title">FALTAN</span>
+                              <span class="stat-value val-green">84 días</span>
+                            </div>
+                            <div class="stat-sep" aria-hidden="true"></div>
+                            <div class="stat-item">
+                              <span class="stat-title">PESO</span>
+                              <span class="stat-value">38.9 kg</span>
                             </div>
                           </div>
                         </div>
-                        <div class="card-action-row">
-                          <a href="https://piggy-app-v2-gvm.vercel.app/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdito Luna">
-                            <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M4 4h2l2.5 11h10l2-8H7"/>
-                              <circle cx="9" cy="20" r="1.5"/>
-                              <circle cx="17" cy="20" r="1.5"/>
-                            </svg>
-                            Comprar
-                          </a>
-                          <div class="card-price-block">
-                            <span class="price-amount">$ 1.200.000</span>
-                            <span class="stock-label">4 disponibles</span>
-                          </div>
+                      </div>
+                      <div class="card-action-row">
+                        <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdito Luna">
+                          <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h2l2.5 11h10l2-8H7"/>
+                            <circle cx="9" cy="20" r="1.5"/>
+                            <circle cx="17" cy="20" r="1.5"/>
+                          </svg>
+                          Comprar
+                        </a>
+                        <div class="card-price-block">
+                          <span class="price-amount">$ 1.200.000</span>
+                          <span class="stock-label">4 disponibles</span>
                         </div>
-                      </article>
+                      </div>
+                    </article>
 
-                      <!-- 3. GORDITO (PLUS) -->
-                      <article class="market-card" id="card-gordito">
-                        <div class="card-ribbon ribbon-blue" title="Nivel Plus">PLUS ⓘ</div>
-                        <div class="card-main">
-                          <div class="card-img-box">
-                            <img src="/assets/pigs/gordito.webp" alt="Cerdito Gordito" class="card-pig-img" loading="lazy" />
-                          </div>
-                          <div class="card-details">
-                            <h3 class="card-name">Gordito</h3>
-                            <p class="card-desc">Cerdito con extra en tu beneficio comercial.</p>
-                            <div class="card-stats">
-                              <div class="stat-item">
-                                <span class="stat-title">FALTAN</span>
-                                <span class="stat-value val-green">144 días</span>
-                              </div>
-                              <div class="stat-sep" aria-hidden="true"></div>
-                              <div class="stat-item">
-                                <span class="stat-title">PESO</span>
-                                <span class="stat-value">6 kg</span>
-                              </div>
+                    <!-- 3. GORDITO (PLUS) -->
+                    <article class="market-card" id="card-gordito">
+                      <div class="card-ribbon ribbon-blue" title="Nivel Plus">PLUS ⓘ</div>
+                      <div class="card-main">
+                        <div class="card-img-box">
+                          <img src="/assets/pigs/gordito.png" alt="Cerdito Gordito" class="card-pig-img" loading="lazy" />
+                        </div>
+                        <div class="card-details">
+                          <h3 class="card-name">Gordito</h3>
+                          <p class="card-desc">Cerdito con extra en tu beneficio comercial.</p>
+                          <div class="card-stats">
+                            <div class="stat-item">
+                              <span class="stat-title">FALTAN</span>
+                              <span class="stat-value val-green">144 días</span>
+                            </div>
+                            <div class="stat-sep" aria-hidden="true"></div>
+                            <div class="stat-item">
+                              <span class="stat-title">PESO</span>
+                              <span class="stat-value">6 kg</span>
                             </div>
                           </div>
                         </div>
-                        <div class="card-action-row">
-                          <a href="https://piggy-app-v2-gvm.vercel.app/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdito Gordito">
-                            <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M4 4h2l2.5 11h10l2-8H7"/>
-                              <circle cx="9" cy="20" r="1.5"/>
-                              <circle cx="17" cy="20" r="1.5"/>
-                            </svg>
-                            Comprar
-                          </a>
-                          <div class="card-price-block">
-                            <span class="price-amount">$ 1.200.000</span>
-                            <span class="stock-label">3 disponibles</span>
-                          </div>
+                      </div>
+                      <div class="card-action-row">
+                        <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdito Gordito">
+                          <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h2l2.5 11h10l2-8H7"/>
+                            <circle cx="9" cy="20" r="1.5"/>
+                            <circle cx="17" cy="20" r="1.5"/>
+                          </svg>
+                          Comprar
+                        </a>
+                        <div class="card-price-block">
+                          <span class="price-amount">$ 1.200.000</span>
+                          <span class="stock-label">3 disponibles</span>
                         </div>
-                      </article>
+                      </div>
+                    </article>
 
-                      <!-- 4. MANCHAS (DORADO) -->
-                      <article class="market-card" id="card-manchas">
-                        <div class="card-ribbon ribbon-gold" title="Nivel Dorado">DORADO ⓘ</div>
-                        <div class="card-main">
-                          <div class="card-img-box">
-                            <img src="/assets/pigs/manchas.webp" alt="Cerdito Manchas" class="card-pig-img" loading="lazy" />
-                          </div>
-                          <div class="card-details">
-                            <h3 class="card-name">Manchas</h3>
-                            <p class="card-desc">¡Oferta! Cerdo con beneficio comercial extra.</p>
-                            <div class="card-stats">
-                              <div class="stat-item">
-                                <span class="stat-title">FALTAN</span>
-                                <span class="stat-value val-green">144 días</span>
-                              </div>
-                              <div class="stat-sep" aria-hidden="true"></div>
-                              <div class="stat-item">
-                                <span class="stat-title">PESO</span>
-                                <span class="stat-value">6 kg</span>
-                              </div>
+                    <!-- 4. MANCHAS (DORADO) -->
+                    <article class="market-card" id="card-manchas">
+                      <div class="card-ribbon ribbon-gold" title="Nivel Dorado">DORADO ⓘ</div>
+                      <div class="card-main">
+                        <div class="card-img-box">
+                          <img src="/assets/pigs/manchas.png" alt="Cerdito Manchas" class="card-pig-img" loading="lazy" />
+                        </div>
+                        <div class="card-details">
+                          <h3 class="card-name">Manchas</h3>
+                          <p class="card-desc">¡Oferta! Cerdo con beneficio comercial extra.</p>
+                          <div class="card-stats">
+                            <div class="stat-item">
+                              <span class="stat-title">FALTAN</span>
+                              <span class="stat-value val-green">144 días</span>
+                            </div>
+                            <div class="stat-sep" aria-hidden="true"></div>
+                            <div class="stat-item">
+                              <span class="stat-title">PESO</span>
+                              <span class="stat-value">6 kg</span>
                             </div>
                           </div>
                         </div>
-                        <div class="card-action-row">
-                          <a href="https://piggy-app-v2-gvm.vercel.app/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdito Manchas">
-                            <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M4 4h2l2.5 11h10l2-8H7"/>
-                              <circle cx="9" cy="20" r="1.5"/>
-                              <circle cx="17" cy="20" r="1.5"/>
-                            </svg>
-                            Comprar
-                          </a>
-                          <div class="card-price-block">
-                            <span class="price-amount">$ 1.300.000</span>
-                            <span class="stock-label">2 disponibles</span>
-                          </div>
+                      </div>
+                      <div class="card-action-row">
+                        <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" class="btn-card-buy" aria-label="Comprar cerdito Manchas">
+                          <svg class="buy-cart-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h2l2.5 11h10l2-8H7"/>
+                            <circle cx="9" cy="20" r="1.5"/>
+                            <circle cx="17" cy="20" r="1.5"/>
+                          </svg>
+                          Comprar
+                        </a>
+                        <div class="card-price-block">
+                          <span class="price-amount">$ 1.300.000</span>
+                          <span class="stock-label">2 disponibles</span>
                         </div>
-                      </article>
+                      </div>
+                    </article>
 
-                    </div>
-                    </div>
-
-                    <!-- Pinned Bottom Navigation Bar -->
-                    <nav class="phone-bottom-nav" aria-label="Navegación de la app interna">
-                      <a href="https://piggy-app-v2-gvm.vercel.app/" target="_blank" rel="noopener" class="phone-nav-tab" aria-label="Ir a Granja">
-                        <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                          <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                        <span>Granja</span>
-                      </a>
-                      <a href="#inicio" class="phone-nav-tab active" aria-label="Sección Mercado activa">
-                        <svg class="tab-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 12c.55 0 1-.45 1-1V9c0-1.66-1.34-3-3-3h-1.1c-.48-1.78-2.12-3-4-3-1.88 0-3.52 1.22-4 3H6.75C5.23 6 4 7.23 4 8.75v3.5c0 1.24.82 2.29 1.95 2.63.15 1.5 1.42 2.62 2.95 2.62h.1c.45.9 1.38 1.5 2.45 1.5.75 0 1.43-.3 1.9-.8.47.5 1.15.8 1.9.8 1.07 0 2-.6 2.45-1.5h.1c1.53 0 2.8-1.12 2.95-2.62C21.18 14.29 22 13.24 22 12v-1c0-.55-.45-1-1-1h-2v2zm-7 4c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
-                        <span>Mercado</span>
-                      </a>
-                      <a href="https://piggy-app-v2-gvm.vercel.app/" target="_blank" rel="noopener" class="phone-nav-tab" aria-label="Ir a Tienda">
-                        <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-                          <line x1="3" y1="6" x2="21" y2="6"/>
-                          <path d="M16 10a4 4 0 01-8 0"/>
-                        </svg>
-                        <span>Tienda</span>
-                      </a>
-                      <a href="#beneficios" class="phone-nav-tab" aria-label="Ir a Aliados">
-                        <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                          <circle cx="9" cy="7" r="4"/>
-                          <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-                          <path d="M16 3.13a4 4 0 010 7.75"/>
-                        </svg>
-                        <span>Aliados</span>
-                      </a>
-                    </nav>
                   </div>
                 </div>
-
-                <!-- Discreet Scroll Hint -->
-                <div class="phone-scroll-hint" id="phone-scroll-hint">Desliza ⇣</div>
-
-                <!-- Original 3D Piggy + Gold Frame Overlay -->
-                <img src="/assets/hero-phone-frame.webp" alt="Piggy App Phone Frame" class="phone-frame-overlay" />
               </div>
+
+              <!-- Discreet Scroll Hint -->
+              <div class="phone-scroll-hint" id="phone-scroll-hint">Desliza ⇣</div>
+
+              <!-- Pinned Bottom Navigation Bar -->
+              <nav class="phone-bottom-nav" aria-label="Navegación de la app interna">
+                <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" class="phone-nav-tab" aria-label="Ir a Granja">
+                  <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
+                  <span>Granja</span>
+                </a>
+                <a href="#inicio" class="phone-nav-tab active" aria-label="Sección Mercado activa">
+                  <svg class="tab-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 12c.55 0 1-.45 1-1V9c0-1.66-1.34-3-3-3h-1.1c-.48-1.78-2.12-3-4-3-1.88 0-3.52 1.22-4 3H6.75C5.23 6 4 7.23 4 8.75v3.5c0 1.24.82 2.29 1.95 2.63.15 1.5 1.42 2.62 2.95 2.62h.1c.45.9 1.38 1.5 2.45 1.5.75 0 1.43-.3 1.9-.8.47.5 1.15.8 1.9.8 1.07 0 2-.6 2.45-1.5h.1c1.53 0 2.8-1.12 2.95-2.62C21.18 14.29 22 13.24 22 12v-1c0-.55-.45-1-1-1h-2v2zm-7 4c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>
+                  <span>Mercado</span>
+                </a>
+                <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" class="phone-nav-tab" aria-label="Ir a Tienda">
+                  <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 01-8 0"/>
+                  </svg>
+                  <span>Tienda</span>
+                </a>
+                <a href="#beneficios" class="phone-nav-tab" aria-label="Ir a Aliados">
+                  <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 010 7.75"/>
+                  </svg>
+                  <span>Aliados</span>
+                </a>
+              </nav>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
     <!-- Nosotros Section -->
     <section id="nosotros" class="nosotros-section">
@@ -474,7 +484,7 @@
 
           <!-- Step 3 -->
           <div class="step-flow-card" id="step-3">
-            <div class="step-icon-circle"> <!-- Barn / Care Icon --> <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/> <polyline points="9 22 9 12 15 12 15 22"/> </svg> <div class="step-badge-num">3</div>
+            <div class="step-icon-circle"> <!-- Barn / Care Icon --> <svg class="step-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 01-2-2z"/> <polyline points="9 22 9 12 15 12 15 22"/> </svg> <div class="step-badge-num">3</div>
             </div>
             <h3>NOS ENCARGAMOS</h3>
             <p>Granja Villa Morales del Valle SAS desarrolla todo el proceso productivo, logística y posterior venta comercial de tu cerdito Piggy.</p>
@@ -628,7 +638,7 @@
 
             <!-- Right Button Column -->
             <div class="banner-button-side">
-              <a href="https://piggy-app-v2-gvm.vercel.app/" class="banner-cta-button" id="cta-welcome-bonus">
+              <a href="https://app.migranjapiggy.com/" class="banner-cta-button" id="cta-welcome-bonus">
                 <span class="banner-cta-icon-wrapper">
                   <img src="/assets/piggy-hero-icon.png" alt="Piggy Icon" class="banner-cta-icon" />
                 </span>
@@ -754,14 +764,15 @@
           <!-- FAQ 7 -->
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">¿Cómo funciona la comercialización del cerdo?</span>
+              <span class="faq-question">¿Cómo funciona la comercialización de los cerdos?</span>
               <span class="faq-arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
             </button>
             <div class="faq-panel">
               <p class="faq-answer">
-                Granja Villa Morales del Valle SAS cuenta con convenios y canales establecidos en plantas de beneficio, comercializadores mayoristas y puntos de venta en el Valle del Cauca. Al terminar el ciclo, comercializamos el cerdo al valor del mercado porcino del momento.
+               Granja Villa Morales del Valle SAS cuenta con un modelo comercial enfocado en la venta de carne de cerdo a diferentes canales como distribuidores, restaurantes, carnicerías, supermercados y clientes finales.
+                Gracias a este proceso, la granja puede planificar su producción con mayor anticipación y asegurar una operación más eficiente durante cada ciclo.
               </p>
             </div>
           </div>
@@ -769,29 +780,31 @@
           <!-- FAQ 8 -->
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">¿Qué respaldo legal tiene mi compra?</span>
+              <span class="faq-question">¿Piggy garantiza algún tipo de rentabilidad?</span>
               <span class="faq-arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
             </button>
             <div class="faq-panel">
               <p class="faq-answer">
-                Cada compra de un Piggy se formaliza mediante un contrato de mandato con Granja Villa Morales del Valle SAS (NIT 901.810.158-1). La empresa asume la custodia, cuidado y posterior venta del animal bajo normativas colombianas.
+               No. Piggy no promete ni garantiza rentabilidades fijas.
+                El modelo maneja un margen comercial entre el 8% al 13% según el comportamiento del mercado y las condiciones vigentes al momento de la compra.
+                Nuestro compromiso es poner a disposición nuestros canales de ventas y fuerza comercial para que los Piggys se vendan de forma eficiente y al final el usuario obtenga un beneficio.
               </p>
             </div>
           </div>
 
-          <!-- FAQ 9 -->
+           <!-- FAQ 9 -->
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">¿Qué métodos de pago aceptan?</span>
+              <span class="faq-question">¿Cómo puedo saber qué está pasando con mi Piggy?</span>
               <span class="faq-arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
             </button>
             <div class="faq-panel">
               <p class="faq-answer">
-                Aceptamos pagos directos y seguros a través de la pasarela de pagos Wompi (Bancolombia, Nequi, PSE, tarjetas de crédito/débito) y transferencias bancarias directas a cuentas corporativas de Granja Villa Morales del Valle SAS.
+              Cada usuario cuenta con un Dashboard dentro de la aplicación. Desde allí podrá consultar el estado de sus Piggys, el avance del ciclo productivo, las fechas importantes y toda la información relacionada.
               </p>
             </div>
           </div>
@@ -799,128 +812,166 @@
           <!-- FAQ 10 -->
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">¿Qué pasa si un cerdito se enferma o fallece?</span>
+              <span class="faq-question">¿Qué pasa si ocurre algún imprevisto durante el ciclo productivo?</span>
               <span class="faq-arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
               </span>
             </button>
             <div class="faq-panel">
               <p class="faq-answer">
-                Todas nuestras piaras cuentan con cobertura de reposición biológica asumida por Granja Villa Morales del Valle SAS. En caso fortuito de pérdida biológica, se asigna automáticamente otro ejemplar del mismo lote y peso sin costo adicional para el usuario.
+                La operación está respaldada por la capacidad productiva según ICA y comercial de Granja Villa Morales del Valle SAS.
+                La granja productiva tiene la capacidad de asumir los riesgos inherentes a su operación sin que se vea perjudicado el usuario.
               </p>
             </div>
           </div>
+
+          <!-- FAQ 12 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">¿Puedo cancelar o retractarme de la compra?</span>
+              <span class="faq-arrow-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                Sí. Los usuarios cuentan con el derecho de retracto durante los primeros 5 días hábiles (según el Estatuto del Consumidor en Colombia) sin ningún tipo de sanción o condición. Después de este periodo y una vez iniciado el ciclo productivo, si el comprador solicita el retracto, se aplicará una penalización equivalente al 30% del valor total del contrato. Iniciando un proceso de devolución del dinero por parte de Piggy App en un término de 7 días hábiles. Una vez cubierta la totalidad de la penalización, el contrato se considerará liquidado y cancelado.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 13 -->
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">¿Cómo empiezo?</span>
+              <span class="faq-arrow-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="faq-panel">
+              <p class="faq-answer">
+                Solo necesitas seguir estos 4 pasos:
+              </p>
+              <ol style="margin: 0 0 16px 24px; color: #5C527F; font-size: 1rem; line-height: 1.6;">
+                <li style="margin-bottom: 6px;">Crear tu cuenta. <a href="https://app.migranjapiggy.com/" target="_blank" rel="noopener" style="color: #E91E63; font-weight: 700; text-decoration: underline;">Clic aquí.</a></li>
+                <li style="margin-bottom: 6px;">Completar tu registro.</li>
+                <li style="margin-bottom: 6px;">Comprar tu primer Piggy.</li>
+                <li style="margin-bottom: 6px;">Sigue el engorde de tu Piggy desde la aplicación mientras disfrutas de los beneficios de la comunidad.</li>
+              </ol>
+              <p class="faq-answer" style="padding-top: 0; border-top: none;">
+                Así es como en pocos minutos podrás formar parte de Piggy App desde cualquier lugar de Colombia.
+              </p>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Video Modal Component -->
-  <div class="video-modal-backdrop" id="video-modal" aria-hidden="true" role="dialog" aria-label="Reproductor de video institucional">
-    <div class="video-modal-container">
-      <button class="video-modal-close" id="close-video-btn" aria-label="Cerrar video">✕</button>
-      <div class="video-modal-body">
-        <video id="farm-video" controls playsinline preload="metadata">
-          <source src="/assets/video.mp4" type="video/mp4" />
-          Tu navegador no soporta la reproducción de video HTML5.
-        </video>
-      </div>
-    </div>
-  </div>
-
   <!-- Footer Section -->
-  <footer class="footer-section">
-    <!-- Bottom footer decorative glow -->
-    <div class="footer-glow"></div>
+  <footer class="main-footer">
     <div class="footer-container">
       <div class="footer-grid">
-        <!-- Col 1: Brand & Bio -->
+        <!-- Col 1: Brand Info -->
         <div class="footer-col brand-col">
-          <a href="#inicio" class="footer-logo-link" aria-label="Piggy App Inicio">
+          <div class="footer-logos-flex">
             <img src="/assets/logo.png" alt="Piggy Logo" class="footer-logo" />
-          </a>
-          <p class="footer-tagline">
-            Tu granja de engorde en tus manos. Plataforma de agro-comercio digital que conecta la producción porcina real con usuarios de toda Colombia.
-          </p>
-          <div class="legal-badge">
-            <span class="legal-badge-icon">🛡️</span>
-            <span>Granja Villa Morales del Valle SAS — NIT 901.810.158-1</span>
+            <img src="/assets/vallemorales_logo.png" alt="Granja Villa Morales del Valle SAS Logo" class="footer-logo VM-footer-logo" />
+          </div>
+          <div class="social-flex">
+            <!-- Instagram -->
+            <a href="https://instagram.com/piggyapp" target="_blank" rel="noopener" aria-label="Piggy App en Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.013 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com/piggyapp" target="_blank" rel="noopener" aria-label="Piggy App en Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@piggyapp" target="_blank" rel="noopener" aria-label="Piggy App en TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.58-4.09-1.42-.76-.53-1.43-1.21-1.93-2.02v8.83c-.02 2.37-1.12 4.67-3.04 6.07-2.12 1.61-5.11 2.01-7.58 1.05C3.32 21.46 1.4 18.6 1.42 15.35c.05-3.32 2.5-6.22 5.8-6.61.94-.12 1.9-.03 2.81.24v4.04c-.75-.3-1.59-.39-2.37-.23-1.45.29-2.58 1.61-2.6 3.09-.03 1.83 1.52 3.43 3.35 3.39 1.77-.02 3.23-1.45 3.23-3.21.02-3.13.01-6.27.01-9.4 0-2.22.01-4.43.01-6.65z"/></svg>
+            </a>
           </div>
         </div>
 
-        <!-- Col 2: Navigation Links -->
+        <!-- Col 2: Quick Links -->
         <div class="footer-col">
-          <h4 class="footer-col-title">Navegación</h4>
-          <ul class="footer-links">
+          <h4>Enlaces</h4>
+          <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#como-funciona">Cómo funciona</a></li>
             <li><a href="#beneficios">Beneficios</a></li>
-            <li><a href="#faq">Preguntas frecuentes</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Legal & Regulatory -->
+        <!-- Col 3: Legal -->
         <div class="footer-col">
-          <h4 class="footer-col-title">Legal</h4>
-          <ul class="footer-links">
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-            <li><a href="#">Contrato de mandato</a></li>
-            <li><a href="#">Reglamentación ICA</a></li>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="https://app.migranjapiggy.com/terminos-y-condiciones.html" target="_blank" rel="noopener">Contrato Estandar</a></li>
+            <li><a href="https://app.migranjapiggy.com/tratamiento-de-datos.html" target="_blank" rel="noopener">Tratamiento de Datos</a></li>
+            <li><a href="#faq">Poliza de Seguro</a></li>
+            <li><a href="#faq">RUT GVM</a></li>
+            <li><a href="#faq">Cámara de Comercio GVM</a></li>
+            <li><span class="footer-badge-ica">Registro ICA Certificado</span></li>
           </ul>
         </div>
 
-        <!-- Col 4: Contact & Social -->
+        <!-- Col 4: Contact -->
         <div class="footer-col">
-          <h4 class="footer-col-title">Contacto</h4>
-          <p class="footer-contact-item">
-            <span class="contact-icon">📍</span>
-            <span>Cali, Valle del Cauca, Colombia</span>
-          </p>
-          <p class="footer-contact-item">
-            <span class="contact-icon">🏢</span>
-            <span>Cra 54 # 45-85 B/Ciudad 2000</span>
-          </p>
-          <p class="footer-contact-item">
-            <span class="contact-icon">💬</span>
-            <a href="https://wa.me/573154870448?text=Hola,%20tengo%20una%20consulta%20sobre%20Piggy%20App" target="_blank" rel="noopener">+57 315 487 0448</a>
-          </p>
-          <p class="footer-contact-item">
-            <span class="contact-icon">✉️</span>
-            <a href="mailto:soporte@piggyapp.co">soporte@piggyapp.co</a>
-          </p>
-          
-          <div class="social-links-flex">
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/piggyappcolombia" target="_blank" rel="noopener" aria-label="Instagram Piggy App" class="social-icon-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/profile.php?id=61569421867160" target="_blank" rel="noopener" aria-label="Facebook Piggy App" class="social-icon-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
-            </a>
-            <!-- WhatsApp -->
-            <a href="https://wa.me/573154870448?text=Hola,%20tengo%20una%20consulta%20sobre%20Piggy%20App" target="_blank" rel="noopener" aria-label="WhatsApp Piggy App" class="social-icon-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.002-2.637-1.023-5.116-2.887-6.98C16.58 1.897 14.1 1.87 11.666 1.87c-5.439 0-9.865 4.42-9.867 9.867-.001 1.767.472 3.49 1.368 5.024L2.2 21.8l5.228-1.371z"/></svg>
-            </a>
+          <h4>Contáctanos</h4>
+          <p class="contact-email">Escríbenos a:</p>
+          <a href="mailto:hola@piggyapp.co" class="contact-link">hola@piggyapp.co</a>
+          <p class="contact-phone">WhatsApp:</p>
+          <a href="https://wa.me/573154870448" target="_blank" rel="noopener" class="contact-link">+57 315 487 0448</a>
+
+          <div class="footer-location-list">
+            <div class="location-item">
+              <svg class="location-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span><strong>Centro Operativo:</strong> Candelaria, Valle del Cauca</span>
+            </div>
+            <div class="location-item">
+              <svg class="location-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span><strong>Centro Producción GVM:</strong> Cra 54 # 45-85 B/Ciudad 2000, Cali.</span>
+            </div>
+            <div class="location-item">
+              <svg class="location-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span><strong>Oficina Piggy App:</strong> Calle 46 # 50-17 B/Ciudad 2000, Cali.</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Bottom Bar -->
+      <!-- Copyright bottom -->
       <div class="footer-bottom">
-        <p class="copyright-text">
-          &copy; 2026 Piggy App & Granja Villa Morales del Valle SAS. Todos los derechos reservados.
-        </p>
-        <p class="disclaimer-text">
-          Piggy App es una plataforma tecnológica que gestiona el proceso de compra, crianza y comercialización de porcinos. No realiza captación masiva ni ofrece rendimientos financieros fijos garantizados.
-        </p>
+        <p>© 2025 PIGGY APP. TODOS LOS DERECHOS RESERVADOS BAJO GRANJA VILLA MORALES DEL VALLE SAS</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Video Modal Popup -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-video-btn" class="modal-close-btn" aria-label="Cerrar video">&times;</button>
+      <div class="video-iframe-wrapper">
+        <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
   <script type="module" src="/main.js"></script>
 </body>
 </html>
