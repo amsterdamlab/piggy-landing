@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PIGGY LANDING — Native Phone Mockup & Interactive Market Screen
+   PIGGY LANDING — Interactive Phone Mockup with 3D Mascot Frame
    ========================================================================== */
 
 .hero-visual {
@@ -16,92 +16,34 @@
   max-width: 380px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   z-index: 5;
 }
 
-/* 3D Piggy Character Topper */
-.phone-piggy-topper {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  height: 185px;
-  overflow: hidden;
-  z-index: 10;
-  margin-bottom: -32px;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-}
-
-.topper-img {
+/* Background Phone Image (with 3D Piggy Mascot and Natural Frame) */
+.hero-phone-bg {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-  object-position: top center;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
-}
-
-/* Phone Hardware Frame Body */
-.phone-hardware-body {
-  position: relative;
-  width: 100%;
-  height: 640px;
-  max-height: 75vh;
-  background: #FAF7F9;
-  border-radius: 46px;
-  border: 10px solid #DFC0B5;
-  box-shadow: 0 0 0 2px #C59C8F, 0 25px 60px rgba(0, 0, 0, 0.45), inset 0 0 8px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-}
-
-/* Top Notch / Speaker & Camera */
-.phone-notch-bar {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 125px;
-  height: 24px;
-  background: #1C1A24;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
 }
 
-.notch-camera {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #0B0A10;
-  border: 1px solid #332E45;
-}
-
-.notch-speaker {
-  width: 44px;
-  height: 4px;
-  border-radius: 4px;
-  background: #332E45;
-}
-
-/* Scrollable Screen Viewport */
+/* Scrollable Screen Viewport overlaying the phone screen area */
 .phone-screen-viewport {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 29.4%;
+  left: 6.8%;
+  width: 86.4%;
+  bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 38px 14px 74px 14px;
+  padding: 12px 10px 65px 10px;
+  background: #FAF7F9;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
   scrollbar-width: none;
@@ -356,10 +298,10 @@
 .phone-bottom-nav {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  background: rgba(255, 255, 255, 0.95);
+  left: 6.8%;
+  width: 86.4%;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(0, 0, 0, 0.06);
@@ -367,10 +309,10 @@
   justify-content: space-around;
   align-items: center;
   z-index: 25;
-  padding: 0 10px;
-  border-bottom-left-radius: 36px;
-  border-bottom-right-radius: 36px;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+  padding: 0 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.03);
 }
 
 .phone-nav-tab {
@@ -379,7 +321,7 @@
   align-items: center;
   gap: 2px;
   color: #9CA3AF;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 600;
   text-decoration: none;
   transition: color var(--trans-fast);
@@ -391,21 +333,21 @@
 }
 
 .tab-svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
 }
 
 /* Scroll Hint Bar (Discreet UX Guide) */
 .phone-scroll-hint {
   position: absolute;
-  bottom: 66px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(24, 18, 54, 0.75);
   color: #FFF;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 100px;
   backdrop-filter: blur(6px);
   pointer-events: none;
@@ -426,26 +368,12 @@
 
 @media (max-width: 992px) {
   .phone-mockup-wrapper {
-    max-width: 360px;
-  }
-  .phone-piggy-topper {
-    height: 175px;
-    margin-bottom: -30px;
-  }
-  .phone-hardware-body {
-    height: 580px;
+    max-width: 350px;
   }
 }
 
 @media (max-width: 768px) {
   .phone-mockup-wrapper {
     max-width: 320px;
-  }
-  .phone-piggy-topper {
-    height: 155px;
-    margin-bottom: -26px;
-  }
-  .phone-hardware-body {
-    height: 540px;
   }
 }
