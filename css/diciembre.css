@@ -99,61 +99,68 @@
 }
 
 /* ==========================================================================
-   HERO SECTION (Bloque 1: Fondo #fbf7f4)
+   HERO BANNER FULL-WIDTH (Colinda directamente con el Header)
    ========================================================================== */
-.camp-hero-block {
-  background-color: var(--camp-bg-warm);
-  padding: 40px 20px 60px;
+.camp-hero-banner-section {
+  width: 100%;
   position: relative;
-  z-index: 1;
+  background-color: #1A0C0A;
 }
 
-.camp-hero-container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-/* Hero Banner con foto de fondo del cerdito y textos superpuestos */
 .camp-hero-banner {
   position: relative;
   width: 100%;
-  border-radius: 24px;
+  border-radius: 0;
   overflow: hidden;
   background-color: #1A0C0A;
   background-image: 
-    linear-gradient(90deg, rgba(20, 10, 8, 0.90) 0%, rgba(20, 10, 8, 0.78) 45%, rgba(20, 10, 8, 0.25) 75%, rgba(20, 10, 8, 0) 100%),
+    linear-gradient(90deg, rgba(20, 10, 8, 0.92) 0%, rgba(20, 10, 8, 0.82) 42%, rgba(20, 10, 8, 0.28) 72%, rgba(20, 10, 8, 0) 100%),
     url('/assets/piggy-diciembre.jpg');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-  margin-bottom: 36px;
-  min-height: 400px;
+  box-shadow: none;
+  margin-bottom: 0;
+  min-height: 480px;
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 1600px) {
+  .camp-hero-banner {
+    min-height: 540px;
+    background-position: center right;
+  }
 }
 
 @media (max-width: 900px) {
   .camp-hero-banner {
     background-image: 
-      linear-gradient(180deg, rgba(20, 10, 8, 0.90) 0%, rgba(20, 10, 8, 0.82) 55%, rgba(20, 10, 8, 0.4) 100%),
+      linear-gradient(180deg, rgba(20, 10, 8, 0.92) 0%, rgba(20, 10, 8, 0.82) 55%, rgba(20, 10, 8, 0.45) 100%),
       url('/assets/piggy-diciembre.jpg');
-    background-position: center right;
+    background-position: 70% center;
     min-height: auto;
+    padding: 20px 0;
   }
+}
+
+.camp-hero-banner-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  width: 100%;
 }
 
 .camp-hero-banner-content {
   position: relative;
   z-index: 2;
-  padding: 48px 40px;
   max-width: 620px;
   text-align: left;
 }
 
 @media (max-width: 640px) {
-  .camp-hero-banner-content {
-    padding: 32px 20px;
+  .camp-hero-banner-container {
+    padding: 36px 20px;
   }
 }
 
@@ -243,14 +250,25 @@
 }
 
 /* ==========================================================================
-   BLOQUE INFERIOR HERO: CUENTA REGRESIVA & CTA
+   BLOQUE INFERIOR HERO: CUENTA REGRESIVA & CTA (Fondo #fbf7f4)
    ========================================================================== */
+.camp-countdown-section {
+  background-color: var(--camp-bg-warm);
+  padding: 48px 20px 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.camp-hero-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 .camp-hero-action-block {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
 }
 
 .countdown-heading {
@@ -400,507 +418,4 @@
   border-radius: 20px;
   background: var(--camp-magenta-light);
   border: 1px solid rgba(194, 24, 91, 0.2);
-  color: var(--camp-magenta);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
-  font-family: 'Outfit', sans-serif;
-}
-
-.section-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  font-weight: 800;
-  color: var(--camp-text-dark);
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.section-desc {
-  font-size: 1.05rem;
-  color: var(--camp-text-body);
-  max-width: 640px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .steps-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.step-card {
-  background: var(--camp-bg-warm);
-  border: 1px solid var(--camp-card-border);
-  border-radius: 20px;
-  padding: 32px 24px;
-  transition: all var(--trans-base);
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--camp-card-shadow);
-}
-
-.step-card:hover {
-  border-color: var(--camp-card-border-focus);
-  transform: translateY(-5px);
-  box-shadow: var(--camp-card-shadow-hover);
-}
-
-.step-number-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--camp-magenta), #9C27B0);
-  color: #FFFFFF;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  box-shadow: 0 6px 16px rgba(194, 24, 91, 0.25);
-}
-
-.step-title {
-  font-size: 1.22rem;
-  font-weight: 700;
-  color: var(--camp-text-dark);
-  margin-bottom: 12px;
-  line-height: 1.3;
-  font-family: 'Outfit', sans-serif;
-}
-
-.step-text {
-  font-size: 0.96rem;
-  color: var(--camp-text-body);
-  line-height: 1.6;
-  flex-grow: 1;
-}
-
-/* ==========================================================================
-   SECCIÓN 3: CALCULADORA / SIMULADOR (Bloque 3: Fondo #fbf7f4)
-   ========================================================================== */
-.camp-calc-section {
-  background-color: var(--camp-bg-warm);
-  padding: 80px 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.calc-card-wrapper {
-  max-width: 860px;
-  margin: 0 auto;
-  background: #FFFFFF;
-  border: 1px solid var(--camp-card-border);
-  border-radius: 24px;
-  padding: clamp(24px, 4vw, 44px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
-}
-
-.calc-control-block {
-  margin-bottom: 32px;
-}
-
-.calc-control-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.calc-label {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--camp-text-dark);
-  font-family: 'Outfit', sans-serif;
-}
-
-.calc-count-pill {
-  background: var(--camp-magenta-light);
-  border: 1px solid rgba(194, 24, 91, 0.3);
-  color: var(--camp-magenta-dark);
-  font-size: 1.25rem;
-  font-weight: 800;
-  padding: 4px 16px;
-  border-radius: 12px;
-  font-family: 'Outfit', sans-serif;
-}
-
-/* Slider Personalizado */
-.calc-range-slider {
-  width: 100%;
-  height: 8px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: #EBE3DC;
-  border-radius: 6px;
-  outline: none;
-  cursor: pointer;
-}
-
-.calc-range-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--camp-magenta), var(--camp-gold));
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.4);
-  border: 2px solid #FFFFFF;
-  transition: transform var(--trans-fast);
-}
-
-.calc-range-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-}
-
-.calc-range-slider::-moz-range-thumb {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--camp-magenta), var(--camp-gold));
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.4);
-  border: 2px solid #FFFFFF;
-}
-
-.calc-slider-markers {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.78rem;
-  color: var(--camp-text-muted);
-  margin-top: 8px;
-  font-weight: 600;
-}
-
-/* Resultados de la Calculadora */
-.calc-results-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-@media (min-width: 600px) {
-  .calc-results-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.calc-result-box {
-  background: var(--camp-bg-warm);
-  border: 1px solid var(--camp-card-border);
-  border-radius: 16px;
-  padding: 20px 16px;
-  text-align: center;
-}
-
-.calc-result-val {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-  font-weight: 800;
-  color: var(--camp-text-dark);
-  margin-bottom: 4px;
-}
-
-.calc-result-val.highlight-gold {
-  color: var(--camp-gold);
-}
-
-.calc-result-val.highlight-pink {
-  color: var(--camp-magenta);
-}
-
-.calc-result-val.highlight-green {
-  color: #00A344;
-}
-
-.calc-result-label {
-  font-size: 0.84rem;
-  color: var(--camp-text-muted);
-  font-weight: 600;
-}
-
-.calc-btn-container {
-  text-align: center;
-}
-
-.calc-btn-container .btn-camp-primary {
-  max-width: 380px;
-  margin: 0 auto;
-}
-
-/* ==========================================================================
-   SECCIÓN 4: TRANSPARENCIA & RESPALDO (Bloque 4: Fondo Blanco #ffffff)
-   ========================================================================== */
-.camp-trust-section {
-  background-color: var(--camp-bg-white);
-  padding: 80px 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.trust-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-@media (min-width: 768px) {
-  .trust-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.trust-card {
-  background: var(--camp-bg-warm);
-  border: 1px solid var(--camp-card-border);
-  border-radius: 18px;
-  padding: 30px 22px;
-  text-align: center;
-  transition: all var(--trans-base);
-  box-shadow: var(--camp-card-shadow);
-}
-
-.trust-card:hover {
-  border-color: var(--camp-card-border-focus);
-  transform: translateY(-4px);
-  box-shadow: var(--camp-card-shadow-hover);
-}
-
-.trust-icon-box {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: var(--camp-magenta-light);
-  border: 1px solid rgba(194, 24, 91, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 18px;
-  color: var(--camp-magenta);
-}
-
-.trust-card-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.18rem;
-  font-weight: 700;
-  color: var(--camp-text-dark);
-  margin-bottom: 8px;
-}
-
-.trust-card-desc {
-  font-size: 0.94rem;
-  color: var(--camp-text-body);
-  line-height: 1.55;
-}
-
-/* ==========================================================================
-   SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) (Bloque 5: Fondo #fbf7f4)
-   ========================================================================== */
-.camp-faq-section {
-  background-color: var(--camp-bg-warm);
-  padding: 80px 20px 100px;
-  position: relative;
-  z-index: 1;
-}
-
-.faq-list {
-  max-width: 760px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.faq-item {
-  background: #FFFFFF;
-  border: 1px solid var(--camp-card-border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: border-color var(--trans-base), box-shadow var(--trans-base);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-}
-
-.faq-item.active {
-  border-color: var(--camp-card-border-focus);
-  box-shadow: 0 4px 16px rgba(194, 24, 91, 0.08);
-}
-
-.faq-question-btn {
-  width: 100%;
-  padding: 20px 22px;
-  background: none;
-  border: none;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  cursor: pointer;
-  color: var(--camp-text-dark);
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.faq-chevron {
-  width: 20px;
-  height: 20px;
-  color: var(--camp-text-muted);
-  transition: transform var(--trans-base), color var(--trans-base);
-  flex-shrink: 0;
-}
-
-.faq-item.active .faq-chevron {
-  transform: rotate(180deg);
-  color: var(--camp-magenta);
-}
-
-.faq-answer-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0 22px;
-  color: var(--camp-text-body);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.faq-item.active .faq-answer-panel {
-  padding-bottom: 20px;
-}
-
-/* ==========================================================================
-   FOOTER (Bloque 6: Fondo Blanco #ffffff)
-   ========================================================================== */
-.camp-footer {
-  background-color: var(--camp-bg-white);
-  border-top: 1px solid var(--camp-card-border);
-  padding: 40px 20px 90px; /* Espacio para sticky bar móvil */
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.camp-footer-text {
-  font-size: 0.88rem;
-  color: var(--camp-text-muted);
-  margin-bottom: 12px;
-}
-
-.camp-footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  font-size: 0.88rem;
-  color: var(--camp-text-body);
-}
-
-.camp-footer-links a {
-  color: var(--camp-text-body);
-  text-decoration: none;
-  transition: color var(--trans-fast);
-}
-
-.camp-footer-links a:hover {
-  color: var(--camp-magenta);
-}
-
-/* ==========================================================================
-   STICKY BOTTOM BAR (MÓVILES — TOTALMENTE RESPONSIVE)
-   ========================================================================== */
-.camp-sticky-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid var(--camp-card-border);
-  padding: 10px 16px;
-  padding-bottom: max(10px, env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-@media (min-width: 900px) {
-  .camp-sticky-bar {
-    display: none;
-  }
-  .camp-footer {
-    padding-bottom: 40px;
-  }
-}
-
-.sticky-info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-
-.sticky-scarcity {
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--camp-magenta);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.sticky-timer {
-  font-size: 0.88rem;
-  font-weight: 800;
-  color: var(--camp-text-dark);
-  font-family: 'Outfit', sans-serif;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.sticky-btn {
-  flex: 0 0 auto;
-  padding: 10px 16px;
-  font-size: 0.9rem;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #00C853, #00B248);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
-  text-decoration: none;
-  transition: transform var(--trans-fast);
-}
-
-.sticky-btn:active {
-  transform: scale(0.96);
-}
-
-.sticky-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
+  color: var(--camp-magenta);\n  font-size: 0.85rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-bottom: 12px;\n  font-family: 'Outfit', sans-serif;\n}\n\n.section-title {\n  font-family: 'Outfit', sans-serif;\n  font-size: clamp(1.8rem, 3.5vw, 2.5rem);\n  font-weight: 800;\n  color: var(--camp-text-dark);\n  margin-bottom: 12px;\n  line-height: 1.2;\n}\n\n.section-desc {\n  font-size: 1.05rem;\n  color: var(--camp-text-body);\n  max-width: 640px;\n  margin: 0 auto;\n  line-height: 1.6;\n}\n\n.steps-grid {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 24px;\n}\n\n@media (min-width: 768px) {\n  .steps-grid {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n.step-card {\n  background: var(--camp-bg-warm);\n  border: 1px solid var(--camp-card-border);\n  border-radius: 20px;\n  padding: 32px 24px;\n  transition: all var(--trans-base);\n  display: flex;\n  flex-direction: column;\n  box-shadow: var(--camp-card-shadow);\n}\n\n.step-card:hover {\n  border-color: var(--camp-card-border-focus);\n  transform: translateY(-5px);\n  box-shadow: var(--camp-card-shadow-hover);\n}\n\n.step-number-badge {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--camp-magenta), #9C27B0);\n  color: #FFFFFF;\n  font-family: 'Outfit', sans-serif;\n  font-weight: 800;\n  font-size: 1.25rem;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 20px;\n  box-shadow: 0 6px 16px rgba(194, 24, 91, 0.25);\n}\n\n.step-title {\n  font-size: 1.22rem;\n  font-weight: 700;\n  color: var(--camp-text-dark);\n  margin-bottom: 12px;\n  line-height: 1.3;\n  font-family: 'Outfit', sans-serif;\n}\n\n.step-text {\n  font-size: 0.96rem;\n  color: var(--camp-text-body);\n  line-height: 1.6;\n  flex-grow: 1;\n}\n\n/* ==========================================================================\n   SECCIÓN 3: CALCULADORA / SIMULADOR (Bloque 3: Fondo #fbf7f4)\n   ========================================================================== */\n.camp-calc-section {\n  background-color: var(--camp-bg-warm);\n  padding: 80px 20px;\n  position: relative;\n  z-index: 1;\n}\n\n.calc-card-wrapper {\n  max-width: 860px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 1px solid var(--camp-card-border);\n  border-radius: 24px;\n  padding: clamp(24px, 4vw, 44px);\n  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);\n}\n\n.calc-control-block {\n  margin-bottom: 32px;\n}\n\n.calc-control-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 16px;\n}\n\n.calc-label {\n  font-size: 1.1rem;\n  font-weight: 700;\n  color: var(--camp-text-dark);\n  font-family: 'Outfit', sans-serif;\n}\n\n.calc-count-pill {\n  background: var(--camp-magenta-light);\n  border: 1px solid rgba(194, 24, 91, 0.3);\n  color: var(--camp-magenta-dark);\n  font-size: 1.25rem;\n  font-weight: 800;\n  padding: 4px 16px;\n  border-radius: 12px;\n  font-family: 'Outfit', sans-serif;\n}\n\n/* Slider Personalizado */\n.calc-range-slider {\n  width: 100%;\n  height: 8px;\n  -webkit-appearance: none;\n  appearance: none;\n  background: #EBE3DC;\n  border-radius: 6px;\n  outline: none;\n  cursor: pointer;\n}\n\n.calc-range-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, var(--camp-magenta), var(--camp-gold));\n  cursor: pointer;\n  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.4);\n  border: 2px solid #FFFFFF;\n  transition: transform var(--trans-fast);\n}\n\n.calc-range-slider::-webkit-slider-thumb:hover {\n  transform: scale(1.15);\n}\n\n.calc-range-slider::-moz-range-thumb {\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, var(--camp-magenta), var(--camp-gold));\n  cursor: pointer;\n  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.4);\n  border: 2px solid #FFFFFF;\n}\n\n.calc-slider-markers {\n  display: flex;\n  justify-content: space-between;\n  font-size: 0.78rem;\n  color: var(--camp-text-muted);\n  margin-top: 8px;\n  font-weight: 600;\n}\n\n/* Resultados de la Calculadora */\n.calc-results-grid {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 16px;\n  margin-bottom: 28px;\n}\n\n@media (min-width: 600px) {\n  .calc-results-grid {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n.calc-result-box {\n  background: var(--camp-bg-warm);\n  border: 1px solid var(--camp-card-border);\n  border-radius: 16px;\n  padding: 20px 16px;\n  text-align: center;\n}\n\n.calc-result-val {\n  font-family: 'Outfit', sans-serif;\n  font-size: clamp(1.6rem, 2.5vw, 2.1rem);\n  font-weight: 800;\n  color: var(--camp-text-dark);\n  margin-bottom: 4px;\n}\n\n.calc-result-val.highlight-gold {\n  color: var(--camp-gold);\n}\n\n.calc-result-val.highlight-pink {\n  color: var(--camp-magenta);\n}\n\n.calc-result-val.highlight-green {\n  color: #00A344;\n}\n\n.calc-result-label {\n  font-size: 0.84rem;\n  color: var(--camp-text-muted);\n  font-weight: 600;\n}\n\n.calc-btn-container {\n  text-align: center;\n}\n\n.calc-btn-container .btn-camp-primary {\n  max-width: 380px;\n  margin: 0 auto;\n}\n\n/* ==========================================================================\n   SECCIÓN 4: TRANSPARENCIA & RESPALDO (Bloque 4: Fondo Blanco #ffffff)\n   ========================================================================== */\n.camp-trust-section {\n  background-color: var(--camp-bg-white);\n  padding: 80px 20px;\n  position: relative;\n  z-index: 1;\n}\n\n.trust-cards-grid {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 20px;\n}\n\n@media (min-width: 768px) {\n  .trust-cards-grid {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n.trust-card {\n  background: var(--camp-bg-warm);\n  border: 1px solid var(--camp-card-border);\n  border-radius: 18px;\n  padding: 30px 22px;\n  text-align: center;\n  transition: all var(--trans-base);\n  box-shadow: var(--camp-card-shadow);\n}\n\n.trust-card:hover {\n  border-color: var(--camp-card-border-focus);\n  transform: translateY(-4px);\n  box-shadow: var(--camp-card-shadow-hover);\n}\n\n.trust-icon-box {\n  width: 56px;\n  height: 56px;\n  border-radius: 16px;\n  background: var(--camp-magenta-light);\n  border: 1px solid rgba(194, 24, 91, 0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 0 auto 18px;\n  color: var(--camp-magenta);\n}\n\n.trust-card-title {\n  font-family: 'Outfit', sans-serif;\n  font-size: 1.18rem;\n  font-weight: 700;\n  color: var(--camp-text-dark);\n  margin-bottom: 8px;\n}\n\n.trust-card-desc {\n  font-size: 0.94rem;\n  color: var(--camp-text-body);\n  line-height: 1.55;\n}\n\n/* ==========================================================================\n   SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) (Bloque 5: Fondo #fbf7f4)\n   ========================================================================== */\n.camp-faq-section {\n  background-color: var(--camp-bg-warm);\n  padding: 80px 20px 100px;\n  position: relative;\n  z-index: 1;\n}\n\n.faq-list {\n  max-width: 760px;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: column;\n  gap: 14px;\n}\n\n.faq-item {\n  background: #FFFFFF;\n  border: 1px solid var(--camp-card-border);\n  border-radius: 16px;\n  overflow: hidden;\n  transition: border-color var(--trans-base), box-shadow var(--trans-base);\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);\n}\n\n.faq-item.active {\n  border-color: var(--camp-card-border-focus);\n  box-shadow: 0 4px 16px rgba(194, 24, 91, 0.08);\n}\n\n.faq-question-btn {\n  width: 100%;\n  padding: 20px 22px;\n  background: none;\n  border: none;\n  text-align: left;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  cursor: pointer;\n  color: var(--camp-text-dark);\n  font-family: 'Outfit', sans-serif;\n  font-size: 1.05rem;\n  font-weight: 700;\n}\n\n.faq-chevron {\n  width: 20px;\n  height: 20px;\n  color: var(--camp-text-muted);\n  transition: transform var(--trans-base), color var(--trans-base);\n  flex-shrink: 0;\n}\n\n.faq-item.active .faq-chevron {\n  transform: rotate(180deg);\n  color: var(--camp-magenta);\n}\n\n.faq-answer-panel {\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.35s ease, padding 0.35s ease;\n  padding: 0 22px;\n  color: var(--camp-text-body);\n  font-size: 0.95rem;\n  line-height: 1.6;\n}\n\n.faq-item.active .faq-answer-panel {\n  padding-bottom: 20px;\n}\n\n/* ==========================================================================\n   FOOTER (Bloque 6: Fondo Blanco #ffffff)\n   ========================================================================== */\n.camp-footer {\n  background-color: var(--camp-bg-white);\n  border-top: 1px solid var(--camp-card-border);\n  padding: 40px 20px 90px; /* Espacio para sticky bar móvil */\n  text-align: center;\n  position: relative;\n  z-index: 1;\n}\n\n.camp-footer-text {\n  font-size: 0.88rem;\n  color: var(--camp-text-muted);\n  margin-bottom: 12px;\n}\n\n.camp-footer-links {\n  display: flex;\n  justify-content: center;\n  gap: 18px;\n  font-size: 0.88rem;\n  color: var(--camp-text-body);\n}\n\n.camp-footer-links a {\n  color: var(--camp-text-body);\n  text-decoration: none;\n  transition: color var(--trans-fast);\n}\n\n.camp-footer-links a:hover {\n  color: var(--camp-magenta);\n}\n\n/* ==========================================================================\n   STICKY BOTTOM BAR (MÓVILES — TOTALMENTE RESPONSIVE)\n   ========================================================================== */\n.camp-sticky-bar {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  z-index: 999;\n  background: rgba(255, 255, 255, 0.97);\n  backdrop-filter: blur(14px);\n  -webkit-backdrop-filter: blur(14px);\n  border-top: 1px solid var(--camp-card-border);\n  padding: 10px 16px;\n  padding-bottom: max(10px, env(safe-area-inset-bottom));\n  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n\n@media (min-width: 900px) {\n  .camp-sticky-bar {\n    display: none;\n  }\n  .camp-footer {\n    padding-bottom: 40px;\n  }\n}\n\n.sticky-info {\n  display: flex;\n  flex-direction: column;\n  min-width: 0;\n  flex: 1 1 auto;\n  overflow: hidden;\n}\n\n.sticky-scarcity {\n  font-size: 0.76rem;\n  font-weight: 700;\n  color: var(--camp-magenta);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n\n.sticky-timer {\n  font-size: 0.88rem;\n  font-weight: 800;\n  color: var(--camp-text-dark);\n  font-family: 'Outfit', sans-serif;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n\n.sticky-btn {\n  flex: 0 0 auto;\n  padding: 10px 16px;\n  font-size: 0.9rem;\n  border-radius: 10px;\n  background: linear-gradient(135deg, #00C853, #00B248);\n  color: #FFFFFF;\n  font-weight: 700;\n  font-family: 'Outfit', sans-serif;\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  white-space: nowrap;\n  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);\n  text-decoration: none;\n  transition: transform var(--trans-fast);\n}\n\n.sticky-btn:active {\n  transform: scale(0.96);\n}\n\n.sticky-btn svg {\n  width: 18px;\n  height: 18px;\n  fill: currentColor;\n  flex-shrink: 0;\n}
