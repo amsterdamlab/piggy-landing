@@ -113,156 +113,133 @@
   margin: 0 auto;
 }
 
-/* Grid Superior Hero (Texto a la izquierda, Cerdito a la derecha) */
-.camp-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
+/* Hero Banner con foto de fondo del cerdito y textos superpuestos */
+.camp-hero-banner {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #1A0C0A;
+  background-image: 
+    linear-gradient(90deg, rgba(20, 10, 8, 0.90) 0%, rgba(20, 10, 8, 0.78) 45%, rgba(20, 10, 8, 0.25) 75%, rgba(20, 10, 8, 0) 100%),
+    url('/assets/piggy-diciembre.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  margin-bottom: 36px;
+  min-height: 400px;
+  display: flex;
   align-items: center;
-  margin-bottom: 48px;
 }
 
-@media (min-width: 960px) {
-  .camp-hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 48px;
+@media (max-width: 900px) {
+  .camp-hero-banner {
+    background-image: 
+      linear-gradient(180deg, rgba(20, 10, 8, 0.90) 0%, rgba(20, 10, 8, 0.82) 55%, rgba(20, 10, 8, 0.4) 100%),
+      url('/assets/piggy-diciembre.jpg');
+    background-position: center right;
+    min-height: auto;
   }
 }
 
-.camp-hero-info {
-  display: flex;
-  flex-direction: column;
+.camp-hero-banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 48px 40px;
+  max-width: 620px;
+  text-align: left;
 }
 
-@media (max-width: 959px) {
-  .camp-hero-info {
-    text-align: center;
-    align-items: center;
+@media (max-width: 640px) {
+  .camp-hero-banner-content {
+    padding: 32px 20px;
   }
 }
 
 .camp-hero-eyebrow {
   display: inline-block;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--camp-gold);
+  color: #E5A855;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   margin-bottom: 12px;
   font-family: 'Outfit', sans-serif;
 }
 
 .camp-hero-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-size: clamp(2.2rem, 4.4vw, 3.3rem);
   font-weight: 800;
-  line-height: 1.15;
-  color: var(--camp-text-dark);
+  line-height: 1.12;
+  color: #FFA2B6; /* Exact pastel rose pink from reference */
   margin-bottom: 16px;
   letter-spacing: -0.5px;
-}
-
-.camp-hero-title .highlight-pink {
-  color: var(--camp-magenta);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .camp-hero-subtitle {
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
-  color: var(--camp-text-body);
-  line-height: 1.6;
-  max-width: 600px;
+  font-size: clamp(0.96rem, 1.8vw, 1.12rem);
+  color: #FFFFFF;
+  line-height: 1.55;
   margin-bottom: 24px;
+  max-width: 520px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Badges / Chips de Ciclo y Cupos */
-.camp-hero-badges {
+/* Badges / Chips estilo dark translucent de la referencia */
+.camp-hero-chips {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-@media (max-width: 959px) {
-  .camp-hero-badges {
-    justify-content: center;
-  }
-}
-
-.hero-chip {
+.camp-dark-chip {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: var(--camp-bg-white);
-  border: 1px solid var(--camp-card-border);
-  padding: 8px 16px;
-  border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  transition: transform var(--trans-fast);
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 10px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform var(--trans-fast), border-color var(--trans-fast);
 }
 
-.hero-chip:hover {
+.camp-dark-chip:hover {
   transform: translateY(-2px);
+  border-color: rgba(229, 168, 85, 0.5);
 }
 
-.hero-chip-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--camp-magenta-light);
-  color: var(--camp-magenta);
+.dark-chip-icon {
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.hero-chip-content {
+.dark-chip-info {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-.chip-title {
-  font-size: 0.76rem;
+.chip-label {
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--camp-text-muted);
+  color: #E5A855;
   line-height: 1.2;
 }
 
 .chip-value {
   font-size: 0.96rem;
   font-weight: 800;
-  color: var(--camp-text-dark);
+  color: #FFFFFF;
   font-family: 'Outfit', sans-serif;
-}
-
-/* Columna Derecha Hero: Imagen del Cerdito Navideño */
-.camp-hero-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.camp-pig-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(194, 24, 91, 0.12);
-  background: #FFFFFF;
-}
-
-.camp-pig-image {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.camp-pig-image-wrapper:hover .camp-pig-image {
-  transform: scale(1.03);
 }
 
 /* ==========================================================================
