@@ -58,12 +58,12 @@
 .camp-header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 6px 20px;
+  padding: 4px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 64px;
+  min-height: 88px;
 }
 
 .camp-logo-wrapper {
@@ -74,21 +74,21 @@
 }
 
 .camp-logo-img {
-  height: 52px;
+  height: 83px;
   width: auto;
-  max-height: 54px;
+  max-height: 85px;
   object-fit: contain;
   display: block;
 }
 
 @media (max-width: 640px) {
   .camp-header-container {
-    padding: 6px 16px;
-    min-height: 56px;
+    padding: 4px 16px;
+    min-height: 72px;
   }
   .camp-logo-img {
-    height: 44px;
-    max-height: 46px;
+    height: 68px;
+    max-height: 70px;
   }
 }
 
