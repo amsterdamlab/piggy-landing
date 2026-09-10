@@ -41,13 +41,13 @@
   overflow-x: hidden;
 }
 
-/* Header Fijo / Sticky Blanco */
+/* Header Fijo / Sticky */
 .camp-header {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.96);
+  background: #fbf7f4;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -58,28 +58,44 @@
 .camp-header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 6px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  min-height: 64px;
 }
 
 .camp-logo-wrapper {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
+  user-select: none;
 }
 
 .camp-logo-img {
-  height: 38px;
+  height: 52px;
   width: auto;
+  max-height: 54px;
   object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .camp-header-container {
+    padding: 6px 16px;
+    min-height: 56px;
+  }
+  .camp-logo-img {
+    height: 44px;
+    max-height: 46px;
+  }
 }
 
 .camp-header-cta {
-  padding: 9px 22px;
+  position: relative;
+  overflow: hidden;
+  padding: 10px 24px;
   font-size: 0.95rem;
   border-radius: 9999px;
   background: var(--camp-magenta);
@@ -96,6 +112,39 @@
   transform: translateY(-2px);
   background: var(--camp-magenta-dark);
   box-shadow: 0 6px 18px rgba(194, 24, 91, 0.38);
+}
+
+/* Efecto Shine en Botón VIP cada 7 segundos */
+.camp-header-cta::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -130%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 15%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.1) 85%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: headerCtaShine 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes headerCtaShine {
+  0% {
+    left: -130%;
+  }
+  18% {
+    left: 200%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 
 /* ==========================================================================
@@ -287,9 +336,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(0.88rem, 2vw, 1.05rem);
+  font-size: clamp(0.92rem, 2.2vw, 1.15rem);
   font-weight: 800;
   color: var(--camp-magenta-dark);
   text-transform: uppercase;
@@ -297,8 +346,29 @@
   margin-bottom: 20px;
 }
 
-.countdown-heading svg {
+.countdown-heading svg,
+.countdown-cal-icon {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
   color: var(--camp-magenta);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .countdown-heading {
+    gap: 8px;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+  .countdown-heading svg,
+  .countdown-cal-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
 }
 
 /* Grid de 4 Tarjetas Blancas */
@@ -815,37 +885,15 @@
 /* ==========================================================================
    FOOTER (Bloque 6: Fondo Blanco #ffffff)
    ========================================================================== */
-.camp-footer {
+.main-footer {
   background-color: var(--camp-bg-white);
   border-top: 1px solid var(--camp-card-border);
-  padding: 40px 20px 90px; /* Espacio para sticky bar móvil */
-  text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
-.camp-footer-text {
-  font-size: 0.88rem;
-  color: var(--camp-text-muted);
-  margin-bottom: 12px;
-}
-
-.camp-footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  font-size: 0.88rem;
-  color: var(--camp-text-body);
-}
-
-.camp-footer-links a {
-  color: var(--camp-text-body);
-  text-decoration: none;
-  transition: color var(--trans-fast);
-}
-
-.camp-footer-links a:hover {
-  color: var(--camp-magenta);
+@media (max-width: 899px) {
+  .main-footer {
+    padding-bottom: 90px; /* Espacio para sticky bar móvil */
+  }
 }
 
 /* ==========================================================================
@@ -873,9 +921,6 @@
 @media (min-width: 900px) {
   .camp-sticky-bar {
     display: none;
-  }
-  .camp-footer {
-    padding-bottom: 40px;
   }
 }
 
