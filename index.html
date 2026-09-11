@@ -1,31 +1,32 @@
 <!DOCTYPE html>
+<!-- Build Trigger: 2026-07-16-v6 -->
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Piggy App — Invierte y Monitorea Cerditos de Engorde en Colombia</title>
+  <title>Piggy App — Tu granja de engorde en tus manos</title>
   
-  <!-- SEO & Meta Tags -->
-  <meta name="description" content="Engorda cerditos desde tu celular en Colombia con Piggy App. Monitorea su crecimiento en tiempo real, pesajes semanales y genera rentabilidad al venderlos." />
-  <meta name="keywords" content="engorde de cerdos, inversion porcina, granja digital colombia, piggy app, comprar cerditos cali, rentabilidad agro colombia" />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de criarlos, la logística y comercialización. Participa en el ciclo de engorde porcino digital." />
+  <meta name="keywords" content="agrofintech, porcicultura, inversion digital, piggy app, engorde porcino, colombia fintech" />
   <meta name="author" content="Piggy App" />
   <meta name="theme-color" content="#E91E63" />
   
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://piggy-app-v2-gvm.vercel.app/" />
-  <meta property="og:title" content="Piggy App — Invierte y Monitorea Cerditos de Engorde" />
-  <meta property="og:description" content="Engorda cerditos desde tu celular en Colombia. Monitorea su crecimiento en tiempo real y recibe tus beneficios al final del ciclo." />
-  <meta property="og:image" content="https://piggy-app-v2-gvm.vercel.app/assets/piggy-hero-icon.png" />
+  <meta property="og:url" content="https://www.migranjapiggy.com/" />
+  <meta property="og:title" content="Piggy App — Tu granja de engorde en tus manos" />
+  <meta property="og:description" content="Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de la crianza, logística y comercialización." />
+  <meta property="og:image" content="https://www.migranjapiggy.com/assets/og-image.png" />
   <meta property="og:image:width" content="500" />
   <meta property="og:image:height" content="500" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:site_name" content="Piggy App" />
-  
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Piggy App — Invierte y Monitorea Cerditos de Engorde" />
-  <meta name="twitter:description" content="Engorda cerditos desde tu celular en Colombia. Monitoreo en tiempo real y rentabilidad transparente." />
-  <meta name="twitter:image" content="https://piggy-app-v2-gvm.vercel.app/assets/piggy-hero-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Piggy App — Tu granja de engorde en tus manos" />
+  <meta name="twitter:description" content="Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de la crianza, logística y comercialización." />
+  <meta name="twitter:image" content="https://www.migranjapiggy.com/assets/og-image.png" />
 
   <!-- Google Fonts: Outfit (headings) & Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,713 +36,484 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   
-  <!-- Modular CSS Files -->
-  <link rel="stylesheet" href="/css/base.css" />
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/hero.css" />
-  <link rel="stylesheet" href="/css/phone-screen.css" />
-  <link rel="stylesheet" href="/css/sections.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
+  <!-- Styling -->
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
   <!-- Header Section -->
-  <header class="main-header" id="header">
+  <header id="header-root">
     <div class="header-container">
-      <!-- Logo -->
-      <a href="#hero" class="logo-group" aria-label="Piggy App Inicio">
-        <img src="/assets/logo.png" alt="Piggy App Logo" class="logo-image" />
+      <a href="#inicio" class="logo-link" id="logo-nav-link" aria-label="Piggy App Inicio">
+        <img src="/assets/logo.png" alt="Piggy Logo" class="nav-logo" />
       </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="#como-funciona" class="nav-link">¿Cómo Funciona?</a>
-        <a href="#beneficios" class="nav-link">Beneficios</a>
-        <a href="#granja" class="nav-link">Nuestra Granja</a>
-        <a href="#calculadora" class="nav-link">Simulador</a>
-        <a href="#faq" class="nav-link">Preguntas</a>
-      </nav>
-
-      <!-- CTA Button Desktop -->
+      
       <div class="header-actions">
-        <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary btn-header" target="_blank" rel="noopener">
-          Iniciar Sesión
-        </a>
+        <a href="https://app.migranjapiggy.com/" class="btn-cta" id="cta-header">Iniciar sesión</a>
       </div>
 
-      <!-- Hamburger Button (Mobile) -->
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileNav">
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
-        <span class="hamburger-bar"></span>
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#nosotros" class="nav-item-link" id="link-nosotros">Nosotros</a></li>
+          <li><a href="#como-funciona" class="nav-item-link" id="link-como-funciona">Cómo funciona</a></li>
+          <li><a href="#beneficios" class="nav-item-link" id="link-beneficios">Beneficios</a></li>
+          <li><a href="#faq" class="nav-item-link" id="link-faq">FAQ</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile hamburger toggle button -->
+      <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
       </button>
     </div>
-
-    <!-- Mobile Drawer Navigation -->
-    <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil" hidden>
-      <div class="mobile-nav-inner">
-        <a href="#como-funciona" class="mobile-nav-link">¿Cómo Funciona?</a>
-        <a href="#beneficios" class="mobile-nav-link">Beneficios</a>
-        <a href="#granja" class="mobile-nav-link">Nuestra Granja</a>
-        <a href="#calculadora" class="mobile-nav-link">Simulador</a>
-        <a href="#faq" class="mobile-nav-link">Preguntas Frecuentes</a>
-        <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary mobile-cta" target="_blank" rel="noopener">
-          Iniciar Sesión
-        </a>
-      </div>
-    </nav>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="hero">
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
       <div class="hero-container">
-        <!-- Text Column -->
+        <!-- Floating decorative badges around hero -->
+        <div class="floating-badge badge-pigs floating-anim-1">
+          <div class="badge-icon-wrap"><span class="badge-icon">🐷</span></div>
+          <div class="badge-text-wrap">
+            <span class="badge-title">Cerditos en engorde</span>
+            <span class="badge-subtitle">100% Monitoreados</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-growth floating-anim-2">
+          <div class="badge-icon-wrap"><span class="badge-icon">📈</span></div>
+          <div class="badge-text-wrap">
+            <span class="badge-title">Rendimiento Real</span>
+            <span class="badge-subtitle">Ciclo Transparente</span>
+          </div>
+        </div>
+
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-            <span class="badge-text">Engorde Digital Inteligente en Colombia</span>
+          <div class="hero-chip">
+            <span class="hero-chip-icon">✨</span>
+            <span class="hero-chip-text">La primera plataforma agro-digital de engorde porcino</span>
           </div>
 
           <h1 class="hero-title">
-            Compra tu cerdito de engorde, <span class="text-highlight">monitorea su crecimiento</span> y recibe tus ganancias.
+            Tu granja de engorde <br />
+            <span class="gradient-text-hero">en tus manos</span>
           </h1>
 
           <p class="hero-subtitle">
-            Con <strong>Piggy App</strong> compras cerditos de granjas certificadas, sigues su ciclo de engorde en vivo desde tu celular con pesajes semanales y obtienes rentabilidad al finalizar su venta en el mercado.
+            Compra cerditos de engorde desde nuestra app. Nosotros nos encargamos de cuidarlos, alimentarlos y comercializarlos por ti.
           </p>
 
           <div class="hero-cta-group">
-            <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-              <span>Comenzar Ahora</span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M4.167 10h11.666m-4.166-4.167L15.833 10l-4.166 4.167" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+            <a href="https://app.migranjapiggy.com/" class="btn-primary-hero">
+              <span class="btn-text">Comenzar ahora</span>
+              <span class="btn-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
             </a>
-            <a href="#como-funciona" class="btn btn-outline btn-lg">
-              <span>Ver Cómo Funciona</span>
+            
+            <a href="#como-funciona" class="btn-secondary-hero">
+              <span class="btn-icon-play">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </span>
+              <span>Ver cómo funciona</span>
             </a>
           </div>
 
-          <!-- Trust Badges Under CTA -->
-          <div class="hero-trust-bar">
-            <div class="trust-item">
-              <span class="trust-number">100%</span>
-              <span class="trust-desc">Transparente</span>
+          <!-- Proof Metrics Cards Under CTA -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-card">
+              <span class="stat-number">+10</span>
+              <span class="stat-label">Años de experiencia con Granja Villa Morales</span>
             </div>
-            <div class="trust-separator"></div>
-            <div class="trust-item">
-              <span class="trust-number">Semanal</span>
-              <span class="trust-desc">Pesaje en Vivo</span>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat-card">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Trazabilidad en tiempo real desde la app</span>
             </div>
-            <div class="trust-separator"></div>
-            <div class="trust-item">
-              <span class="trust-number">ICA</span>
-              <span class="trust-desc">Granja Certificada</span>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat-card">
+              <span class="stat-number">ICA</span>
+              <span class="stat-label">Granjas certificadas y bioseguras</span>
             </div>
           </div>
         </div>
 
-        <!-- Visual Column: Phone Mockup with CSS UI Inside -->
-        <div class="hero-visual">
-          <div class="phone-frame-wrapper">
-            <!-- Glow background effect -->
-            <div class="glow-bg"></div>
-
-            <!-- Floating Badge Left: Rentabilidad -->
-            <div class="floating-badge badge-left animate-float">
-              <div class="badge-icon-wrap icon-profit">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-              </div>
-              <div class="badge-text-wrap">
-                <span class="badge-small-label">Ganancia proyectada</span>
-                <strong class="badge-main-val">+18% a +25%</strong>
-              </div>
-            </div>
-
-            <!-- Floating Badge Right: Granja ICA -->
-            <div class="floating-badge badge-right animate-float-delay">
-              <div class="badge-icon-wrap icon-shield">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-              <div class="badge-text-wrap">
-                <span class="badge-small-label">Respaldo Real</span>
-                <strong class="badge-main-val">Granja Villa Morales</strong>
-              </div>
-            </div>
-
-            <!-- PHONE WRAPPER -->
-            <div class="phone-device-container">
-              <!-- Frame PNG Image overlay with transparent screen window -->
-              <img src="/assets/hero-phone-frame.webp" alt="Marco de Teléfono Piggy App" class="phone-frame-overlay" />
-
-              <!-- INNER PHONE SCREEN (HTML + CSS Replica of Piggy App Dashboard) -->
-              <div class="phone-screen-content">
-                <!-- Status Bar -->
-                <div class="screen-status-bar">
+        <!-- Hero Mockup Phone Container with 3D Depth & Dynamic Shadows -->
+        <div class="hero-visual-wrapper">
+          <div class="phone-glow-bg"></div>
+          <div class="phone-perspective-container">
+            <div class="phone-mockup">
+              <!-- Physical Mockup Hardware Accents -->
+              <div class="phone-speaker"></div>
+              <div class="phone-camera"></div>
+              
+              <!-- Screen UI Area Inside Phone -->
+              <div class="phone-screen">
+                <!-- App Status Bar Header -->
+                <div class="app-status-bar">
                   <span class="status-time">9:41</span>
                   <div class="status-icons">
-                    <svg width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><path d="M0 10h3v2H0v-2zm4-3h3v5H4V7zm4-3h3v8H8V4zm4-4h3v12h-3V0z"/></svg>
-                    <svg width="14" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.5C5.2 2.5 2.7 3.7 1 5.7L0 4.5C2 2.2 4.9.8 8 .8s6 1.4 8 3.7l-1 1.2C13.3 3.7 10.8 2.5 8 2.5zm0 4c-1.7 0-3.3.7-4.4 1.9L2.5 7.3C3.9 5.8 5.8 5 8 5s4.1.8 5.5 2.3l-1.1 1.1C11.3 7.2 9.7 6.5 8 6.5zm0 4c-.8 0-1.6.3-2.1.9L8 13.5l2.1-2.1c-.5-.6-1.3-.9-2.1-.9z"/></svg>
-                    <div class="battery-icon"><span></span></div>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.22 19.66 10.57 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="18" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/></svg>
                   </div>
                 </div>
 
-                <!-- Top App Header -->
-                <div class="screen-app-header">
-                  <div class="user-greeting">
-                    <span class="greeting-subtitle">Hola, Inversionista</span>
-                    <span class="greeting-name">Mi Granja Activa 👋</span>
+                <!-- App Inner Navigation -->
+                <div class="app-header-nav">
+                  <div class="app-user-greeting">
+                    <span class="greeting-subtitle">Bienvenido de nuevo 👋</span>
+                    <span class="greeting-title">Mi Granja Digital</span>
                   </div>
-                  <div class="app-header-avatar">
-                    <img src="/assets/welcome-couple.png" alt="Usuario Avatar" />
+                  <div class="app-avatar-badge">
+                    <img src="/assets/welcome-couple.png" alt="Usuario" class="app-avatar-img" />
                   </div>
                 </div>
 
-                <!-- Balance / Portfolio Summary Card -->
-                <div class="screen-balance-card">
-                  <div class="balance-top">
-                    <span class="balance-lbl">Valor de tu Granja</span>
-                    <span class="balance-pill">+21.4% Estimado</span>
+                <!-- App Balance Card Mockup -->
+                <div class="app-balance-card">
+                  <div class="balance-top-row">
+                    <span class="balance-label">Total en Engorde</span>
+                    <span class="balance-badge">+14.2% Ciclo</span>
                   </div>
-                  <div class="balance-amount">$ 3.450.000 <small>COP</small></div>
-                  <div class="balance-footer">
-                    <div class="b-stat">
-                      <span class="b-stat-lbl">Cerditos Activos</span>
-                      <strong class="b-stat-val">3 Piggys</strong>
+                  <div class="balance-amount">$ 4.850.000 <span class="currency-tag">COP</span></div>
+                  <div class="balance-meta">
+                    <div class="meta-item">
+                      <span class="meta-dot"></span>
+                      <span>4 Cerditos activos</span>
                     </div>
-                    <div class="b-stat">
-                      <span class="b-stat-lbl">Días Restantes</span>
-                      <strong class="b-stat-val">42 días</strong>
+                    <div class="meta-item">
+                      <span class="meta-icon">📅</span>
+                      <span>Día 48 de 90</span>
                     </div>
                   </div>
                 </div>
 
-                <!-- Section Title Inside Screen -->
-                <div class="screen-section-heading">
-                  <span>Tus Cerditos en Engorde</span>
-                  <a href="#">Ver todos</a>
-                </div>
-
-                <!-- Piggy Active Card Replica: Gordito #084 -->
-                <div class="screen-pig-card">
-                  <div class="screen-pig-img-wrap">
-                    <img src="/assets/pigs/gordito.webp" alt="Cerdito Gordito" class="screen-pig-img" />
-                    <span class="pig-stage-tag">Engorde</span>
-                  </div>
-                  <div class="screen-pig-info">
-                    <div class="pig-header-flex">
-                      <strong class="pig-name">Gordito #084</strong>
-                      <span class="pig-batch">Lote Rozo B</span>
+                <!-- Interactive Live Piggy Feed Item Inside Phone -->
+                <div class="app-live-card">
+                  <div class="live-card-header">
+                    <div class="live-indicator">
+                      <span class="live-pulse"></span>
+                      <span class="live-text">EN VIVO</span>
                     </div>
+                    <span class="live-granja-name">Lote Morales #12</span>
+                  </div>
 
-                    <!-- Mini Weight Progress Bar -->
-                    <div class="pig-progress-group">
-                      <div class="pig-progress-labels">
-                        <span>Peso actual: <strong>68.5 kg</strong></span>
-                        <span>Meta: 110 kg</span>
+                  <div class="live-image-container">
+                    <img src="/assets/pig-feeding.jpg" alt="Cerdito comiendo" class="live-pig-photo" />
+                    <div class="live-overlay-stats">
+                      <div class="overlay-pill">
+                        <span>⚖️ Peso: <strong>68.4 kg</strong></span>
                       </div>
-                      <div class="pig-progress-bar">
-                        <div class="pig-progress-fill" style="width: 62%;"></div>
+                      <div class="overlay-pill">
+                        <span>🌾 Ración: <strong>2.8 kg/día</strong></span>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="pig-card-footer">
-                      <span class="daily-gain">+850g / día</span>
-                      <span class="live-cam-tag">🔴 Pesaje al día</span>
+                  <!-- Progress Bar for Selected Piggy -->
+                  <div class="live-progress-box">
+                    <div class="progress-labels">
+                      <span class="progress-title">Etapa: Crecimiento y Engorde</span>
+                      <span class="progress-percent">76%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                      <div class="progress-bar-fill" style="width: 76%;"></div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Second Piggy Mini Card: Luna #091 -->
-                <div class="screen-pig-card mini-card">
-                  <div class="screen-pig-img-wrap mini">
-                    <img src="/assets/pigs/luna.webp" alt="Cerdita Luna" class="screen-pig-img" />
-                  </div>
-                  <div class="screen-pig-info">
-                    <div class="pig-header-flex">
-                      <strong class="pig-name">Luna #091</strong>
-                      <span class="pig-weight-badge">74.2 kg</span>
-                    </div>
-                    <span class="mini-pig-meta">Etapa Engorde Final • Lote Rozo A</span>
-                  </div>
-                </div>
-
-                <!-- Bottom Tab Bar -->
-                <div class="screen-tab-bar">
-                  <div class="tab-item active">
+                <!-- Quick Action Navigation Inside Screen -->
+                <div class="app-bottom-nav">
+                  <div class="nav-tab active">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
                     <span>Granja</span>
                   </div>
-                  <div class="tab-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                  <div class="nav-tab">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                     <span>Pesajes</span>
                   </div>
-                  <div class="tab-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                    <span>Billetera</span>
+                  <div class="nav-tab">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                    <span>Cámaras</span>
                   </div>
-                  <div class="tab-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg>
+                  <div class="nav-tab">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                     <span>Perfil</span>
                   </div>
                 </div>
-
-              </div><!-- end phone-screen-content -->
-            </div><!-- end phone-device-container -->
-
-          </div><!-- end phone-frame-wrapper -->
-        </div><!-- end hero-visual -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 2: CÓMO FUNCIONA (4 PASOS CLAROS) -->
-    <section class="section how-it-works-section" id="como-funciona">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Paso a Paso</span>
-          <h2 class="section-title">¿Cómo Funciona Piggy App?</h2>
-          <p class="section-description">
-            Democratizamos el sector porcícola en Colombia. Tú compras los lechones desde la plataforma y nosotros nos encargamos del cuidado profesional, nutrición y comercialización.
-          </p>
+    <!-- SECTION: NOSOTROS (Granja Villa Morales Partnership) -->
+    <section class="section-container" id="nosotros">
+      <div class="section-content-wrap">
+        <div class="section-badge">
+          <span class="badge-pill">Alianza Estratégica</span>
+        </div>
+        
+        <h2 class="section-heading">
+          Tecnología digital respaldada por <br />
+          <span class="highlight-pink">Granja Villa Morales del Valle SAS</span>
+        </h2>
+        
+        <p class="section-subheading">
+          Unimos la innovación tecnológica de Piggy App con la experiencia de más de una década en porcicultura técnica, bioseguridad y nutrición animal en Colombia.
+        </p>
+
+        <div class="features-grid-3">
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="feature-card-title">Instalaciones Certificadas</h3>
+            <p class="feature-card-desc">
+              Granjas tecnificadas con certificación ICA, protocolos estrictos de bioseguridad, control ambiental y bienestar porcino permanente.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+            </div>
+            <h3 class="feature-card-title">Equipo Veterinario Experto</h3>
+            <p class="feature-card-desc">
+              Médicos veterinarios y zootecnistas supervisan las fórmulas de nutrición balanceada y las curvas de ganancia diaria de peso.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h3 class="feature-card-title">Canal Comercial Seguro</h3>
+            <p class="feature-card-desc">
+              Al finalizar los ciclos de engorde, la comercialización se realiza a través de convenios establecidos con frigoríficos y distribuidores mayoristas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CÓMO FUNCIONA (Paso a Paso) -->
+    <section class="section-container bg-subtle" id="como-funciona">
+      <div class="section-content-wrap">
+        <div class="section-badge">
+          <span class="badge-pill">Proceso Simple</span>
         </div>
 
-        <div class="steps-grid">
+        <h2 class="section-heading">¿Cómo funciona Piggy App?</h2>
+        <p class="section-subheading">
+          En sólo cuatro pasos sencillos formas parte de la economía porcina sin necesidad de tener una finca ni conocimientos previos de campo.
+        </p>
+
+        <div class="steps-container">
           <!-- Step 1 -->
-          <div class="step-card">
-            <div class="step-number">01</div>
-            <div class="step-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <div class="step-item">
+            <div class="step-indicator">
+              <span class="step-num">1</span>
             </div>
-            <h3 class="step-title">1. Elige tu Cerdito</h3>
-            <p class="step-desc">
-              Regístrate en la app, revisa los lotes disponibles con certificado de origen y adquiere uno o varios cerditos en etapa de inicio o levante con pasarela segura Wompi.
-            </p>
+            <div class="step-details">
+              <h3 class="step-title">Crea tu cuenta y elige tu cerdito</h3>
+              <p class="step-description">
+                Descarga o ingresa a Piggy App, regístrate en segundos y selecciona el lote de cerditos disponible con su información genealógica y peso de inicio.
+              </p>
+            </div>
           </div>
 
           <!-- Step 2 -->
-          <div class="step-card">
-            <div class="step-number">02</div>
-            <div class="step-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          <div class="step-item">
+            <div class="step-indicator">
+              <span class="step-num">2</span>
             </div>
-            <h3 class="step-title">2. Cuidado Profesional</h3>
-            <p class="step-desc">
-              Granja Villa Morales se encarga del plan de vacunación, dietas balanceadas de alta conversión y bioseguridad en corrales técnicos bajo certificación ICA.
-            </p>
+            <div class="step-details">
+              <h3 class="step-title">Pago 100% digital y seguro</h3>
+              <p class="step-description">
+                Realiza el pago de adquisición y mantenimiento del ciclo mediante PSE, tarjetas o transferencias con nuestra pasarela segura Wompi.
+              </p>
+            </div>
           </div>
 
           <!-- Step 3 -->
-          <div class="step-card">
-            <div class="step-number">03</div>
-            <div class="step-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <div class="step-item">
+            <div class="step-indicator">
+              <span class="step-num">3</span>
             </div>
-            <h3 class="step-title">3. Monitorea el Progreso</h3>
-            <p class="step-desc">
-              Accede a pesajes semanales certificados, fotos actualizadas de tu cerdito, curva de ganancia de peso diaria y cálculo estimado del valor en canal.
-            </p>
+            <div class="step-details">
+              <h3 class="step-title">Monitorea el ciclo en tiempo real</h3>
+              <p class="step-description">
+                Sigue los pesajes semanales, reportes de alimentación, fotografías del lote y el estado de salud de tus animales directo en tu celular.
+              </p>
+            </div>
           </div>
 
           <!-- Step 4 -->
-          <div class="step-card">
-            <div class="step-number">04</div>
-            <div class="step-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          <div class="step-item">
+            <div class="step-indicator">
+              <span class="step-num">4</span>
             </div>
-            <h3 class="step-title">4. Venta y Liquidación</h3>
-            <p class="step-desc">
-              Al cumplir la etapa final (~110 kg), el lote es vendido a frigoríficos aliados. Recibes tu capital más la rentabilidad neta directamente en tu cuenta bancaria.
-            </p>
+            <div class="step-details">
+              <h3 class="step-title">Venta y liquidación transparente</h3>
+              <p class="step-description">
+                Al cumplir el peso óptimo de mercado (~105-115 kg), el lote es comercializado y recibes tu capital más los rendimientos directamente en tu cuenta bancaria.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: BENEFICIOS / PROPUESTA DE VALOR -->
-    <section class="section benefits-section" id="beneficios">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">¿Por qué Elegirnos?</span>
-          <h2 class="section-title">El Negocio del Agro, Ahora a tu Alcance</h2>
-          <p class="section-description">
-            Tradicionalmente, engordar cerdos requería tierra, infraestructura costosa y tiempo completo. En Piggy App eliminamos las barreras de entrada.
-          </p>
+    <!-- SECTION: BENEFICIOS (Ventajas Clave) -->
+    <section class="section-container" id="beneficios">
+      <div class="section-content-wrap">
+        <div class="section-badge">
+          <span class="badge-pill">Ventajas Exclusivas</span>
         </div>
+
+        <h2 class="section-heading">Por qué elegir Piggy App</h2>
+        <p class="section-subheading">
+          Diseñado para personas y empresas que desean diversificar en el sector productivo real con tranquilidad, transparencia y tecnología.
+        </p>
 
         <div class="benefits-grid">
-          <!-- Benefit 1 -->
-          <div class="benefit-card">
-            <div class="benefit-icon bg-pink-light">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E91E63" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <div class="benefit-box">
+            <div class="benefit-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
             </div>
-            <h3 class="benefit-title">Inversión 100% Tangible</h3>
-            <p class="benefit-desc">
-              Tu dinero está respaldado por activos biológicos reales: animales vivos en corrales reales que ganan peso todos los días.
-            </p>
+            <h4>Sin complicaciones de gestión</h4>
+            <p>Tú no compras alimento ni limpias corrales. Nuestro equipo en Granja Villa Morales ejecuta toda la labor operativa.</p>
           </div>
 
-          <!-- Benefit 2 -->
-          <div class="benefit-card">
-            <div class="benefit-icon bg-green-light">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          <div class="benefit-box">
+            <div class="benefit-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
-            <h3 class="benefit-title">Rentabilidad Competitiva</h3>
-            <p class="benefit-desc">
-              El ciclo porcino eficiente dura entre 3 y 4 meses, generando márgenes netos superiores a las alternativas financieras tradicionales.
-            </p>
+            <h4>Trazabilidad Total</h4>
+            <p>Cada cerdito tiene un registro individual con fecha de ingreso, evolución biométrica y dosis nutricionales aplicadas.</p>
           </div>
 
-          <!-- Benefit 3 -->
-          <div class="benefit-card">
-            <div class="benefit-icon bg-gold-light">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C27803" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <div class="benefit-box">
+            <div class="benefit-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             </div>
-            <h3 class="benefit-title">Cero Preocupación Operativa</h3>
-            <p class="benefit-desc">
-              No tienes que limpiar corrales, preparar alimento ni lidiar con compradores. Médicos veterinarios y zootecnistas gestionan todo.
-            </p>
+            <h4>Mercado de Alta Demanda</h4>
+            <p>La carne de cerdo es la proteína animal con mayor crecimiento sostenido en consumo a nivel nacional e internacional.</p>
           </div>
 
-          <!-- Benefit 4 -->
-          <div class="benefit-card">
-            <div class="benefit-icon bg-blue-light">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <div class="benefit-box">
+            <div class="benefit-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
             </div>
-            <h3 class="benefit-title">Trazabilidad Total</h3>
-            <p class="benefit-desc">
-              Visualiza en video y fotos los pesajes semanales de tu lote. Cada cerdo cuenta con número de arete único y hoja de vida nutricional.
-            </p>
-          </div>
-
-          <!-- Benefit 5 -->
-          <div class="benefit-card">
-            <div class="benefit-icon bg-purple-light">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9C27B0" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-            </div>
-            <h3 class="benefit-title">Pagos Seguros con Wompi</h3>
-            <p class="benefit-desc">
-              Transfiere con PSE, tarjetas de crédito o Bancolombia a través de pasarelas vigiladas por la Superintendencia Financiera.
-            </p>
-          </div>
-
-          <!-- Benefit 6 -->
-          <div class="benefit-card">
-            <div class="benefit-icon bg-teal-light">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00897B" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            </div>
-            <h3 class="benefit-title">Impacto en el Agro Local</h3>
-            <p class="benefit-desc">
-              Fomentas el empleo rural en el Valle del Cauca y apoyas una producción porcícola sostenible y tecnificada.
-            </p>
+            <h4>Ciclos Cortos y Eficientes</h4>
+            <p>Ciclos de engorde estructurados entre 90 y 110 días, permitiendo una rápida rotación y evaluación de resultados.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: NUESTRA GRANJA & RESPALDO (GRANJA VILLA MORALES) -->
-    <section class="section farm-section" id="granja">
-      <div class="section-container">
-        <div class="farm-grid">
-          <!-- Text Column -->
-          <div class="farm-content">
-            <span class="section-tag">Instalaciones Técnicas</span>
-            <h2 class="section-title">Granja Villa Morales: +10 Años de Experiencia Porcícola</h2>
-            <p class="farm-desc">
-              Nuestras instalaciones ubicadas en Rozo, Valle del Cauca, operan con los más altos estándares sanitarios y de bienestar animal en Colombia.
-            </p>
+    <!-- SECTION: PREGUNTAS FRECUENTES (FAQ Accordion) -->
+    <section class="section-container bg-subtle" id="faq">
+      <div class="section-content-wrap max-w-narrow">
+        <div class="section-badge">
+          <span class="badge-pill">Resolución de Dudas</span>
+        </div>
 
-            <ul class="farm-points-list">
-              <li>
-                <div class="point-check">✓</div>
-                <div>
-                  <strong>Certificación ICA en Bioseguridad:</strong>
-                  <p>Protocolos estrictos de desinfección, control de vectores y aislamiento biológico.</p>
-                </div>
-              </li>
-              <li>
-                <div class="point-check">✓</div>
-                <div>
-                  <strong>Genética Porcina de Alta Conversión:</strong>
-                  <p>Líneas genéticas PIC y Topigs que optimizan la ganancia diaria de peso con menor consumo de alimento.</p>
-                </div>
-              </li>
-              <li>
-                <div class="point-check">✓</div>
-                <div>
-                  <strong>Nutrición Automatizada y Balanceada:</strong>
-                  <p>Dietas formuladas por zootecnistas para cada fase: pre-inicio, levante y engorde final.</p>
-                </div>
-              </li>
-              <li>
-                <div class="point-check">✓</div>
-                <div>
-                  <strong>Canal Comercial Garantizado:</strong>
-                  <p>Alianzas directas con distribuidoras de carne y plantas de beneficio autorizadas en Cali y el Valle.</p>
-                </div>
-              </li>
-            </ul>
+        <h2 class="section-heading text-center">Preguntas Frecuentes</h2>
+        <p class="section-subheading text-center">
+          Respondemos a las preguntas más habituales sobre el funcionamiento y seguridad de la plataforma.
+        </p>
 
-            <div class="farm-cta">
-              <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary" target="_blank" rel="noopener">
-                Ver Lotes Disponibles en Granja
-              </a>
+        <div class="faq-accordion-group">
+          <!-- Item 1 -->
+          <div class="faq-card">
+            <button class="faq-toggle-btn" aria-expanded="false">
+              <span>¿Qué es exactamente Piggy App?</span>
+              <svg class="faq-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-content-body">
+              <p>
+                Piggy App es una plataforma agro-digital desarrollada en Colombia que te permite adquirir cerditos en etapa de inicio/levante para que sean criados y engordados bajo estándares técnicos profesionales en Granja Villa Morales del Valle SAS, recibiendo al finalizar el ciclo el resultado de la comercialización en el mercado porcino.
+              </p>
             </div>
           </div>
 
-          <!-- Image & Badges Column -->
-          <div class="farm-visual">
-            <div class="farm-img-container">
-              <img src="/assets/pig-feeding.jpg" alt="Alimentación técnica en Granja Villa Morales" class="farm-main-img" />
-              <div class="farm-stat-card">
-                <span class="stat-big">+5.000</span>
-                <span class="stat-sub">Cerdos engordados exitosamente</span>
-              </div>
+          <!-- Item 2 -->
+          <div class="faq-card">
+            <button class="faq-toggle-btn" aria-expanded="false">
+              <span>¿Quién cuida a los cerditos y dónde están ubicados?</span>
+              <svg class="faq-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-content-body">
+              <p>
+                Los animales están alojados en las instalaciones tecnificadas de <strong>Granja Villa Morales del Valle SAS</strong>, ubicadas en el Valle del Cauca. Todo el cuidado, la alimentación con concentrados certificados y los controles médicos veterinarios son ejecutados por personal especializado con más de 10 años de trayectoria en el sector.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-card">
+            <button class="faq-toggle-btn" aria-expanded="false">
+              <span>¿Cuánto dura un ciclo de engorde promedio?</span>
+              <svg class="faq-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-content-body">
+              <p>
+                El ciclo regular de engorde oscila entre <strong>90 y 110 días</strong>, tiempo durante el cual los cerditos pasan de su peso de ingreso (~25-30 kg) hasta alcanzar el peso comercial óptimo de pie (~105-115 kg) con la máxima eficiencia de conversión alimenticia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-card">
+            <button class="faq-toggle-btn" aria-expanded="false">
+              <span>¿Cómo recibo las ganancias al terminar el ciclo?</span>
+              <svg class="faq-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-content-body">
+              <p>
+                Una vez completado el pesaje final y despachado el lote a los compradores mayoristas o frigoríficos autorizados, el balance final de liquidación (capital inicial más margen neto obtenido) se acredita en tu cuenta de usuario de Piggy App, desde donde puedes solicitar la transferencia directa a cualquier cuenta bancaria en Colombia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-card">
+            <button class="faq-toggle-btn" aria-expanded="false">
+              <span>¿Qué respaldo legal y garantías existen?</span>
+              <svg class="faq-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-content-body">
+              <p>
+                Cada compra genera un contrato digital de mandato y servicios de crianza porcina respaldado por Granja Villa Morales del Valle SAS (NIT 901.815.174-0). Las granjas cuentan con pólizas de cobertura porcina y estricta trazabilidad sanitaria registrada ante el Instituto Colombiano Agropecuario (ICA).
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: SIMULADOR / CALCULADORA DE GANANCIAS -->
-    <section class="section calc-section" id="calculadora">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Simulador Financiero</span>
-          <h2 class="section-title">Calcula tu Rentabilidad Estimada</h2>
-          <p class="section-description">
-            Usa nuestra calculadora interactiva para proyectar la ganancia según la cantidad de cerditos que desees comprar en tu lote.
+    <!-- SECTION: FINAL CTA -->
+    <section class="section-container cta-banner-section">
+      <div class="cta-banner-card">
+        <div class="cta-banner-content">
+          <h2 class="cta-banner-heading">¿Listo para comenzar tu propia granja digital?</h2>
+          <p class="cta-banner-subheading">
+            Únete a la nueva era del agro digital en Colombia. Separa tus cerditos y sigue su evolución día a día desde tu dispositivo móvil.
           </p>
-        </div>
-
-        <div class="calc-wrapper">
-          <div class="calc-card">
-            <div class="calc-controls">
-              <div class="calc-slider-group">
-                <div class="calc-label-row">
-                  <label for="pigCountSlider" class="calc-label">Número de Cerditos:</label>
-                  <span class="calc-highlight-val" id="pigCountDisplay">3 Piggys</span>
-                </div>
-                <input type="range" id="pigCountSlider" min="1" max="20" value="3" step="1" class="custom-range" />
-                <div class="calc-range-marks">
-                  <span>1</span>
-                  <span>5</span>
-                  <span>10</span>
-                  <span>15</span>
-                  <span>20</span>
-                </div>
-              </div>
-
-              <div class="calc-select-group">
-                <label for="cycleSelect" class="calc-label">Tipo de Ciclo:</label>
-                <select id="cycleSelect" class="calc-select">
-                  <option value="completo" selected>Ciclo Completo (~110 días — Levante y Engorde)</option>
-                  <option value="avanzado">Ciclo Avanzado (~60 días — Engorde Final)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="calc-divider"></div>
-
-            <!-- Projections Results Grid -->
-            <div class="calc-results-grid">
-              <div class="result-box">
-                <span class="result-lbl">Inversión Estimada</span>
-                <strong class="result-val text-dark" id="calcInvestment">$ 1.950.000</strong>
-                <small class="result-sub">Compra de lechones + alimentación</small>
-              </div>
-
-              <div class="result-box">
-                <span class="result-lbl">Venta Proyectada en Pie</span>
-                <strong class="result-val text-dark" id="calcRevenue">$ 2.379.000</strong>
-                <small class="result-sub">~108 kg promedio por cerdo</small>
-              </div>
-
-              <div class="result-box highlight-box">
-                <span class="result-lbl">Ganancia Neta Estimada</span>
-                <strong class="result-val text-primary" id="calcProfit">+$ 429.000</strong>
-                <span class="result-badge" id="calcMargin">+22.0% Rentabilidad</span>
-              </div>
-            </div>
-
-            <div class="calc-disclaimer">
-              <p>
-                * Proyección basada en costos promedios de alimento y precio histórico del kilo de cerdo en pie en el Valle del Cauca. Los resultados reales pueden variar según el peso final y mercado al momento del beneficio.
-              </p>
-            </div>
-
-            <div class="calc-action-row">
-              <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-                Apartar mi Lote con este Rendimiento
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 6: TESTIMONIOS / CASOS DE ÉXITO -->
-    <section class="section testimonials-section">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Comunidad Piggy</span>
-          <h2 class="section-title">Lo que Dicen Nuestros Inversionistas</h2>
-          <p class="section-description">
-            Personas reales que ya monitorean sus cerditos y reciben beneficios de la producción agropecuaria en Colombia.
-          </p>
-        </div>
-
-        <div class="testimonials-grid">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">
-              "Comencé con 2 cerditos para probar. Ver los videos de pesaje cada sábado por la app da mucha tranquilidad. A los 3 meses y medio me consignaron mi capital y la ganancia sin demoras."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-avatar bg-avatar-1">CA</div>
-              <div class="author-info">
-                <strong>Carlos Arboleda</strong>
-                <span>Inversionista en Cali • 5 Piggys activos</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">
-              "Siempre quise invertir en el campo pero vivo en apartamento y trabajo en oficina. Con Piggy App tengo mi propia micro-granja desde el teléfono con respaldo de una granja real."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-avatar bg-avatar-2">MV</div>
-              <div class="author-info">
-                <strong>María Victoria Gómez</strong>
-                <span>Bogotá D.C. • 3 Piggys finalizados</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">
-              "La transparencia en los datos de peso y conversión alimenticia es excelente. Es un modelo agropecuario muy serio y con personas que conocen el negocio porcino."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-avatar bg-avatar-3">FR</div>
-              <div class="author-info">
-                <strong>Felipe Restrepo</strong>
-                <span>Medellín • Inversionista recurrente</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 7: PREGUNTAS FRECUENTES (FAQ) -->
-    <section class="section faq-section" id="faq">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-tag">Resolvemos tus Dudas</span>
-          <h2 class="section-title">Preguntas Frecuentes</h2>
-          <p class="section-description">
-            Todo lo que necesitas saber antes de comprar tu primer Piggy.
-          </p>
-        </div>
-
-        <div class="faq-accordion-wrapper">
-          <!-- FAQ 1 -->
-          <div class="faq-accordion-item">
-            <button class="faq-accordion-btn" aria-expanded="false" id="faqBtn1">
-              <span>¿Qué pasa si un cerdito se enferma o fallece?</span>
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-accordion-content">
-              <p>
-                Todos nuestros lotes cuentan con una <strong>póliza de reposición biológica</strong> respaldada por Granja Villa Morales. Si un animal presenta complicaciones médicas no recuperables o deceso, es reemplazado inmediatamente por otro cerdo del mismo peso y edad del lote sin costo adicional para el inversionista.
-              </p>
-            </div>
-          </div>
-
-          <!-- FAQ 2 -->
-          <div class="faq-accordion-item">
-            <button class="faq-accordion-btn" aria-expanded="false" id="faqBtn2">
-              <span>¿Cuánto dura el ciclo completo de engorde?</span>
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-accordion-content">
-              <p>
-                El ciclo regular dura entre <strong>105 y 120 días</strong> desde el destete/inicio hasta alcanzar el peso óptimo de mercado (~105-115 kg). También disponemos de lotes en etapa avanzada de 60 días para ciclos de liquidación más cortos.
-              </p>
-            </div>
-          </div>
-
-          <!-- FAQ 3 -->
-          <div class="faq-accordion-item">
-            <button class="faq-accordion-btn" aria-expanded="false" id="faqBtn3">
-              <span>¿Cómo recibo mi dinero y las ganancias al finalizar?</span>
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-accordion-content">
-              <p>
-                Una vez el lote es pesado y vendido al frigorífico aliado, el sistema liquida el valor neto de la venta y transfiere el monto correspondiente directamente a tu <strong>Billetera Piggy App</strong>, desde donde puedes solicitar transferencia a cualquier cuenta bancaria en Colombia (Bancolombia, Nequi, Daviplata, etc.) sin cobros ocultos.
-              </p>
-            </div>
-          </div>
-
-          <!-- FAQ 4 -->
-          <div class="faq-accordion-item">
-            <button class="faq-accordion-btn" aria-expanded="false" id="faqBtn4">
-              <span>¿Puedo visitar la granja en persona?</span>
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-accordion-content">
-              <p>
-                ¡Sí! Programamos jornadas de visita técnica para inversionistas en nuestras instalaciones de Rozo, Valle del Cauca, cumpliendo los protocolos de bioseguridad del ICA (ducha sanitaria y ropa estéril). Puedes coordinar tu visita directamente desde el soporte de la app.
-              </p>
-            </div>
-          </div>
-
-          <!-- FAQ 5 -->
-          <div class="faq-accordion-item">
-            <button class="faq-accordion-btn" aria-expanded="false" id="faqBtn5">
-              <span>¿Cuál es el monto mínimo para empezar?</span>
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-accordion-content">
-              <p>
-                Puedes comenzar adquiriendo <strong>1 solo cerdito</strong>. El valor exacto depende del lote disponible y etapa (inicio o levante), promediando entre $550.000 y $650.000 COP que incluye el lechón, su alimentación balanceada por todo el ciclo y la atención veterinaria completa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 8: BANNER CTA FINAL -->
-    <section class="section final-cta-section">
-      <div class="section-container">
-        <div class="final-cta-card">
-          <div class="cta-card-content">
-            <span class="cta-tag">Empieza Hoy Mismo</span>
-            <h2 class="cta-title">Pon a Crecer tu Dinero con la Producción Real de Cerdos</h2>
-            <p class="cta-description">
-              Crea tu cuenta gratis en 2 minutos, explora los lotes activos y asegura tus primeros cerditos de engorde.
-            </p>
-            <div class="cta-btn-group">
-              <a href="https://piggy-app-v2-gvm.vercel.app/" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-                <span>Comenzar a Engordar</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4.167 10h11.666m-4.166-4.167L15.833 10l-4.166 4.167" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <a href="https://wa.me/573154870448?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20c%C3%B3mo%20invertir%20en%20Piggy%20App" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.029-.481-1.637-.68-2.684-2.348-2.766-2.457-.082-.109-.661-.88-.661-1.678 0-.798.419-1.19.568-1.352.148-.162.324-.203.432-.203.109 0 .217.001.311.006.099.005.231-.038.361.275.135.326.463 1.13.504 1.211.041.082.069.177.014.286-.055.109-.082.177-.163.272-.081.096-.172.213-.245.286-.081.081-.166.17-.071.333.095.163.423.698.907 1.129.624.555 1.15.727 1.313.808.163.081.258.068.354-.041.095-.109.407-.475.515-.638.109-.163.217-.136.366-.081.149.054.949.448 1.112.53.163.081.272.122.312.19.041.068.041.394-.103.799zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.398C8.423 21.492 10.154 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-                <span>Hablar con un Asesor</span>
-              </a>
-            </div>
+          <div class="cta-banner-btn-wrap">
+            <a href="https://app.migranjapiggy.com/" class="btn-primary-hero btn-white-shadow">
+              <span class="btn-text">Crear mi cuenta gratis</span>
+              <span class="btn-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </a>
           </div>
         </div>
       </div>
