@@ -4,19 +4,54 @@ Este documento define los estándares técnicos, directrices de arquitectura, di
 
 ---
 
-## 1. Stack Tecnológico y Arquitectura
+## 1. Stack Tecnológico y Arquitectura Multi-Página
 
 * **Build Tool:** Vite 5+ (ES Modules, HMR ultra rápido, optimización en producción).
-* **Estructura:**
-  * `index.html`: Punto de entrada semántico, estructurado y optimizado para SEO/A11y.
-  * `style.css` y `css/`: Estilos modulares con tokens CSS (variables nativas), arquitectura Mobile-First.
-  * `main.js`: Lógica interactiva con Vanilla JS y API nativa de `IntersectionObserver`.
-  * `public/assets/`: Recursos estáticos optimizados (imágenes comprimidas en WebP/PNG/SVG).
 * **Despliegue y CI/CD:** Despliegue continuo en Vercel conectado a la rama `main` del repositorio `amsterdamlab/piggy-landing`.
+
+### Mapa de Rutas y Separación Estricta de Páginas
+
+El proyecto contiene **dos landing pages independientes**. Se debe mantener un aislamiento total entre ambas:
+
+```
+piggy-landing/
+├── index.html                  # [1] LANDING PRINCIPAL (Ruta: /)
+├── style.css                   # Importador de estilos de la landing principal
+├── main.js                     # Lógica interactiva de la landing principal
+├── css/
+│   ├── base.css                # Reset, variables globales y utilidades base
+│   ├── header.css              # Header y navegación principal
+│   ├── hero.css                # Hero section (Dark violeta espacial con mockup de teléfono)
+│   ├── phone-screen.css        # Pantalla interactiva del mockup móvil
+│   ├── sections.css            # Secciones: Nosotros, Mercado Piggy, Beneficios, Simulador, FAQ
+│   ├── footer.css              # Footer corporativo compartido
+│   └── diciembre.css           # [2] ESTILOS EXCLUSIVOS DE LA CAMPAÑA DICIEMBRE
+├── diciembre/
+│   └── index.html              # [2] LANDING DE CAMPAÑA FIN DE AÑO (Ruta: /diciembre)
+├── js/
+│   └── diciembre.js            # Lógica interactiva de la campaña de diciembre
+└── public/
+    └── assets/                 # Imágenes y recursos estáticos
+```
 
 ---
 
-## 2. Buenas Prácticas de Frontend
+## 2. Regla de Oro: Aislamiento e Inmutabilidad Cruzada
+
+1. **Ajustes en Campaña Diciembre (`/diciembre`):**
+   * Modificar **ÚNICAMENTE** `diciembre/index.html`, `css/diciembre.css` o `js/diciembre.js`.
+   * **PROHIBIDO** modificar o sobrescribir la raíz `index.html`, `style.css` o `main.js`.
+
+2. **Ajustes en Landing Principal (`/`):**
+   * Modificar **ÚNICAMENTE** `index.html`, `style.css`, `css/hero.css`, `css/sections.css` o `main.js`.
+   * **PROHIBIDO** modificar o sobrescribir `diciembre/index.html` o `css/diciembre.css`.
+
+3. **Recursos Compartidos (`css/base.css`, `css/footer.css`, `public/assets/`):**
+   * Solo modificar si el cambio aplica universalmente a ambas páginas y no rompe ninguna de las dos vistas.
+
+---
+
+## 3. Buenas Prácticas de Frontend
 
 ### A. HTML Semántico y Accesibilidad (A11y)
 1. **Estructura:** Utilizar siempre las etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
@@ -26,30 +61,29 @@ Este documento define los estándares técnicos, directrices de arquitectura, di
 3. **Imágenes:** Todo elemento `<img>` debe contar con un atributo `alt` significativo y dimensiones explícitas cuando aplique para evitar Cumulative Layout Shift (CLS).
 
 ### B. Estilos y Diseño (CSS)
-1. **Variables y Tokens:** Mantener la paleta de colores y espaciados centralizados en `:root` (ej. `#E91E63`, tonos corporativos de Piggy App, tipografías *Outfit* para títulos e *Inter* para cuerpo de texto).
+1. **Variables y Tokens:** Mantener la paleta de colores y espaciados centralizados en `:root` (ej. `#E91E63` / `#C2185B`, tipografías *Outfit* para títulos e *Inter* para cuerpo de texto).
 2. **Diseño Adaptativo (Mobile-First):**
    * Todo componente nuevo debe verse óptimo primero en pantallas móviles (`< 768px`) y escalar fluidamente a tablet (`768px - 1024px`) y escritorio (`> 1024px`).
 3. **Rendimiento:** Evitar animaciones costosas en CSS; priorizar propiedades aceleradas por GPU (`transform`, `opacity`).
 
 ### C. JavaScript y Modularidad (Vanilla JS)
-1. **Sin dependencias pesadas:** Mantener el bundle liviano; utilizar APIs modernas del navegador en lugar de librerías externas para animaciones o utilidades básicas.
+1. **Sin dependencias pesadas:** Mantener el bundle liviano; utilizar APIs modernas del navegador en lugar de librerías externas.
 2. **Gestión de Eventos:**
    * Inicializar componentes tras el evento `DOMContentLoaded`.
-   * Realizar delegación de eventos y limpiar listeners cuando aplique.
    * Usar `IntersectionObserver` para scroll spy y animaciones al entrar en viewport.
 
 ---
 
-## 3. SEO y Metadatos
+## 4. SEO y Metadatos
 
 1. **Open Graph & Twitter Cards:** Mantener actualizadas las etiquetas de previsualización para WhatsApp, Facebook, LinkedIn y Twitter con URLs canónicas e imágenes con dimensiones recomendadas (1200x630 o 500x500 cuadradas).
 2. **Rendimiento de Carga:**
-   * `preconnect` y `dns-prefetch` para servicios externos críticos como Google Fonts.
+   * `preconnect` y `dns-prefetch` para Google Fonts.
    * Minimizar recursos bloqueantes de renderizado.
 
 ---
 
-## 4. Integraciones y Ecosistema Piggy
+## 5. Integraciones y Ecosistema Piggy
 
 1. **Enlace a la App:**
    * Todos los llamados a la acción (CTA) de "Iniciar sesión" o "Comenzar" deben apuntar al dominio oficial de la aplicación (`https://piggy-app-v2-gvm.vercel.app/`).
@@ -58,17 +92,22 @@ Este documento define los estándares técnicos, directrices de arquitectura, di
 
 ---
 
-## 5. Control de Versiones y Protocolo MCP (Reglas Obligatorias)
+## 6. Control de Versiones y Protocolo MCP (Reglas Obligatorias)
 
 ### A. Sincronización Exclusiva e Inmediata vía MCP
-1. **Sin persistencia local exclusiva:** No se deben dejar cambios ni ajustes pendientes en la máquina local. 
+1. **Sin persistencia local exclusiva:** No se deben dejar cambios ni ajustes pendientes en la máquina local.
 2. **Commit y Push Inmediato:** Todos los cambios, ajustes o adiciones generados en cada conversación deben subirse y sincronizarse inmediatamente al repositorio de GitHub a través del **servidor MCP de GitHub**.
 3. **Flujo de Trabajo:** Cada conversación debe culminar con la confirmación de la subida a GitHub vía MCP, asegurando que Vercel reciba el trigger de compilación en producción de manera continua.
 
 ### B. Límite de Carga por MCP (Regla de >1000 Líneas de Código)
 1. **Restricción de Archivos Monolíticos (>1000 líneas):**
-   * **No subir archivos de más de 1000 líneas de código a través de herramientas MCP monolíticas (ej. `create_or_update_file`).**
+   * **No subir archivos de más de 1000 líneas de código a través de herramientas MCP monolíticas (ej. `create_or_update_file` o `push_files`).**
    * **Motivo Técnico y Vigencia:** Los servidores MCP de GitHub y las APIs de serialización de payloads presentan riesgos documentados de **truncamiento silencioso (*silent truncation*)** y desbordamiento de buffer al procesar blobs de gran tamaño en una sola llamada de herramienta, pudiendo corromper archivos o perder líneas sin arrojar error.
 2. **Estrategia Obligatoria para Archivos Grandes:**
    * **Modularización:** Dividir los archivos extensos en módulos, componentes o utilidades independientes con menos de 1000 líneas antes de la subida.
    * **Validación de Integridad:** Verificar siempre la integridad del archivo tras la confirmación de commit.
+
+### C. Protocolo de Verificación Pre-Push
+1. Ejecutar `npm run build` en el entorno local y verificar que termine con **0 errores**.
+2. Comprobar que no existan comillas escapadas accidentales (`\"`) en atributos HTML.
+3. Verificar que los conteos de líneas estén estrictamente por debajo de las 1,000 líneas.
