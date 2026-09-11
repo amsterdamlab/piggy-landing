@@ -103,7 +103,26 @@ function initCalculator() {
     if (weightDisplay) weightDisplay.textContent = `~${totalWeight} kg`;
     if (meatDisplay) meatDisplay.textContent = `~${totalMeat} kg`;
     if (benefitDisplay) benefitDisplay.textContent = currencyFormatter.format(totalBenefit);
+
+    // Actualizar clase activa en el marcador correspondiente
+    const markers = document.querySelectorAll('.calc-slider-markers span');
+    markers.forEach((marker, index) => {
+      if (index + 1 === pigs) {
+        marker.classList.add('active');
+      } else {
+        marker.classList.remove('active');
+      }
+    });
   }
+
+  // Permitir hacer clic directamente sobre cualquier número marcador
+  const markers = document.querySelectorAll('.calc-slider-markers span');
+  markers.forEach((marker, index) => {
+    marker.addEventListener('click', () => {
+      slider.value = index + 1;
+      recalculate();
+    });
+  });
 
   slider.addEventListener('input', recalculate);
   recalculate();
