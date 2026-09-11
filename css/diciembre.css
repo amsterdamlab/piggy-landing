@@ -1,33 +1,24 @@
-/* ==========================================================================
-   PIGGY LANDING — Campaña Fin de Año (/diciembre)
-   Estilos Versión Day (Modo Claro) con Intercalación de Fondos
-   ========================================================================== */
+/* --- PIGGY LANDING — Campaña Fin de Año (/diciembre) Estilos Versión Day (Modo Claro) con Intercalación de Fondos --- */
 
 /* Variables y Tokens de Campaña Day */
 :root {
   --camp-bg-warm: #fbf7f4;
   --camp-bg-white: #ffffff;
-  
   --camp-magenta: #C2185B;
   --camp-magenta-dark: #9C1552;
   --camp-magenta-light: #FCE4EC;
   --camp-magenta-glow: rgba(194, 24, 91, 0.15);
-  
   --camp-gold: #C27803;
   --camp-gold-light: #FEF3C7;
-  
   --camp-green: #00C853;
   --camp-green-dark: #009624;
-  
   --camp-text-dark: #2B1425;
   --camp-text-body: #4A3E45;
   --camp-text-muted: #7E7079;
-  
   --camp-card-border: #EBE3DC;
   --camp-card-border-focus: rgba(194, 24, 91, 0.35);
   --camp-card-shadow: 0 4px 20px rgba(74, 30, 50, 0.05);
   --camp-card-shadow-hover: 0 12px 30px rgba(74, 30, 50, 0.1);
-  
   --trans-fast: 0.15s ease;
   --trans-base: 0.25s ease;
 }
@@ -67,6 +58,8 @@
 }
 
 .camp-logo-wrapper {
+  cursor: pointer;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -136,20 +129,12 @@
 }
 
 @keyframes headerCtaShine {
-  0% {
-    left: -130%;
-  }
-  18% {
-    left: 200%;
-  }
-  100% {
-    left: 200%;
-  }
+  0% { left: -130%; }
+  18% { left: 200%; }
+  100% { left: 200%; }
 }
 
-/* ==========================================================================
-   HERO BANNER FULL-WIDTH (Colinda directamente con el Header)
-   ========================================================================== */
+/* --- HERO BANNER FULL-WIDTH (Colinda directamente con el Header)  --- */
 .camp-hero-banner-section {
   width: 100%;
   margin: 0;
@@ -310,9 +295,7 @@
   font-family: 'Outfit', sans-serif;
 }
 
-/* ==========================================================================
-   BLOQUE INFERIOR HERO: CUENTA REGRESIVA & CTA (Fondo #fbf7f4)
-   ========================================================================== */
+/* --- BLOQUE INFERIOR HERO: CUENTA REGRESIVA & CTA (Fondo #fbf7f4)  --- */
 .camp-countdown-section {
   background-color: var(--camp-bg-warm);
   padding: 48px 20px 64px;
@@ -346,6 +329,20 @@
   margin-bottom: 20px;
 }
 
+.countdown-heading-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.countdown-heading-label {
+  display: inline;
+}
+
+.countdown-heading-date {
+  display: inline;
+}
+
 .countdown-heading svg,
 .countdown-cal-icon {
   width: 26px;
@@ -358,16 +355,35 @@
 
 @media (max-width: 640px) {
   .countdown-heading {
-    gap: 8px;
-    font-size: 0.92rem;
+    gap: 12px;
+    align-items: center;
+    font-size: 0.95rem;
     line-height: 1.35;
+  }
+  .countdown-heading-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 2px;
+  }
+  .countdown-heading-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+  .countdown-heading-date {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--camp-magenta);
+    line-height: 1.15;
   }
   .countdown-heading svg,
   .countdown-cal-icon {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    min-height: 28px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
   }
 }
 
@@ -460,13 +476,20 @@
 
 .camp-cta-note {
   font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--camp-text-dark);
+  font-weight: 500;
+  color: var(--camp-text-body);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   text-align: center;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+.camp-cta-note strong {
+  font-weight: 800;
+  color: var(--camp-magenta-dark);
 }
 
 .camp-cta-note svg {
@@ -474,9 +497,7 @@
   flex-shrink: 0;
 }
 
-/* ==========================================================================
-   SECCIÓN 2: CÓMO FUNCIONA (Bloque 2: Fondo Blanco #ffffff)
-   ========================================================================== */
+/* --- SECCIÓN 2: CÓMO FUNCIONA (Bloque 2: Fondo Blanco #ffffff)  --- */
 .camp-steps-section {
   background-color: var(--camp-bg-white);
   padding: 80px 20px;
@@ -587,9 +608,7 @@
   flex-grow: 1;
 }
 
-/* ==========================================================================
-   SECCIÓN 3: CALCULADORA / SIMULADOR (Bloque 3: Fondo #fbf7f4)
-   ========================================================================== */
+/* --- SECCIÓN 3: CALCULADORA / SIMULADOR (Bloque 3: Fondo #fbf7f4)  --- */
 .camp-calc-section {
   background-color: var(--camp-bg-warm);
   padding: 80px 20px;
@@ -741,9 +760,7 @@
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   SECCIÓN 4: TRANSPARENCIA & RESPALDO (Bloque 4: Fondo Blanco #ffffff)
-   ========================================================================== */
+/* --- SECCIÓN 4: TRANSPARENCIA & RESPALDO (Bloque 4: Fondo Blanco #ffffff)  --- */
 .camp-trust-section {
   background-color: var(--camp-bg-white);
   padding: 80px 20px;
@@ -806,9 +823,7 @@
   line-height: 1.55;
 }
 
-/* ==========================================================================
-   SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) (Bloque 5: Fondo #fbf7f4)
-   ========================================================================== */
+/* --- SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) (Bloque 5: Fondo #fbf7f4)  --- */
 .camp-faq-section {
   background-color: var(--camp-bg-warm);
   padding: 80px 20px 100px;
@@ -882,9 +897,7 @@
   padding-bottom: 20px;
 }
 
-/* ==========================================================================
-   FOOTER (Bloque 6: Fondo Blanco #ffffff)
-   ========================================================================== */
+/* --- FOOTER (Bloque 6: Fondo Blanco #ffffff)  --- */
 .main-footer {
   background-color: var(--camp-bg-white);
   border-top: 1px solid var(--camp-card-border);
@@ -896,9 +909,7 @@
   }
 }
 
-/* ==========================================================================
-   STICKY BOTTOM BAR (MÓVILES — TOTALMENTE RESPONSIVE)
-   ========================================================================== */
+/* --- STICKY BOTTOM BAR (MÓVILES — TOTALMENTE RESPONSIVE)  --- */
 .camp-sticky-bar {
   position: fixed;
   bottom: 0;
