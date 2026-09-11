@@ -13,243 +13,333 @@
   --camp-magenta-light: #FCE4EC;
   --camp-magenta-glow: rgba(194, 24, 91, 0.15);
   
+  --camp-gold: #C27803;
+  --camp-gold-light: #FEF3C7;
+  
   --camp-green: #00C853;
-  --camp-green-hover: #00B248;
-  --camp-gold: #FFB300;
+  --camp-green-dark: #009624;
   
-  --camp-text-dark: #1E293B;
-  --camp-text-body: #475569;
-  --camp-text-muted: #64748B;
+  --camp-text-dark: #2B1425;
+  --camp-text-body: #4A3E45;
+  --camp-text-muted: #7E7079;
   
-  --camp-border: rgba(194, 24, 91, 0.12);
-  --camp-shadow-sm: 0 4px 16px rgba(194, 24, 91, 0.06);
-  --camp-shadow-md: 0 10px 30px rgba(194, 24, 91, 0.08);
-  --camp-shadow-lg: 0 16px 40px rgba(194, 24, 91, 0.12);
+  --camp-card-border: #EBE3DC;
+  --camp-card-border-focus: rgba(194, 24, 91, 0.35);
+  --camp-card-shadow: 0 4px 20px rgba(74, 30, 50, 0.05);
+  --camp-card-shadow-hover: 0 12px 30px rgba(74, 30, 50, 0.1);
+  
+  --trans-fast: 0.15s ease;
+  --trans-base: 0.25s ease;
 }
 
-/* Base Body para la campaña */
-body.camp-page {
+/* Base Wrapper */
+.camp-page.camp-day-theme {
+  position: relative;
   background-color: var(--camp-bg-warm);
-  color: var(--camp-text-dark);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--camp-text-body);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
 }
 
-/* ==========================================================================
-   HEADER FIJO / STICKY ELEGANTE
-   ========================================================================== */
+/* Header Fijo / Sticky */
 .camp-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(194, 24, 91, 0.08);
-  height: 70px;
-  display: flex;
-  align-items: center;
-  transition: all var(--trans-base);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  transition: background var(--trans-base), box-shadow var(--trans-base);
 }
 
 .camp-header-container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 10px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
 }
 
 .camp-logo-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--trans-fast), transform var(--trans-fast);
+}
+
+.camp-logo-wrapper:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .camp-logo-img {
-  height: 64px;
+  height: 48px;
   width: auto;
+  max-height: 50px;
   object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .camp-header-container {
+    padding: 8px 16px;
+    min-height: 56px;
+  }
+  .camp-logo-img {
+    height: 40px;
+    max-height: 42px;
+  }
 }
 
 .camp-header-cta {
-  background: var(--camp-magenta);
-  color: #FFFFFF;
-  padding: 9px 20px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(194, 24, 91, 0.28);
-  transition: transform var(--trans-fast), background-color var(--trans-fast), box-shadow var(--trans-fast);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.3px;
   position: relative;
   overflow: hidden;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  border-radius: 9999px;
+  background: var(--camp-magenta);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  box-shadow: 0 4px 14px rgba(194, 24, 91, 0.25);
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast), background var(--trans-fast);
+  white-space: nowrap;
+  text-decoration: none;
 }
 
+.camp-header-cta:hover {
+  transform: translateY(-2px);
+  background: var(--camp-magenta-dark);
+  box-shadow: 0 6px 18px rgba(194, 24, 91, 0.38);
+}
+
+/* Efecto Shine en Botón VIP cada 7 segundos */
 .camp-header-cta::after {
   content: '';
   position: absolute;
   top: -50%;
-  left: -60%;
-  width: 40%;
+  left: -130%;
+  width: 60%;
   height: 200%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 15%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.1) 85%,
+    transparent 100%
+  );
   transform: rotate(25deg);
-  animation: headerCtaShine 7s ease-in-out infinite;
+  animation: headerCtaShine 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
 }
 
 @keyframes headerCtaShine {
-  0%, 75% { left: -60%; }
-  85%, 100% { left: 140%; }
+  0% { left: -130%; }
+  18% { left: 200%; }
+  100% { left: 200%; }
 }
 
-.camp-header-cta:hover {
-  background: var(--camp-magenta-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(194, 24, 91, 0.35);
-}
-
-/* ==========================================================================
-   HERO FULL-WIDTH BANNER SECTION (Colinda con el header)
-   ========================================================================== */
+/* HERO BANNER FULL-WIDTH (Colinda directamente con el Header) */
 .camp-hero-banner-section {
-  padding-top: 70px;
   width: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
+  background-color: #1A0C0A;
 }
 
 .camp-hero-banner {
   position: relative;
   width: 100%;
-  min-height: 480px;
-  background-color: #3b091a;
-  background-image: linear-gradient(135deg, rgba(46, 6, 19, 0.88) 0%, rgba(136, 14, 79, 0.75) 50%, rgba(194, 24, 91, 0.6) 100%), url('/assets/piggy-diciembre.jpg');
+  border-radius: 0 !important;
+  overflow: hidden;
+  background-color: #1A0C0A;
+  background-image: 
+    linear-gradient(90deg, rgba(20, 8, 12, 0.92) 0%, rgba(20, 8, 12, 0.82) 42%, rgba(20, 8, 12, 0.25) 75%, rgba(20, 8, 12, 0.05) 100%),
+    url('/assets/piggy-diciembre.jpg');
   background-size: cover;
-  background-position: center right;
+  background-position: right center;
   background-repeat: no-repeat;
+  box-shadow: none;
+  margin: 0;
+  min-height: 480px;
   display: flex;
   align-items: center;
-  padding: 60px 20px 70px;
-  overflow: hidden;
+}
+
+@media (min-width: 1600px) {
+  .camp-hero-banner {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 900px) {
+  .camp-hero-banner {
+    background-image: 
+      linear-gradient(rgba(20, 8, 12, 0.82), rgba(20, 8, 12, 0.82)),
+      url('/assets/piggy-diciembre.jpg');
+    background-position: center center;
+    min-height: auto;
+    padding: 30px 0;
+  }
 }
 
 .camp-hero-banner-container {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
+  padding: 56px 24px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .camp-hero-banner-content {
-  max-width: 620px;
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .camp-hero-banner-container {
+    padding: 36px 20px;
+    justify-content: center;
+  }
+  .camp-hero-banner-content {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
 }
 
 .camp-hero-eyebrow {
   display: inline-block;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 2px;
-  color: #FFD54F;
+  color: #E5A855;
   text-transform: uppercase;
-  margin-bottom: 12px;
-  background: rgba(255, 213, 79, 0.12);
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+  font-family: 'Outfit', sans-serif;
+  border: 1px solid rgba(229, 168, 85, 0.6);
+  background: rgba(229, 168, 85, 0.12);
   padding: 4px 12px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 213, 79, 0.3);
+  border-radius: 6px;
 }
 
 .camp-hero-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.08;
-  color: #FFFFFF;
+  line-height: 1.12;
+  color: #FFA2B6;
   margin-bottom: 16px;
   letter-spacing: -0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+  .camp-hero-title {
+    text-align: center;
+  }
 }
 
 .camp-hero-subtitle {
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  color: #FFFFFF;
   line-height: 1.55;
-  color: #FCE4EC;
-  margin-bottom: 28px;
+  margin: 0 0 24px 0;
   max-width: 540px;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Chips oscuros semitransparentes dentro del Hero Banner */
+@media (max-width: 900px) {
+  .camp-hero-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Badges / Chips estilo dark translucent de la referencia */
 .camp-hero-chips {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .camp-hero-chips {
+    justify-content: center;
+  }
 }
 
 .camp-dark-chip {
-  background: rgba(20, 3, 10, 0.65);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  padding: 10px 18px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
+  background: rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 10px 18px;
+  border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition: transform var(--trans-fast);
+  transition: transform var(--trans-fast), border-color var(--trans-fast);
 }
 
 .camp-dark-chip:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 213, 79, 0.5);
+  border-color: rgba(229, 168, 85, 0.5);
 }
 
 .dark-chip-icon {
-  color: #FFD54F;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .dark-chip-info {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
-.dark-chip-info .chip-label {
-  font-size: 0.72rem;
-  color: #F8BBD0;
-  text-transform: uppercase;
+.chip-label {
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.6px;
+  color: #E5A855;
+  line-height: 1.2;
 }
 
-.dark-chip-info .chip-value {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.15rem;
+.chip-value {
+  font-size: 0.96rem;
   font-weight: 800;
   color: #FFFFFF;
+  font-family: 'Outfit', sans-serif;
 }
 
-/* ==========================================================================
-   BLOQUE 1: CONTINUACIÓN HERO (CUENTA REGRESIVA + CTA)
-   Fondo: --camp-bg-warm (#fbf7f4)
-   ========================================================================== */
+/* BLOQUE INFERIOR HERO: CUENTA REGRESIVA & CTA (Fondo #fbf7f4) */
 .camp-countdown-section {
   background-color: var(--camp-bg-warm);
-  padding: 40px 20px 60px;
+  padding: 48px 20px 64px;
   position: relative;
   z-index: 1;
 }
@@ -272,7 +362,7 @@ body.camp-page {
   justify-content: center;
   gap: 10px;
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-size: clamp(0.92rem, 2.2vw, 1.15rem);
   font-weight: 800;
   color: var(--camp-magenta-dark);
   text-transform: uppercase;
@@ -282,9 +372,47 @@ body.camp-page {
 
 .countdown-heading svg,
 .countdown-cal-icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
   color: var(--camp-magenta);
+  flex-shrink: 0;
+}
+
+.countdown-heading-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 640px) {
+  .countdown-heading {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+  .countdown-heading-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .countdown-date-highlight {
+    font-size: 1.32rem;
+    font-weight: 800;
+    color: var(--camp-magenta);
+    display: block;
+    margin-top: 2px;
+  }
+  .countdown-heading svg,
+  .countdown-cal-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
 }
 
 /* Grid de 4 Tarjetas Blancas */
@@ -299,7 +427,7 @@ body.camp-page {
 
 .countdown-card {
   background: #FFFFFF;
-  border: 1px solid var(--camp-border);
+  border: 1px solid var(--camp-card-border);
   border-radius: 14px;
   padding: 16px 8px;
   display: flex;
@@ -312,7 +440,7 @@ body.camp-page {
 
 .countdown-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--camp-shadow-md);
+  box-shadow: 0 6px 20px rgba(194, 24, 91, 0.08);
 }
 
 .countdown-val {
@@ -337,9 +465,22 @@ body.camp-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   width: 100%;
   max-width: 500px;
+}
+
+/* Animación Pulse cada 7 segundos para botones verdes */
+@keyframes greenBtnPulse {
+  0%, 82%, 100% { transform: scale(1); box-shadow: 0 8px 24px rgba(0, 200, 83, 0.35); }
+  88% { transform: scale(1.045); box-shadow: 0 12px 32px rgba(0, 200, 83, 0.6); }
+  94% { transform: scale(1); box-shadow: 0 8px 24px rgba(0, 200, 83, 0.35); }
+}
+
+@keyframes stickyGreenBtnPulse {
+  0%, 82%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3); }
+  88% { transform: scale(1.06); box-shadow: 0 6px 20px rgba(0, 200, 83, 0.65); }
+  94% { transform: scale(1); box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3); }
 }
 
 .btn-camp-primary {
@@ -359,6 +500,7 @@ body.camp-page {
   transition: transform var(--trans-base), box-shadow var(--trans-base), filter var(--trans-base);
   text-align: center;
   text-decoration: none;
+  animation: greenBtnPulse 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .btn-camp-primary:hover {
@@ -376,14 +518,20 @@ body.camp-page {
 
 .camp-cta-note {
   font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--camp-magenta-dark);
+  font-weight: 500;
+  color: var(--camp-text-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   text-align: center;
-  line-height: 1.4;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.camp-cta-note strong {
+  font-weight: 800;
+  color: var(--camp-magenta-dark);
 }
 
 .camp-cta-note svg {
@@ -391,502 +539,409 @@ body.camp-page {
   flex-shrink: 0;
 }
 
-/* ==========================================================================
-   ESTRUCTURA DE SECCIONES COMUNES
-   ========================================================================== */
+/* SECCIÓN 2: CÓMO FUNCIONA (Bloque 2: Fondo Blanco #ffffff) */
+.camp-steps-section {
+  background-color: var(--camp-bg-white);
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
 .camp-container {
-  width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .section-header {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 48px;
+  margin-bottom: 48px;
 }
 
 .section-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   font-weight: 800;
-  color: var(--camp-magenta-dark);
-  line-height: 1.2;
+  color: var(--camp-text-dark);
   margin-bottom: 14px;
-  letter-spacing: -0.3px;
+  line-height: 1.2;
 }
 
 .section-desc {
-  font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+  font-size: 1.05rem;
   color: var(--camp-text-body);
+  max-width: 680px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   BLOQUE 2: CÓMO FUNCIONA EL CICLO (Fondo Blanco #ffffff)
-   ========================================================================== */
-.camp-steps-section {
-  background-color: var(--camp-bg-white);
-  padding: 70px 0 80px;
-  border-top: 1px solid rgba(194, 24, 91, 0.06);
-  border-bottom: 1px solid rgba(194, 24, 91, 0.06);
+.section-desc strong {
+  font-weight: 700;
+  color: var(--camp-text-dark);
 }
 
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
+@media (min-width: 768px) {
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .step-card {
-  background: var(--camp-bg-white);
-  border: 1px solid var(--camp-border);
-  border-radius: var(--radius-lg);
+  background: var(--camp-bg-warm);
+  border: 1px solid var(--camp-card-border);
+  border-radius: 20px;
   padding: 32px 24px;
-  position: relative;
-  box-shadow: var(--camp-shadow-sm);
-  transition: transform var(--trans-base), box-shadow var(--trans-base), border-color var(--trans-base);
+  transition: all var(--trans-base);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--camp-card-shadow);
 }
 
 .step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--camp-shadow-lg);
-  border-color: var(--camp-magenta);
+  border-color: var(--camp-card-border-focus);
+  transform: translateY(-5px);
+  box-shadow: var(--camp-card-shadow-hover);
 }
 
 .step-number-badge {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-full);
-  background: var(--camp-magenta-light);
-  color: var(--camp-magenta-dark);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--camp-magenta), #9C27B0);
+  color: #FFFFFF;
   font-family: 'Outfit', sans-serif;
-  font-size: 1.3rem;
   font-weight: 800;
+  font-size: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  border: 1px solid rgba(194, 24, 91, 0.2);
+  box-shadow: 0 6px 16px rgba(194, 24, 91, 0.25);
 }
 
 .step-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.22rem;
+  font-weight: 700;
   color: var(--camp-text-dark);
   margin-bottom: 12px;
+  line-height: 1.3;
+  font-family: 'Outfit', sans-serif;
 }
 
 .step-text {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.96rem;
   color: var(--camp-text-body);
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
-@media (max-width: 860px) {
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* ==========================================================================
-   BLOQUE 3: CALCULADORA / SIMULADOR (Fondo #fbf7f4)
-   ========================================================================== */
+/* SECCIÓN 3: CALCULADORA / SIMULADOR (Bloque 3: Fondo #fbf7f4) */
 .camp-calc-section {
   background-color: var(--camp-bg-warm);
-  padding: 70px 0 80px;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .calc-card-wrapper {
-  background: #FFFFFF;
-  border: 1px solid var(--camp-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--camp-shadow-md);
-  padding: 40px;
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--camp-card-border);
+  border-radius: 24px;
+  padding: clamp(24px, 4vw, 44px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
 }
 
 .calc-control-block {
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .calc-control-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
-  flex-wrap: wrap;
-  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .calc-label {
-  font-family: 'Outfit', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--camp-text-dark);
+  font-family: 'Outfit', sans-serif;
 }
 
 .calc-count-pill {
   background: var(--camp-magenta-light);
+  border: 1px solid rgba(194, 24, 91, 0.3);
   color: var(--camp-magenta-dark);
-  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
   font-weight: 800;
-  font-size: 1.1rem;
-  padding: 6px 18px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(194, 24, 91, 0.2);
+  padding: 4px 16px;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
 }
 
+/* Slider Personalizado */
 .calc-range-slider {
   width: 100%;
   height: 8px;
-  border-radius: 4px;
-  background: #E2E8F0;
-  outline: none;
   -webkit-appearance: none;
+  appearance: none;
+  background: #EBE3DC;
+  border-radius: 6px;
+  outline: none;
   cursor: pointer;
 }
 
 .calc-range-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: var(--camp-magenta);
-  box-shadow: 0 2px 8px rgba(194, 24, 91, 0.4);
+  background: linear-gradient(135deg, var(--camp-magenta), var(--camp-gold));
   cursor: pointer;
+  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.4);
   border: 2px solid #FFFFFF;
   transition: transform var(--trans-fast);
 }
 
 .calc-range-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.18);
+  transform: scale(1.15);
 }
 
 .calc-range-slider::-moz-range-thumb {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: var(--camp-magenta);
-  box-shadow: 0 2px 8px rgba(194, 24, 91, 0.4);
+  background: linear-gradient(135deg, var(--camp-magenta), var(--camp-gold));
   cursor: pointer;
+  box-shadow: 0 2px 10px rgba(194, 24, 91, 0.4);
   border: 2px solid #FFFFFF;
 }
 
 .calc-slider-markers {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.78rem;
   color: var(--camp-text-muted);
-  margin-top: 10px;
+  margin-top: 8px;
+  font-weight: 600;
 }
 
+/* Resultados de la Calculadora */
 .calc-results-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 600px) {
+  .calc-results-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .calc-result-box {
   background: var(--camp-bg-warm);
-  border: 1px solid rgba(194, 24, 91, 0.08);
-  border-radius: var(--radius-md);
-  padding: 20px 14px;
+  border: 1px solid var(--camp-card-border);
+  border-radius: 16px;
+  padding: 20px 16px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .calc-result-val {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 6px;
+  color: var(--camp-text-dark);
+  margin-bottom: 4px;
 }
 
 .calc-result-val.highlight-gold {
-  color: #D97706;
+  color: var(--camp-gold);
 }
 
 .calc-result-val.highlight-pink {
-  color: var(--camp-magenta-dark);
+  color: var(--camp-magenta);
 }
 
 .calc-result-val.highlight-green {
-  color: #00873E;
+  color: #00A344;
 }
 
 .calc-result-label {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
+  color: var(--camp-text-muted);
   font-weight: 600;
-  color: var(--camp-text-body);
-  line-height: 1.35;
 }
 
 .calc-btn-container {
-  display: flex;
-  justify-content: center;
-  max-width: 440px;
+  text-align: center;
+}
+
+.calc-btn-container .btn-camp-primary {
+  max-width: 380px;
   margin: 0 auto;
 }
 
-@media (max-width: 680px) {
-  .calc-card-wrapper {
-    padding: 24px 18px;
-  }
-  .calc-results-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-}
-
-/* ==========================================================================
-   BLOQUE 4: TRANSPARENCIA & RESPALDO GVM (Fondo Blanco #ffffff)
-   ========================================================================== */
+/* SECCIÓN 4: TRANSPARENCIA & RESPALDO (Bloque 4: Fondo Blanco #ffffff) */
 .camp-trust-section {
   background-color: var(--camp-bg-white);
-  padding: 70px 0 80px;
-  border-top: 1px solid rgba(194, 24, 91, 0.06);
-  border-bottom: 1px solid rgba(194, 24, 91, 0.06);
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .trust-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .trust-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .trust-card {
-  background: var(--camp-bg-white);
-  border: 1px solid var(--camp-border);
-  border-radius: var(--radius-lg);
-  padding: 32px 24px;
-  box-shadow: var(--camp-shadow-sm);
-  transition: transform var(--trans-base), box-shadow var(--trans-base);
-  display: flex;
-  flex-direction: column;
+  background: var(--camp-bg-warm);
+  border: 1px solid var(--camp-card-border);
+  border-radius: 18px;
+  padding: 30px 22px;
+  text-align: center;
+  transition: all var(--trans-base);
+  box-shadow: var(--camp-card-shadow);
 }
 
 .trust-card:hover {
+  border-color: var(--camp-card-border-focus);
   transform: translateY(-4px);
-  box-shadow: var(--camp-shadow-lg);
+  box-shadow: var(--camp-card-shadow-hover);
 }
 
 .trust-icon-box {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
   background: var(--camp-magenta-light);
-  color: var(--camp-magenta);
+  border: 1px solid rgba(194, 24, 91, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin: 0 auto 18px;
+  color: var(--camp-magenta);
 }
 
 .trust-card-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.18rem;
+  font-weight: 700;
   color: var(--camp-text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .trust-card-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.94rem;
   color: var(--camp-text-body);
+  line-height: 1.55;
 }
 
-@media (max-width: 860px) {
-  .trust-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* ==========================================================================
-   BLOQUE 5: PREGUNTAS FRECUENTES (FAQ) (Fondo #fbf7f4)
-   ========================================================================== */
+/* SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) (Bloque 5: Fondo #fbf7f4) */
 .camp-faq-section {
   background-color: var(--camp-bg-warm);
-  padding: 70px 0 90px;
+  padding: 80px 20px 100px;
+  position: relative;
+  z-index: 1;
 }
 
 .faq-list {
-  max-width: 780px;
+  max-width: 760px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .faq-item {
   background: #FFFFFF;
-  border: 1px solid var(--camp-border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--camp-card-border);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-  transition: border-color var(--trans-fast);
+  transition: border-color var(--trans-base), box-shadow var(--trans-base);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
-.faq-item:hover {
-  border-color: var(--camp-magenta);
+.faq-item.active {
+  border-color: var(--camp-card-border-focus);
+  box-shadow: 0 4px 16px rgba(194, 24, 91, 0.08);
 }
 
 .faq-question-btn {
   width: 100%;
-  padding: 20px 24px;
+  padding: 20px 22px;
+  background: none;
+  border: none;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: none;
-  border: none;
-  outline: none;
   cursor: pointer;
-  text-align: left;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.08rem;
-  font-weight: 700;
   color: var(--camp-text-dark);
-  transition: color var(--trans-fast);
-}
-
-.faq-question-btn:hover {
-  color: var(--camp-magenta-dark);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 .faq-chevron {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
+  color: var(--camp-text-muted);
+  transition: transform var(--trans-base), color var(--trans-base);
   flex-shrink: 0;
-  color: var(--camp-magenta);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faq-question-btn[aria-expanded="true"] .faq-chevron {
+.faq-item.active .faq-chevron {
   transform: rotate(180deg);
+  color: var(--camp-magenta);
 }
 
 .faq-answer-panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
-  padding: 0 24px;
-}
-
-.faq-answer-panel p {
-  padding-bottom: 22px;
-  font-size: 0.95rem;
-  line-height: 1.65;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 22px;
   color: var(--camp-text-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* ==========================================================================
-   FOOTER & STICKY BOTTOM BAR ADJUSTMENTS
-   ========================================================================== */
+.faq-item.active .faq-answer-panel {
+  padding-bottom: 20px;
+}
+
+/* FOOTER (Bloque 6: Fondo Blanco #ffffff) */
 .main-footer {
-  background: #111827;
-  color: #9CA3AF;
-  border-top: 1px solid #1F2937;
-}
-
-.footer-logos-flex {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.footer-logo {
-  height: 38px;
-  width: auto;
-  object-fit: contain;
-}
-
-.VM-footer-logo {
-  height: 32px;
-}
-
-.footer-brand-desc {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #9CA3AF;
-}
-
-.footer-links-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-links-list a {
-  color: #D1D5DB;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color var(--trans-fast);
-}
-
-.footer-links-list a:hover {
-  color: #FFFFFF;
-}
-
-.footer-badge-ica {
-  display: inline-block;
-  background: rgba(0, 200, 83, 0.12);
-  color: #00E676;
-  border: 1px solid rgba(0, 200, 83, 0.3);
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 6px;
-}
-
-.footer-gvm-text {
-  display: block;
-  font-size: 0.8rem;
-  color: #6B7280;
-  margin-top: 8px;
-  line-height: 1.4;
-}
-
-.footer-contact-item {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #D1D5DB;
-  margin-bottom: 12px;
-}
-
-.footer-link-highlight {
-  color: #00E676;
-  text-decoration: none;
-  font-weight: 700;
+  background-color: var(--camp-bg-white);
+  border-top: 1px solid var(--camp-card-border);
 }
 
 @media (max-width: 899px) {
   .main-footer {
-    padding-bottom: 90px;
+    padding-bottom: 90px; /* Espacio para sticky bar móvil */
   }
 }
 
-/* --- STICKY BOTTOM BAR (MÓVILES — TOTALMENTE RESPONSIVE)  --- */
+/* STICKY BOTTOM BAR (MÓVILES — TOTALMENTE RESPONSIVE) */
 .camp-sticky-bar {
   position: fixed;
   bottom: 0;
@@ -896,7 +951,7 @@ body.camp-page {
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid var(--camp-border);
+  border-top: 1px solid var(--camp-card-border);
   padding: 10px 16px;
   padding-bottom: max(10px, env(safe-area-inset-bottom));
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
@@ -907,9 +962,7 @@ body.camp-page {
 }
 
 @media (min-width: 900px) {
-  .camp-sticky-bar {
-    display: none;
-  }
+  .camp-sticky-bar { display: none; }
 }
 
 .sticky-info {
@@ -955,6 +1008,7 @@ body.camp-page {
   box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
   text-decoration: none;
   transition: transform var(--trans-fast);
+  animation: stickyGreenBtnPulse 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .sticky-btn:active {
