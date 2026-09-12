@@ -85,11 +85,11 @@ function initCalculator() {
     // Kilos de carne en canal (~75% rendimiento): ~81 kg por cerdo
     const totalMeat = Math.round(pigs * 81);
     // Margen comercial estimado escalonado:
-    // Valor por Piggy: $1.000.000 COP
-    // 1 Piggy: 8% ($80.000 c/u = $80.000)
-    // 2 Piggys: 9% ($90.000 c/u = $180.000)
-    // 3+ Piggys: 10% ($100.000 c/u = $300.000 hasta $1.000.000)
-    const PIG_PRICE = 1000000;
+    // Valor por Piggy: $1.200.000 COP
+    // 1 Piggy: 8% ($96.000 c/u = $96.000)
+    // 2 Piggys: 9% ($108.000 c/u = $216.000)
+    // 3+ Piggys: 10% ($120.000 c/u = $360.000 hasta $1.200.000)
+    const PIG_PRICE = 1200000;
     let marginRate = 0.10;
     if (pigs === 1) {
       marginRate = 0.08;
