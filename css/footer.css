@@ -118,6 +118,16 @@
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.2px;
+  text-decoration: none;
+  transition: all var(--trans-base);
+  cursor: pointer;
+}
+
+.footer-badge-ica:hover {
+  background-color: #C8E6C9;
+  color: #2E7D32 !important;
+  border-color: #4CAF50;
+  transform: translateY(-1px);
 }
 
 .contact-email, .contact-phone {
