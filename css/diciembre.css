@@ -4,27 +4,21 @@
 :root {
   --camp-bg-warm: #fbf7f4;
   --camp-bg-white: #ffffff;
-  
   --camp-magenta: #C2185B;
   --camp-magenta-dark: #9C1552;
   --camp-magenta-light: #FCE4EC;
   --camp-magenta-glow: rgba(194, 24, 91, 0.15);
-  
   --camp-gold: #C27803;
   --camp-gold-light: #FEF3C7;
-  
   --camp-green: #00C853;
   --camp-green-dark: #009624;
-  
   --camp-text-dark: #2B1425;
   --camp-text-body: #4A3E45;
   --camp-text-muted: #7E7079;
-  
   --camp-card-border: #EBE3DC;
   --camp-card-border-focus: rgba(194, 24, 91, 0.35);
   --camp-card-shadow: 0 4px 20px rgba(74, 30, 50, 0.05);
   --camp-card-shadow-hover: 0 12px 30px rgba(74, 30, 50, 0.1);
-  
   --trans-fast: 0.15s ease;
   --trans-base: 0.25s ease;
 }
@@ -548,7 +542,7 @@
   background: var(--camp-bg-warm);
   border: 1px solid var(--camp-card-border);
   border-radius: 20px;
-  padding: 32px 24px;
+  padding: 20px 20px 28px;
   transition: all var(--trans-base);
   display: flex;
   flex-direction: column;
@@ -561,20 +555,33 @@
   box-shadow: var(--camp-card-shadow-hover);
 }
 
-.step-number-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--camp-magenta), #9C27B0);
-  color: #FFFFFF;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.step-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
   margin-bottom: 20px;
-  box-shadow: 0 6px 16px rgba(194, 24, 91, 0.25);
+  background-color: #f0e6e0;
+  border: 1px solid rgba(235, 227, 220, 0.8);
+  box-shadow: 0 4px 14px rgba(74, 30, 50, 0.06);
+}
+
+.step-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-card:hover .step-card-img {
+  transform: scale(1.04);
+}
+
+.step-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .step-title {
