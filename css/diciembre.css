@@ -151,7 +151,7 @@
   overflow: hidden;
   background-color: #1A0C0A;
   background-image: 
-    linear-gradient(90deg, rgba(20, 8, 12, 0.92) 0%, rgba(20, 8, 12, 0.82) 42%, rgba(20, 8, 12, 0.25) 75%, rgba(20, 8, 12, 0.05) 100%),
+    linear-gradient(90deg, rgba(20, 8, 12, 0.88) 0%, rgba(20, 8, 12, 0.68) 42%, rgba(20, 8, 12, 0.12) 75%, transparent 100%),
     url('/assets/piggy-diciembre.jpg');
   background-size: cover;
   background-position: right center;
@@ -170,7 +170,7 @@
 @media (max-width: 900px) {
   .camp-hero-banner {
     background-image: 
-      linear-gradient(rgba(20, 8, 12, 0.82), rgba(20, 8, 12, 0.82)),
+      linear-gradient(rgba(20, 8, 12, 0.65), rgba(20, 8, 12, 0.65)),
       url('/assets/piggy-diciembre.jpg');
     background-position: center center;
     min-height: auto;
@@ -706,16 +706,14 @@
   font-weight: 700;
 }
 
-.calc-slider-markers span:nth-child(1)  { left: calc(14px + (100% - 28px) * 0 / 9); }
-.calc-slider-markers span:nth-child(2)  { left: calc(14px + (100% - 28px) * 1 / 9); }
-.calc-slider-markers span:nth-child(3)  { left: calc(14px + (100% - 28px) * 2 / 9); }
-.calc-slider-markers span:nth-child(4)  { left: calc(14px + (100% - 28px) * 3 / 9); }
-.calc-slider-markers span:nth-child(5)  { left: calc(14px + (100% - 28px) * 4 / 9); }
-.calc-slider-markers span:nth-child(6)  { left: calc(14px + (100% - 28px) * 5 / 9); }
-.calc-slider-markers span:nth-child(7)  { left: calc(14px + (100% - 28px) * 6 / 9); }
-.calc-slider-markers span:nth-child(8)  { left: calc(14px + (100% - 28px) * 7 / 9); }
-.calc-slider-markers span:nth-child(9)  { left: calc(14px + (100% - 28px) * 8 / 9); }
-.calc-slider-markers span:nth-child(10) { left: calc(14px + (100% - 28px) * 9 / 9); }
+.calc-slider-markers span:nth-child(1) { left: calc(14px + (100% - 28px) * 0 / 7); }
+.calc-slider-markers span:nth-child(2) { left: calc(14px + (100% - 28px) * 1 / 7); }
+.calc-slider-markers span:nth-child(3) { left: calc(14px + (100% - 28px) * 2 / 7); }
+.calc-slider-markers span:nth-child(4) { left: calc(14px + (100% - 28px) * 3 / 7); }
+.calc-slider-markers span:nth-child(5) { left: calc(14px + (100% - 28px) * 4 / 7); }
+.calc-slider-markers span:nth-child(6) { left: calc(14px + (100% - 28px) * 5 / 7); }
+.calc-slider-markers span:nth-child(7) { left: calc(14px + (100% - 28px) * 6 / 7); }
+.calc-slider-markers span:nth-child(8) { left: calc(14px + (100% - 28px) * 7 / 7); }
 
 /* Resultados de la Calculadora */
 .calc-results-grid {
@@ -885,6 +883,17 @@
   font-size: 0.95rem;
   line-height: 1.6;
 }
+
+.faq-answer-panel p { margin: 0 0 10px 0; }
+.faq-answer-panel p:last-child { margin-bottom: 0; }
+
+.faq-benefits-list {
+  margin: 0 0 10px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.faq-benefits-list li { margin-bottom: 6px; color: var(--camp-text-body); }
+.faq-benefits-list li:last-child { margin-bottom: 0; }
 
 .faq-item.active .faq-answer-panel { padding-bottom: 20px; }
 

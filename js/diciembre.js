@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
+  initCounters();
   initCalculator();
   initFaqAccordion();
   initWhatsAppTracking();
@@ -188,4 +189,54 @@ function initWhatsAppTracking() {
       }
     });
   });
+}
+
+/**
+ * 5. Efecto de Aumento Numérico (Counters) para 60 días y 33 Piggys
+ */
+function initCounters() {
+  const counters = document.querySelectorAll('.camp-counter');
+  if (!counters.length) return;
+
+  const animateCounter = (counter) => {
+    const target = parseInt(counter.getAttribute('data-target'), 10) || 0;
+    const duration = 1200; // ms
+    const startTime = performance.now();
+
+    const updateCount = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Easing cubic out para desaceleración suave
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentVal = Math.floor(easeOut * target);
+
+      counter.textContent = currentVal;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.textContent = target;
+      }
+    };
+
+    requestAnimationFrame(updateCount);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    counters.forEach((c) => {
+      c.textContent = '0';
+      observer.observe(c);
+    });
+  } else {
+    counters.forEach((c) => animateCounter(c));
+  }
 }
