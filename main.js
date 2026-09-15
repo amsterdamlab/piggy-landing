@@ -47,56 +47,105 @@ function initMobileMenu() {
 }
 
 /**
- * Highlight active menu items based on scroll position using IntersectionObserver
+ * Highlight active menu items based on scroll position & navigation clicks
  */
 function initActiveSectionHighlighting() {
-  const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav-item-link');
+  const sectionIds = ['nosotros', 'como-funciona', 'beneficios', 'faq', 'contacto'];
+  const sections = sectionIds
+    .map(id => ({ id, el: document.getElementById(id) }))
+    .filter(item => item.el !== null);
+
+  let isClickScrolling = false;
+  let clickTimeout = null;
 
   const setActive = (id) => {
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${id}`) {
+      if (id && link.getAttribute('href') === `#${id}`) {
         link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
   };
 
-  const options = {
-    root: null,
-    rootMargin: '-20% 0px -40% 0px',
-    threshold: 0
+  const updateActiveSection = () => {
+    if (isClickScrolling) return;
+
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    // Top of page (Hero section) -> clear all active indicators
+    if (scrollY < 200) {
+      setActive(null);
+      return;
+    }
+
+    // Scrolled to bottom -> highlight Contacto
+    const isAtBottom = (windowHeight + scrollY) >= (docHeight - 60);
+    const contacto = sections.find(s => s.id === 'contacto');
+    if (isAtBottom && contacto) {
+      const contactoRect = contacto.el.getBoundingClientRect();
+      if (contactoRect.top < windowHeight - 60) {
+        setActive('contacto');
+        return;
+      }
+    }
+
+    // Focal point for determining active section (offset from sticky navbar)
+    const focalPoint = 140;
+
+    for (const section of sections) {
+      if (section.id === 'contacto') continue;
+      const rect = section.el.getBoundingClientRect();
+      if (rect.top <= focalPoint && rect.bottom > focalPoint) {
+        setActive(section.id);
+        return;
+      }
+    }
+
+    // If bottom section (contacto) is mostly in view
+    if (contacto) {
+      const contactoRect = contacto.el.getBoundingClientRect();
+      if (contactoRect.top <= focalPoint && contactoRect.bottom > 0) {
+        setActive('contacto');
+        return;
+      }
+    }
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        setActive(id);
-      }
-    });
-  }, options);
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-
-  // Handle click on nav link to immediately activate
+  // Nav link click handling
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
-        setActive(href.substring(1));
+        const targetId = href.substring(1);
+        setActive(targetId);
+        isClickScrolling = true;
+        clearTimeout(clickTimeout);
+        clickTimeout = setTimeout(() => {
+          isClickScrolling = false;
+          updateActiveSection();
+        }, 800);
       }
     });
   });
 
-  // Activate Contacto when scrolled to the very bottom
+  // Optimized scroll listener
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
-      setActive('contacto');
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveSection();
+        ticking = false;
+      });
+      ticking = true;
     }
   }, { passive: true });
+
+  // Initial check on page load
+  updateActiveSection();
 }
 
 /**
