@@ -1,6 +1,4 @@
-/* ==========================================================================
-   PIGGY LANDING — 4. Section Components (Nosotros, Cómo Funciona, Beneficios, FAQ)
-   ========================================================================== */
+/* === PIGGY LANDING — 4. Main Landing Specific Sections === */
 
 /* 4.1 Nosotros Section */
 .nosotros-section {
@@ -58,6 +56,7 @@
   color: #1C0D26;
 }
 
+/* Valle Morales Endorsement Box */
 .endorsement-box {
   display: flex;
   gap: 24px;
@@ -106,10 +105,7 @@
   flex-shrink: 0;
 }
 
-.bullet-check-svg {
-  width: 100%;
-  height: 100%;
-}
+.bullet-check-svg { width: 100%; height: 100%; }
 
 .bullet-text {
   font-size: 11px;
@@ -135,7 +131,7 @@
 .video-card {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #2D0F5C 0%, #0F0425 100%);
+  background: linear-gradient(135deg, #2D0F5C, #0F0425);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,6 +183,7 @@
   font-size: 1.6rem;
   padding-left: 6px;
   transition: all var(--trans-base);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -277,10 +274,7 @@
   border-color: var(--color-primary);
 }
 
-.step-svg-icon {
-  width: 32px;
-  height: 32px;
-}
+.step-svg-icon { width: 32px; height: 32px; }
 
 .step-badge-num {
   position: absolute;
@@ -321,11 +315,12 @@
   color: rgba(233, 30, 99, 0.3);
   font-size: 1.8rem;
   font-weight: 700;
+  -webkit-user-select: none;
   user-select: none;
 }
 
 .como-funciona-banner {
-  background: linear-gradient(135deg, #910957 0%, #f22c75 100%);
+  background: linear-gradient(135deg, #910957, #F22C75);
   border-radius: 24px;
   padding: 32px 48px;
   display: flex;
@@ -359,7 +354,7 @@
   transform: translateY(-2px) !important;
 }
 
-/* 4.3 Beneficios Section */
+/* 4.3 Beneficios Section ("Por qué elegirnos") */
 .beneficios-section {
   padding: 100px 0;
   background-color: #FFFFFF;
@@ -438,10 +433,7 @@
   margin-top: 2px;
 }
 
-.check-svg {
-  width: 14px;
-  height: 14px;
-}
+.check-svg { width: 14px; height: 14px; }
 
 .beneficios-image-wrapper {
   position: absolute;
@@ -469,10 +461,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 20%, rgba(255,255,255,0.3) 40%, transparent 65%),
-              linear-gradient(to bottom, #FFFFFF 0%, transparent 12%, transparent 88%, #FFFFFF 100%);
+  background: linear-gradient(
+    to right,
+    #FFFFFF 0%,
+    rgba(255, 255, 255, 0.85) 20%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0) 65%
+  ),
+  linear-gradient(
+    to bottom,
+    #FFFFFF 0%,
+    rgba(255, 255, 255, 0) 12%,
+    rgba(255, 255, 255, 0) 88%,
+    #FFFFFF 100%
+  );
 }
 
+/* Allies / Red de Beneficios Block */
 .allies-block {
   border-top: 1px solid #F0E6E9;
   padding-top: 80px;
@@ -554,10 +559,10 @@
 /* Welcome Bonus Banner */
 .welcome-bonus-banner {
   position: relative;
-  background-color: #1c0a42;
+  background-color: #1C0A42;
   border-radius: 24px;
   overflow: visible;
-  box-shadow: 0 15px 35px rgba(28, 13, 38, 0.2);
+  box-shadow: 0 15px 35px rgba(28, 10, 66, 0.2);
   margin-top: 80px;
 }
 
@@ -686,10 +691,10 @@
 }
 
 .banner-cta-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  display: block;
 }
 
 /* 4.4 FAQ Section */
@@ -746,10 +751,7 @@
   transform: translateY(-2px);
 }
 
-.whatsapp-svg {
-  width: 20px;
-  height: 20px;
-}
+.whatsapp-svg { width: 20px; height: 20px; }
 
 .faq-accordion-wrapper {
   display: flex;
@@ -819,10 +821,7 @@
   color: var(--color-primary);
 }
 
-.faq-arrow-icon svg {
-  width: 18px;
-  height: 18px;
-}
+.faq-arrow-icon svg { width: 18px; height: 18px; }
 
 .faq-panel {
   max-height: 0;
@@ -846,9 +845,7 @@
     text-align: center;
   }
 
-  .nosotros-content {
-    align-items: center;
-  }
+  .nosotros-content { align-items: center; }
 
   .endorsement-box {
     width: 100%;
@@ -900,13 +897,9 @@
     border-radius: 24px;
   }
 
-  .allies-logos-flex {
-    justify-content: center;
-  }
+  .allies-logos-flex { justify-content: center; }
 
-  .ally-logo-card {
-    min-width: calc(50% - 20px);
-  }
+  .ally-logo-card { min-width: calc(50% - 20px); }
 
   .welcome-bonus-banner {
     overflow: hidden;
@@ -974,9 +967,7 @@
   .nosotros-title, 
   .como-funciona-title, 
   .beneficios-title, 
-  .faq-title {
-    font-size: 2.1rem;
-  }
+  .faq-title { font-size: 2.1rem; }
 
   .endorsement-box {
     flex-direction: column;
@@ -985,23 +976,13 @@
     text-align: center;
   }
 
-  .ally-logo-card {
-    min-width: 100%;
-  }
+  .ally-logo-card { min-width: 100%; }
 
-  .banner-title {
-    font-size: 1.45rem;
-  }
+  .banner-title { font-size: 1.45rem; }
 
-  .banner-subtitle {
-    font-size: 0.88rem;
-  }
+  .banner-subtitle { font-size: 0.88rem; }
 
-  .faq-trigger {
-    padding: 16px 20px;
-  }
+  .faq-trigger { padding: 16px 20px; }
 
-  .faq-question {
-    font-size: 1.05rem;
-  }
+  .faq-question { font-size: 1.05rem; }
 }

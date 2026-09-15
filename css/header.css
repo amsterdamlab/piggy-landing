@@ -33,7 +33,7 @@ header {
 }
 
 .nav-logo {
-  height: 84px;
+  height: 114px;
   width: auto;
   object-fit: contain;
   transition: transform var(--trans-spring);
@@ -151,7 +151,7 @@ header {
   }
 
   .nav-logo {
-    height: 56px;
+    height: 76px;
   }
 
   .logo-link {

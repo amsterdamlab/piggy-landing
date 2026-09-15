@@ -95,6 +95,13 @@ ul {
   object-fit: contain;
 }
 
+.btn-piggy-svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  display: block;
+}
+
 /* Keyframe Animations */
 @keyframes float-sparkle {
   0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.3; }
