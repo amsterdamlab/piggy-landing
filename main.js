@@ -50,12 +50,21 @@ function initMobileMenu() {
  * Highlight active menu items based on scroll position using IntersectionObserver
  */
 function initActiveSectionHighlighting() {
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
   const navLinks = document.querySelectorAll('.nav-item-link');
+
+  const setActive = (id) => {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${id}`) {
+        link.classList.add('active');
+      }
+    });
+  };
 
   const options = {
     root: null,
-    rootMargin: '-30% 0px -60% 0px',
+    rootMargin: '-20% 0px -40% 0px',
     threshold: 0
   };
 
@@ -63,14 +72,7 @@ function initActiveSectionHighlighting() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        
-        // Remove active class from all links
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
+        setActive(id);
       }
     });
   }, options);
@@ -78,6 +80,23 @@ function initActiveSectionHighlighting() {
   sections.forEach(section => {
     observer.observe(section);
   });
+
+  // Handle click on nav link to immediately activate
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        setActive(href.substring(1));
+      }
+    });
+  });
+
+  // Activate Contacto when scrolled to the very bottom
+  window.addEventListener('scroll', () => {
+    if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+      setActive('contacto');
+    }
+  }, { passive: true });
 }
 
 /**
