@@ -110,14 +110,7 @@
   left: -130%;
   width: 60%;
   height: 200%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 15%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0.1) 85%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 15%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.1) 85%, transparent 100%);
   transform: rotate(25deg);
   animation: headerCtaShine 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
@@ -236,14 +229,33 @@
   font-size: clamp(0.95rem, 1.6vw, 1.08rem);
   color: #FFFFFF;
   line-height: 1.55;
-  margin: 0 0 24px 0;
-  max-width: 540px;
+  margin: 0 0 16px 0;
+  max-width: 560px;
   text-align: left;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
+.camp-hero-vip-callout {
+  font-size: clamp(0.98rem, 1.65vw, 1.12rem);
+  color: #FFFFFF;
+  line-height: 1.55;
+  margin: 0 0 24px 0;
+  max-width: 560px;
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.vip-highlight-text {
+  font-size: 1.25em;
+  font-weight: 800;
+  color: #FFA2B6;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.2px;
+}
+
 @media (max-width: 900px) {
-  .camp-hero-subtitle {
+  .camp-hero-subtitle,
+  .camp-hero-vip-callout {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -415,7 +427,6 @@
   line-height: 1;
   margin-bottom: 4px;
 }
-
 .countdown-lbl {
   font-size: 0.7rem;
   font-weight: 700;
@@ -473,12 +484,7 @@
   filter: brightness(1.05);
 }
 
-.btn-camp-primary svg {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  fill: currentColor;
-}
+.btn-camp-primary svg { width: 26px; height: 26px; flex-shrink: 0; fill: currentColor; }
 
 .camp-cta-note {
   font-size: 0.88rem;
@@ -492,9 +498,7 @@
   margin-top: 4px;
   line-height: 1.5;
 }
-
 .camp-cta-note strong { font-weight: 800; color: var(--camp-magenta-dark); }
-
 .camp-cta-note svg { color: var(--camp-green); flex-shrink: 0; }
 
 /* SECCIÓN 2: CÓMO FUNCIONA (Bloque 2: Fondo Blanco #ffffff) */
@@ -542,7 +546,7 @@
   background: var(--camp-bg-warm);
   border: 1px solid var(--camp-card-border);
   border-radius: 20px;
-  padding: 5px;
+  padding: 8px;
   transition: all var(--trans-base);
   display: flex;
   flex-direction: column;
@@ -558,7 +562,7 @@
 .step-card-media {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   margin-bottom: 16px;
   background-color: #f0e6e0;
@@ -582,7 +586,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 4px 16px 20px;
+  padding: 4px 14px 20px;
 }
 
 .step-title {
@@ -751,9 +755,7 @@
 }
 
 .calc-result-val.highlight-gold { color: var(--camp-gold); }
-
 .calc-result-val.highlight-pink { color: var(--camp-magenta); }
-
 .calc-result-val.highlight-green { color: #00A344; }
 
 .calc-result-label {
@@ -893,12 +895,7 @@
 
 .faq-answer-panel p { margin: 0 0 10px 0; }
 .faq-answer-panel p:last-child { margin-bottom: 0; }
-
-.faq-benefits-list {
-  margin: 0 0 10px 0;
-  padding-left: 20px;
-  list-style-type: disc;
-}
+.faq-benefits-list { margin: 0 0 10px 0; padding-left: 20px; list-style-type: disc; }
 .faq-benefits-list li { margin-bottom: 6px; color: var(--camp-text-body); }
 .faq-benefits-list li:last-child { margin-bottom: 0; }
 
