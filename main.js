@@ -237,7 +237,7 @@ function initScrollAnimations() {
  * YouTube Video Modal Popup
  */
 function initVideoModal() {
-  const openBtns = [document.getElementById('open-video-btn'), document.getElementById('cta-hero-watch')].filter(Boolean);
+  const openBtns = [document.getElementById('open-video-btn')].filter(Boolean);
   const modal = document.getElementById('video-modal');
   const closeBtn = document.getElementById('close-video-btn');
   const iframe = document.getElementById('video-iframe');
