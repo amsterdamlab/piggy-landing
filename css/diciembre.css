@@ -54,7 +54,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 90px;
+  min-height: 108px;
 }
 
 .camp-logo-wrapper {
@@ -68,16 +68,16 @@
 .camp-logo-wrapper:hover { opacity: 0.9; transform: scale(1.02); }
 
 .camp-logo-img {
-  height: 82px;
+  height: 106px;
   width: auto;
-  max-height: 85px;
+  max-height: 110px;
   object-fit: contain;
   display: block;
 }
 
 @media (max-width: 640px) {
-  .camp-header-container { padding: 6px 16px; min-height: 72px; }
-  .camp-logo-img { height: 68px; max-height: 72px; }
+  .camp-header-container { padding: 6px 16px; min-height: 90px; }
+  .camp-logo-img { height: 88px; max-height: 92px; }
 }
 
 .camp-header-cta {
@@ -187,11 +187,7 @@
 
 @media (max-width: 900px) {
   .camp-hero-banner-container { padding: 36px 20px; justify-content: center; }
-  .camp-hero-banner-content {
-    max-width: 100%;
-    text-align: center;
-    align-items: center;
-  }
+  .camp-hero-banner-content { max-width: 100%; text-align: center; align-items: center; }
 }
 
 .camp-hero-eyebrow {
@@ -257,20 +253,11 @@
 
 @media (max-width: 900px) {
   .camp-hero-subtitle,
-  .camp-hero-vip-callout {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .camp-hero-vip-callout { text-align: center; margin-left: auto; margin-right: auto; }
 }
 
 /* Badges / Chips estilo dark translucent de la referencia */
-.camp-hero-chips {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
+.camp-hero-chips { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start; }
 
 @media (max-width: 900px) {
   .camp-hero-chips { justify-content: center; }
@@ -300,25 +287,11 @@
   flex-shrink: 0;
 }
 
-.dark-chip-info {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
+.dark-chip-info { display: flex; flex-direction: column; text-align: left; }
 
-.chip-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #E5A855;
-  line-height: 1.2;
-}
+.chip-label { font-size: 0.8rem; font-weight: 600; color: #E5A855; line-height: 1.2; }
 
-.chip-value {
-  font-size: 0.96rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  font-family: 'Outfit', sans-serif;
-}
+.chip-value { font-size: 0.96rem; font-weight: 800; color: #FFFFFF; font-family: 'Outfit', sans-serif; }
 
 /* BLOQUE INFERIOR HERO: CUENTA REGRESIVA & CTA (Fondo #fbf7f4) */
 .camp-countdown-section {
@@ -330,12 +303,7 @@
 
 .camp-hero-container { max-width: 1140px; margin: 0 auto; }
 
-.camp-hero-action-block {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.camp-hero-action-block { text-align: center; display: flex; flex-direction: column; align-items: center; }
 
 .countdown-heading {
   display: flex;
@@ -361,25 +329,11 @@
   flex-shrink: 0;
 }
 
-.countdown-heading-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
+.countdown-heading-text { display: inline-flex; align-items: center; gap: 6px; }
 
 @media (max-width: 640px) {
-  .countdown-heading {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.92rem;
-    line-height: 1.35;
-  }
-  .countdown-heading-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
+  .countdown-heading { flex-direction: column; gap: 8px; font-size: 0.92rem; line-height: 1.35; }
+  .countdown-heading-text { display: flex; flex-direction: column; align-items: center; gap: 2px; }
   .countdown-date-highlight {
     font-size: 1.32rem;
     font-weight: 800;
@@ -388,12 +342,7 @@
     margin-top: 2px;
   }
   .countdown-heading svg,
-  .countdown-cal-icon {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    min-height: 28px;
-  }
+  .countdown-cal-icon { width: 28px; height: 28px; min-width: 28px; min-height: 28px; }
 }
 
 /* Grid de 4 Tarjetas Blancas */
@@ -534,11 +483,7 @@
 
 .section-desc strong { font-weight: 700; color: var(--camp-text-dark); }
 
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
+.steps-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
 
 @media (min-width: 768px) {
   .steps-grid { grid-template-columns: repeat(3, 1fr); }
@@ -580,16 +525,9 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.step-card:hover .step-card-img {
-  transform: scale(1.04);
-}
+.step-card:hover .step-card-img { transform: scale(1.04); }
 
-.step-card-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding: 4px 14px 20px;
-}
+.step-card-content { display: flex; flex-direction: column; flex-grow: 1; padding: 4px 14px 20px; }
 
 .step-title {
   font-size: 1.22rem;
@@ -600,12 +538,7 @@
   font-family: 'Outfit', sans-serif;
 }
 
-.step-text {
-  font-size: 0.96rem;
-  color: var(--camp-text-body);
-  line-height: 1.6;
-  flex-grow: 1;
-}
+.step-text { font-size: 0.96rem; color: var(--camp-text-body); line-height: 1.6; flex-grow: 1; }
 
 /* SECCIÓN 3: CALCULADORA / SIMULADOR (Bloque 3: Fondo #fbf7f4) */
 .camp-calc-section {
@@ -715,10 +648,7 @@
 }
 
 .calc-slider-markers span:hover,
-.calc-slider-markers span.active {
-  color: var(--camp-magenta);
-  font-weight: 700;
-}
+.calc-slider-markers span.active { color: var(--camp-magenta); font-weight: 700; }
 
 .calc-slider-markers span:nth-child(1) { left: calc(14px + (100% - 28px) * 0 / 6); }
 .calc-slider-markers span:nth-child(2) { left: calc(14px + (100% - 28px) * 1 / 6); }
@@ -729,12 +659,7 @@
 .calc-slider-markers span:nth-child(7) { left: calc(14px + (100% - 28px) * 6 / 6); }
 
 /* Resultados de la Calculadora */
-.calc-results-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 28px;
-}
+.calc-results-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 28px; }
 
 @media (min-width: 600px) {
   .calc-results-grid { grid-template-columns: repeat(3, 1fr); }
@@ -760,11 +685,7 @@
 .calc-result-val.highlight-pink { color: var(--camp-magenta); }
 .calc-result-val.highlight-green { color: #00A344; }
 
-.calc-result-label {
-  font-size: 0.84rem;
-  color: var(--camp-text-muted);
-  font-weight: 600;
-}
+.calc-result-label { font-size: 0.84rem; color: var(--camp-text-muted); font-weight: 600; }
 
 .calc-btn-container { text-align: center; }
 
@@ -778,11 +699,7 @@
   z-index: 1;
 }
 
-.trust-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
+.trust-cards-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
 
 @media (min-width: 768px) {
   .trust-cards-grid { grid-template-columns: repeat(3, 1fr); }
@@ -825,11 +742,7 @@
   margin-bottom: 8px;
 }
 
-.trust-card-desc {
-  font-size: 0.94rem;
-  color: var(--camp-text-body);
-  line-height: 1.55;
-}
+.trust-card-desc { font-size: 0.94rem; color: var(--camp-text-body); line-height: 1.55; }
 
 /* SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ) (Bloque 5: Fondo #fbf7f4) */
 .camp-faq-section {
@@ -837,6 +750,51 @@
   padding: 80px 20px 100px;
   position: relative;
   z-index: 1;
+}
+
+.camp-faq-header {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+.camp-faq-header-content { text-align: left; }
+.camp-faq-header-content .section-title { margin-bottom: 6px; }
+.camp-faq-header-content .section-desc { margin: 0; }
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+  transition: all var(--trans-base);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-whatsapp:hover {
+  background-color: #20BA5A;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+.btn-whatsapp .whatsapp-svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .camp-faq-header { flex-direction: column; text-align: center; gap: 18px; margin-bottom: 32px; }
+  .camp-faq-header-content { text-align: center; }
+  .camp-faq-header .btn-whatsapp { width: 100%; max-width: 320px; }
 }
 
 .faq-list {
@@ -984,9 +942,4 @@
 
 .sticky-btn:active { transform: scale(0.96); }
 
-.sticky-btn svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
+.sticky-btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
