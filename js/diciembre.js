@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. Cuenta Regresiva hacia el 1 de Octubre
+ * 1. Cuenta Regresiva hacia el 8 de Octubre
  */
 function initCountdown() {
-  // Fecha objetivo: 1 de Octubre de 2026, 23:59:59 (hora Colombia UTC-5)
-  const targetDate = new Date('2026-10-01T23:59:59-05:00').getTime();
+  // Fecha objetivo: 8 de Octubre de 2026, 10:00:00 (hora Colombia UTC-5)
+  const targetDate = new Date('2026-10-08T10:00:00-05:00').getTime();
 
   const daysEl = document.getElementById('count-days');
   const hoursEl = document.getElementById('count-hours');
