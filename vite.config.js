@@ -12,7 +12,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        diciembre: resolve(__dirname, 'diciembre/index.html')
+        diciembre: resolve(__dirname, 'diciembre/index.html'),
+        lanzamiento: resolve(__dirname, 'lanzamiento/index.html')
       }
     }
   }
