@@ -40,34 +40,34 @@
 </head>
 <body class="lz-body">
 
-  <!-- Fondos ambientales y resplandores -->
-  <div class="lz-glow lz-glow-top" aria-hidden="true"></div>
-  <div class="lz-glow lz-glow-center" aria-hidden="true"></div>
-  <div class="lz-glow lz-glow-bottom" aria-hidden="true"></div>
-  <div class="lz-grid-overlay" aria-hidden="true"></div>
-
-  <!-- Partículas decorativas -->
-  <div class="lz-stars" aria-hidden="true">
-    <span class="lz-star lz-s1">✦</span>
-    <span class="lz-star lz-s2">✦</span>
-    <span class="lz-star lz-s3">✦</span>
-    <span class="lz-star lz-s4">✦</span>
-    <span class="lz-star lz-s5">✦</span>
-    <span class="lz-star lz-s6">✦</span>
+  <!-- Canvas de fondo aislado para prevenir overflow en móviles -->
+  <div class="lz-ambient-canvas" aria-hidden="true">
+    <div class="lz-glow lz-glow-top"></div>
+    <div class="lz-glow lz-glow-center"></div>
+    <div class="lz-glow lz-glow-bottom"></div>
+    <div class="lz-grid-overlay"></div>
+    <div class="lz-stars">
+      <span class="lz-star lz-s1">✦</span>
+      <span class="lz-star lz-s2">✦</span>
+      <span class="lz-star lz-s3">✦</span>
+      <span class="lz-star lz-s4">✦</span>
+      <span class="lz-star lz-s5">✦</span>
+      <span class="lz-star lz-s6">✦</span>
+    </div>
   </div>
 
   <div class="lz-wrapper">
-    <!-- Header con logo grande y centrado -->
+    <!-- Header con logo grande, centrado y sin enlace -->
     <header class="lz-header">
-      <a href="/" class="lz-logo-link" aria-label="Piggy App">
+      <div class="lz-logo-box">
         <img src="/assets/logo.png" alt="Piggy App Logo" class="lz-logo-img" />
-      </a>
+      </div>
     </header>
 
     <!-- Contenido Principal -->
     <main class="lz-main">
       <!-- Badge de Estado -->
-      <div class="lz-badge">
+      <div class="lz-badge" id="lz-status-badge">
         <span class="lz-badge-pulse" aria-hidden="true"></span>
         <span class="lz-badge-text">Prelanzamiento Exclusivo</span>
       </div>

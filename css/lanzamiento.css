@@ -31,12 +31,21 @@
   padding: 0;
 }
 
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--lz-bg-main);
+}
+
 .lz-body {
   background-color: var(--lz-bg-main);
   color: var(--lz-text-main);
   font-family: var(--lz-font-body);
   min-height: 100vh;
   position: relative;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,59 +53,66 @@
 }
 
 /* ==========================================================================
-   Fondos y Efectos de Ambiente
+   Fondos y Efectos de Ambiente (Aislados contra overflow)
    ========================================================================== */
+
+.lz-ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
 
 .lz-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(100px);
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.45;
+  opacity: 0.4;
 }
 
 .lz-glow-top {
-  width: 500px;
-  height: 500px;
-  top: -150px;
+  width: 440px;
+  height: 440px;
+  top: -140px;
   left: 50%;
   transform: translateX(-50%);
   background: radial-gradient(circle, var(--lz-pink) 0%, rgba(121, 40, 202, 0.4) 60%, transparent 80%);
 }
 
 .lz-glow-center {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   top: 30%;
-  left: -200px;
+  left: -150px;
   background: radial-gradient(circle, rgba(121, 40, 202, 0.35) 0%, rgba(233, 30, 99, 0.2) 60%, transparent 80%);
 }
 
 .lz-glow-bottom {
-  width: 550px;
-  height: 550px;
-  bottom: 0;
-  right: -150px;
+  width: 460px;
+  height: 460px;
+  bottom: -100px;
+  right: -100px;
   background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(121, 40, 202, 0.2) 60%, transparent 80%);
 }
 
 .lz-grid-overlay {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
-  z-index: 1;
 }
 
 .lz-stars {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
 }
 
 .lz-star {
@@ -125,40 +141,41 @@
 .lz-wrapper {
   position: relative;
   z-index: 2;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 24px 20px 48px;
+  padding: 32px 20px 48px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .lz-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 16px;
   padding-bottom: 28px;
   width: 100%;
 }
 
-.lz-logo-link {
-  display: inline-flex;
+/* Logo con ancho del badge de prelanzamiento */
+.lz-logo-box {
+  display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: transform 0.25s ease;
-}
-
-.lz-logo-link:hover {
-  transform: scale(1.05);
+  width: 240px;
+  max-width: 80vw;
 }
 
 .lz-logo-img {
-  height: 74px;
-  width: auto;
+  width: 100%;
+  height: auto;
+  max-height: 160px;
   object-fit: contain;
-  filter: drop-shadow(0 8px 24px rgba(233, 30, 99, 0.4));
+  filter: drop-shadow(0 10px 30px rgba(233, 30, 99, 0.45));
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* ==========================================================================
@@ -171,27 +188,36 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 32px 0 20px;
+  padding: 12px 0 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
+/* Badge con el mismo ancho base del logo */
 .lz-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  width: 240px;
+  max-width: 80vw;
   background: rgba(233, 30, 99, 0.12);
-  border: 1px solid rgba(233, 30, 99, 0.3);
-  padding: 6px 16px;
+  border: 1px solid rgba(233, 30, 99, 0.35);
+  padding: 8px 16px;
   border-radius: 9999px;
   font-size: 0.8125rem;
   font-weight: 600;
   color: #FFA4C8;
   margin-bottom: 24px;
   box-shadow: 0 0 20px rgba(233, 30, 99, 0.15);
+  box-sizing: border-box;
 }
 
 .lz-badge-pulse {
   width: 8px;
   height: 8px;
+  flex-shrink: 0;
   background-color: var(--lz-pink);
   border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7);
@@ -204,14 +230,22 @@
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(233, 30, 99, 0); }
 }
 
+.lz-badge-text {
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
 .lz-title {
   font-family: var(--lz-font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.85rem, 4.5vw, 3.25rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   max-width: 720px;
+  width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .lz-gradient-text {
@@ -221,11 +255,13 @@
 }
 
 .lz-description {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   color: var(--lz-text-muted);
-  max-width: 620px;
-  margin-bottom: 40px;
+  max-width: 580px;
+  width: 100%;
+  margin-bottom: 36px;
   line-height: 1.6;
+  word-break: break-word;
 }
 
 /* ==========================================================================
@@ -234,21 +270,32 @@
 
 .lz-countdown-section {
   width: 100%;
-  max-width: 620px;
-  margin-bottom: 48px;
+  max-width: 580px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
 .lz-countdown-header {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: #E2DFEB;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--lz-border-subtle);
   padding: 8px 18px;
   border-radius: 9999px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.lz-target-date {
+  word-break: normal;
 }
 
 .lz-countdown-header strong {
@@ -258,14 +305,16 @@
 .lz-countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .lz-cd-card {
   background: var(--lz-bg-surface);
   border: 1px solid var(--lz-border-subtle);
   border-radius: 18px;
-  padding: 20px 12px;
+  padding: 18px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,6 +325,8 @@
   transition: transform 0.2s ease, border-color 0.2s ease;
   position: relative;
   overflow: hidden;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .lz-cd-card::before {
@@ -295,17 +346,17 @@
 
 .lz-cd-num {
   font-family: var(--lz-font-heading);
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 800;
   color: #FFFFFF;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   letter-spacing: -0.02em;
   text-shadow: 0 4px 16px rgba(233, 30, 99, 0.3);
 }
 
 .lz-cd-label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -318,14 +369,15 @@
 
 .lz-post-launch {
   width: 100%;
-  max-width: 600px;
+  max-width: 580px;
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 24px;
-  padding: 32px 24px;
-  margin-bottom: 48px;
+  padding: 32px 20px;
+  margin-bottom: 40px;
   backdrop-filter: blur(14px);
   animation: lz-fadeIn 0.5s ease-out;
+  box-sizing: border-box;
 }
 
 @keyframes lz-fadeIn {
@@ -346,7 +398,7 @@
 
 .lz-post-title {
   font-family: var(--lz-font-heading);
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   font-weight: 800;
   margin-bottom: 12px;
 }
@@ -354,7 +406,7 @@
 .lz-post-desc {
   color: var(--lz-text-muted);
   margin-bottom: 24px;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .lz-btn-enter-app {
@@ -366,11 +418,13 @@
   color: #FFFFFF;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.1rem;
-  padding: 16px 36px;
+  font-size: 1.05rem;
+  padding: 15px 32px;
   border-radius: 9999px;
   box-shadow: 0 8px 24px rgba(233, 30, 99, 0.4);
   transition: all 0.2s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .lz-btn-enter-app:hover {
@@ -389,25 +443,25 @@
 
 .lz-community-card {
   width: 100%;
-  max-width: 660px;
+  max-width: 600px;
   background: var(--lz-bg-card);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 28px;
-  padding: 36px 28px;
+  padding: 32px 24px;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
-  margin-bottom: 36px;
+  box-sizing: border-box;
 }
 
 .lz-card-glow {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  top: -100px;
-  right: -100px;
+  width: 260px;
+  height: 260px;
+  top: -80px;
+  right: -80px;
   background: radial-gradient(circle, rgba(37, 211, 102, 0.2) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -418,6 +472,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .lz-card-badge {
@@ -433,7 +489,7 @@
   color: #4ADE80;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .lz-dot-live {
@@ -446,43 +502,48 @@
 
 .lz-card-title {
   font-family: var(--lz-font-heading);
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   letter-spacing: -0.01em;
+  word-break: break-word;
 }
 
 .lz-card-text {
-  font-size: 0.95rem;
+  font-size: 0.9375rem;
   color: var(--lz-text-muted);
-  max-width: 520px;
-  line-height: 1.6;
-  margin-bottom: 28px;
+  max-width: 480px;
+  width: 100%;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  word-break: break-word;
 }
 
 .lz-card-action {
   width: 100%;
-  max-width: 440px;
-  margin-bottom: 8px;
+  max-width: 380px;
+  box-sizing: border-box;
 }
 
 .lz-btn-whatsapp {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
+  width: 100%;
   background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
   color: #FFFFFF;
   text-decoration: none;
   font-family: var(--lz-font-heading);
-  font-size: 1.0625rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  padding: 16px 24px;
+  padding: 16px 20px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
   transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+  word-break: break-word;
 }
 
 .lz-btn-whatsapp:hover {
@@ -495,11 +556,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .lz-wa-svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .lz-footer {
@@ -508,19 +570,38 @@
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   font-size: 0.8125rem;
   color: var(--lz-text-dim);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
-   Media Queries Adaptativos (Mobile First)
+   Media Queries Adaptativos (Mobile First - 100% Sin Scroll Horizontal)
    ========================================================================== */
 
 @media (max-width: 600px) {
   .lz-wrapper {
-    padding: 18px 16px 36px;
+    padding: 24px 16px 36px;
   }
 
-  .lz-logo-img {
-    height: 56px;
+  .lz-header {
+    padding-bottom: 20px;
+  }
+
+  .lz-logo-box {
+    width: 210px;
+  }
+
+  .lz-badge {
+    width: 210px;
+    padding: 7px 12px;
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+  }
+
+  .lz-countdown-header {
+    font-size: 0.78125rem;
+    padding: 8px 12px;
+    border-radius: 14px;
   }
 
   .lz-countdown-grid {
@@ -528,26 +609,60 @@
   }
 
   .lz-cd-card {
-    padding: 14px 6px;
+    padding: 12px 4px;
     border-radius: 14px;
   }
 
   .lz-cd-num {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-bottom: 4px;
   }
 
   .lz-cd-label {
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.05em;
   }
 
   .lz-community-card {
-    padding: 28px 18px;
-    border-radius: 22px;
+    padding: 24px 16px;
+    border-radius: 20px;
   }
 
   .lz-btn-whatsapp {
-    font-size: 0.9375rem;
-    padding: 14px 18px;
+    font-size: 0.95rem;
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .lz-wrapper {
+    padding: 18px 12px 28px;
+  }
+
+  .lz-logo-box {
+    width: 190px;
+  }
+
+  .lz-badge {
+    width: 190px;
+    font-size: 0.6875rem;
+  }
+
+  .lz-countdown-grid {
+    gap: 6px;
+  }
+
+  .lz-cd-card {
+    padding: 10px 2px;
+    border-radius: 12px;
+  }
+
+  .lz-cd-num {
+    font-size: 1.35rem;
+  }
+
+  .lz-btn-whatsapp {
+    font-size: 0.875rem;
+    padding: 12px 14px;
   }
 }
