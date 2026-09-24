@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveSectionHighlighting();
   initFAQAccordion();
   initScrollAnimations();
-  initVideoModal();
   initNumberCounters();
   initPhoneScrollInteractions();
 });
@@ -29,7 +28,7 @@ function initMobileMenu() {
     menuToggle.classList.toggle('active');
   });
 
-  // Close menu when clicking a link
+  // Close when clicking on any nav link
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('open');
@@ -37,7 +36,7 @@ function initMobileMenu() {
     });
   });
 
-  // Close menu when clicking outside
+  // Close when clicking outside of menu
   document.addEventListener('click', (e) => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
       navMenu.classList.remove('open');
@@ -47,21 +46,22 @@ function initMobileMenu() {
 }
 
 /**
- * Highlight active menu items based on scroll position & navigation clicks
+ * Scroll Spy / Active Section Nav Highlighting
+ * Highlights the nav link corresponding to the section in view
  */
 function initActiveSectionHighlighting() {
   const navLinks = document.querySelectorAll('.nav-item-link');
-  const sectionIds = ['nosotros', 'como-funciona', 'beneficios', 'faq', 'contacto'];
-  const sections = sectionIds
+  const sections = ['nosotros', 'como-funciona', 'beneficios', 'faq', 'contacto']
     .map(id => ({ id, el: document.getElementById(id) }))
     .filter(item => item.el !== null);
 
-  let isClickScrolling = false;
-  let clickTimeout = null;
+  let isManualScroll = false;
+  let manualScrollTimeout = null;
 
-  const setActive = (id) => {
+  const setActiveLink = (currentId) => {
     navLinks.forEach(link => {
-      if (id && link.getAttribute('href') === `#${id}`) {
+      const href = link.getAttribute('href');
+      if (currentId && href === `#${currentId}`) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -69,87 +69,84 @@ function initActiveSectionHighlighting() {
     });
   };
 
-  const updateActiveSection = () => {
-    if (isClickScrolling) return;
+  const handleScroll = () => {
+    if (isManualScroll) return;
 
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
+    const fullHeight = document.documentElement.scrollHeight;
 
-    // Top of page (Hero section) -> clear all active indicators
+    // Above first section
     if (scrollY < 200) {
-      setActive(null);
+      setActiveLink(null);
       return;
     }
 
-    // Scrolled to bottom -> highlight Contacto
-    const isAtBottom = (windowHeight + scrollY) >= (docHeight - 60);
-    const contacto = sections.find(s => s.id === 'contacto');
-    if (isAtBottom && contacto) {
-      const contactoRect = contacto.el.getBoundingClientRect();
-      if (contactoRect.top < windowHeight - 60) {
-        setActive('contacto');
-        return;
-      }
+    // Near the absolute bottom of the document
+    const isAtBottom = (windowHeight + scrollY) >= (fullHeight - 60);
+    const contactoSection = sections.find(s => s.id === 'contacto');
+
+    if (isAtBottom && contactoSection && contactoSection.el.getBoundingClientRect().top < windowHeight - 60) {
+      setActiveLink('contacto');
+      return;
     }
 
-    // Focal point for determining active section (offset from sticky navbar)
-    const focalPoint = 140;
-
+    // Find currently active section based on top offset threshold
+    const scrollPosition = 140; // pixel offset from viewport top
     for (const section of sections) {
       if (section.id === 'contacto') continue;
       const rect = section.el.getBoundingClientRect();
-      if (rect.top <= focalPoint && rect.bottom > focalPoint) {
-        setActive(section.id);
+      if (rect.top <= scrollPosition && rect.bottom > scrollPosition) {
+        setActiveLink(section.id);
         return;
       }
     }
 
-    // If bottom section (contacto) is mostly in view
-    if (contacto) {
-      const contactoRect = contacto.el.getBoundingClientRect();
-      if (contactoRect.top <= focalPoint && contactoRect.bottom > 0) {
-        setActive('contacto');
+    // Secondary check for contacto if scrolled into footer view
+    if (contactoSection) {
+      const rect = contactoSection.el.getBoundingClientRect();
+      if (rect.top <= scrollPosition && rect.bottom > 0) {
+        setActiveLink('contacto');
         return;
       }
     }
   };
 
-  // Nav link click handling
+  // Nav link clicks: smooth scroll & immediate active highlight
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         const targetId = href.substring(1);
-        setActive(targetId);
-        isClickScrolling = true;
-        clearTimeout(clickTimeout);
-        clickTimeout = setTimeout(() => {
-          isClickScrolling = false;
-          updateActiveSection();
+        setActiveLink(targetId);
+        isManualScroll = true;
+        clearTimeout(manualScrollTimeout);
+        manualScrollTimeout = setTimeout(() => {
+          isManualScroll = false;
+          handleScroll();
         }, 800);
       }
     });
   });
 
-  // Optimized scroll listener
+  // Throttled scroll listener
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        updateActiveSection();
+        handleScroll();
         ticking = false;
       });
       ticking = true;
     }
   }, { passive: true });
 
-  // Initial check on page load
-  updateActiveSection();
+  handleScroll();
 }
 
 /**
  * FAQ Accordion Interaction
+ * Auto collapses others when opening a new item
  */
 function initFAQAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -163,7 +160,7 @@ function initFAQAccordion() {
     trigger.addEventListener('click', () => {
       const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
 
-      // Close all other panels for accordion behavior
+      // Close all other accordions first
       faqItems.forEach(otherItem => {
         if (otherItem !== item) {
           const otherTrigger = otherItem.querySelector('.faq-trigger');
@@ -176,24 +173,24 @@ function initFAQAccordion() {
         }
       });
 
-      // Toggle current panel
+      // Toggle clicked item
       trigger.setAttribute('aria-expanded', !isExpanded);
-      if (!isExpanded) {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        item.classList.add('active');
-      } else {
+      if (isExpanded) {
         panel.style.maxHeight = null;
         item.classList.remove('active');
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        item.classList.add('active');
       }
     });
   });
 }
 
 /**
- * Scroll animations for premium feel (reveals cards on scroll)
+ * Smooth entrance animations via IntersectionObserver
  */
 function initScrollAnimations() {
-  const animSelectors = [
+  const selectors = [
     '.step-flow-card',
     '.endorsement-box',
     '.video-card-wrapper',
@@ -202,10 +199,9 @@ function initScrollAnimations() {
     '.pig-feeding-img',
     '.ally-logo-card'
   ];
-  
-  const animElements = document.querySelectorAll(animSelectors.join(', '));
 
-  // Add initial state styles dynamically
+  const animElements = document.querySelectorAll(selectors.join(', '));
+
   animElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(25px)';
@@ -233,51 +229,6 @@ function initScrollAnimations() {
   });
 }
 
-/**
- * YouTube Video Modal Popup
- */
-function initVideoModal() {
-  const openBtns = [document.getElementById('open-video-btn')].filter(Boolean);
-  const modal = document.getElementById('video-modal');
-  const closeBtn = document.getElementById('close-video-btn');
-  const iframe = document.getElementById('video-iframe');
-  
-  // Use embed URL with autoplay parameter
-  const youtubeEmbedUrl = "https://www.youtube.com/embed/1AAZCAOxV0c?autoplay=1&rel=0";
-
-  if (openBtns.length === 0 || !modal || !closeBtn || !iframe) return;
-
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      iframe.src = youtubeEmbedUrl;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  const closeModal = () => {
-    iframe.src = "";
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  };
-
-  closeBtn.addEventListener('click', closeModal);
-  
-  // Close modal when clicking on the blurred background
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  // Close modal with Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
-    }
-  });
-}
 
 /**
  * Animated Number Counter for stats
@@ -291,82 +242,82 @@ function initNumberCounters() {
     threshold: 0.5
   };
 
-  const observer = new IntersectionObserver((entries, obs) => {
+  const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateCounter(entry.target);
-        obs.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  counterElements.forEach(el => observer.observe(el));
+  counterElements.forEach(counter => counterObserver.observe(counter));
 }
 
-function animateCounter(el) {
-  const type = el.dataset.type;
+function animateCounter(element) {
+  const type = element.dataset.type;
   const duration = 1800; // ms
   const startTime = performance.now();
 
   if (type === 'range') {
-    const target1 = parseFloat(el.dataset.to1) || 8;
-    const target2 = parseFloat(el.dataset.to2) || 13;
-    const suffix = el.dataset.suffix || '%';
+    const to1 = parseFloat(element.dataset.to1) || 8;
+    const to2 = parseFloat(element.dataset.to2) || 13;
+    const suffix = element.dataset.suffix || '%';
 
-    const update = (currentTime) => {
+    const updateRange = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       // Ease out cubic
       const easeProgress = 1 - Math.pow(1 - progress, 3);
 
-      const current1 = Math.floor(easeProgress * target1);
-      const current2 = Math.floor(easeProgress * target2);
+      const current1 = Math.floor(easeProgress * to1);
+      const current2 = Math.floor(easeProgress * to2);
 
-      el.textContent = `${current1}${suffix} - ${current2}${suffix}`;
+      element.textContent = `${current1}${suffix} - ${current2}${suffix}`;
 
       if (progress < 1) {
-        requestAnimationFrame(update);
+        requestAnimationFrame(updateRange);
       } else {
-        el.textContent = `${target1}${suffix} - ${target2}${suffix}`;
+        element.textContent = `${to1}${suffix} - ${to2}${suffix}`;
       }
     };
-    requestAnimationFrame(update);
-
+    requestAnimationFrame(updateRange);
   } else if (type === 'decimal') {
-    const target = parseFloat(el.dataset.target) || 4.3;
-    const suffix = el.dataset.suffix || ' meses';
+    const target = parseFloat(element.dataset.target) || 4.3;
+    const suffix = element.dataset.suffix || ' meses';
 
-    const update = (currentTime) => {
+    const updateDecimal = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easeProgress = 1 - Math.pow(1 - progress, 3);
 
       const current = (easeProgress * target).toFixed(1);
-
-      el.textContent = `${current}${suffix}`;
+      element.textContent = `${current}${suffix}`;
 
       if (progress < 1) {
-        requestAnimationFrame(update);
+        requestAnimationFrame(updateDecimal);
       } else {
-        el.textContent = `${target}${suffix}`;
+        element.textContent = `${target}${suffix}`;
       }
     };
-    requestAnimationFrame(update);
+    requestAnimationFrame(updateDecimal);
   }
 }
 
 /**
- * Handle scroll hint fading and seamless mobile touch scroll chaining
+ * Mobile Phone Mockup Interactive Scrolling
+ * Adds discreet hint disappearance and smooth touch interaction
  */
 function initPhoneScrollInteractions() {
   const viewport = document.getElementById('phone-screen-viewport');
-  const hint = document.getElementById('phone-scroll-hint');
+  const scrollHint = document.getElementById('phone-scroll-hint');
 
   if (!viewport) return;
 
-  if (hint) {
+  // Hide the scroll hint once the user interacts with the mockup viewport
+  if (scrollHint) {
     const hideHint = () => {
-      hint.classList.add('hidden');
+      scrollHint.classList.add('hidden');
       viewport.removeEventListener('scroll', hideHint);
       viewport.removeEventListener('touchstart', hideHint);
       viewport.removeEventListener('mousedown', hideHint);
@@ -377,26 +328,25 @@ function initPhoneScrollInteractions() {
     viewport.addEventListener('mousedown', hideHint, { passive: true });
   }
 
-  // Seamless Mobile Touch Scroll Chaining when reaching top/bottom boundary
-  let touchStartY = 0;
-
+  // Prevent parent page scroll lock when reaching ends of viewport scroll
+  let startY = 0;
   viewport.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) {
-      touchStartY = e.touches[0].clientY;
+      startY = e.touches[0].clientY;
     }
   }, { passive: true });
 
   viewport.addEventListener('touchmove', (e) => {
     if (e.touches.length !== 1) return;
-    const touchCurrentY = e.touches[0].clientY;
-    const deltaY = touchStartY - touchCurrentY; // positive = dragging content upwards (scrolling down)
-
+    const currentY = e.touches[0].clientY;
+    const deltaY = startY - currentY;
     const isAtBottom = viewport.scrollTop + viewport.clientHeight >= viewport.scrollHeight - 2;
     const isAtTop = viewport.scrollTop <= 2;
 
+    // If scrolling past boundaries, allow window to take over scroll
     if ((isAtBottom && deltaY > 0) || (isAtTop && deltaY < 0)) {
       window.scrollBy(0, deltaY);
-      touchStartY = touchCurrentY;
+      startY = currentY;
     }
   }, { passive: true });
 }
