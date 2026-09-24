@@ -10,41 +10,58 @@
 }
 
 .nosotros-container {
-  max-width: var(--container-max);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--container-pad);
+  padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 60px;
   align-items: center;
 }
 
-.nosotros-title {
-  font-family: var(--font-title);
-  font-size: 2.75rem;
+.nosotros-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-overtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
   font-weight: 800;
-  color: #1C0D26;
-  margin: 12px 0 24px;
-  line-height: 1.15;
+  color: #A31D56;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.nosotros-title {
+  color: var(--color-primary);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
 }
 
 .nosotros-paragraph {
-  font-size: 1.125rem;
-  color: #5C527F;
-  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #4C3C5C;
   line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 /* Valle Morales Endorsement Box */
 .endorsement-box {
-  margin-top: 36px;
-  background: #F9F7FA;
-  border: 1px solid #EFEAF0;
-  border-radius: 20px;
-  padding: 24px 28px;
+  margin-top: 24px;
+  background: #FDF9FA;
+  border: 1px solid #F3DFE7;
+  border-radius: 16px;
+  padding: 24px;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
@@ -68,18 +85,18 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .endorsement-list li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .bullet-check-wrapper {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: #E8F5E9;
   display: flex;
@@ -89,16 +106,16 @@
 }
 
 .bullet-check-svg {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 .bullet-text {
-  font-family: var(--font-title);
-  font-size: 0.95rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #1C0D26;
-  white-space: nowrap;
+  letter-spacing: 0.5px;
 }
 
 .nosotros-visual {
@@ -139,7 +156,9 @@
   opacity: 0.6;
   transition: opacity var(--trans-base), transform var(--trans-base);
   z-index: 1;
-}.video-card:hover { transform: scale(1.02); }
+}
+
+.video-card:hover { transform: scale(1.02); }
 
 .video-card:hover .video-card-img {
   opacity: 0.75;
@@ -186,38 +205,40 @@
 /* 4.2 Cómo Funciona Section */
 .como-funciona-section {
   padding: 100px 0;
-  background-color: #F8F5FA;
+  background-color: #FAF8FB;
   position: relative;
   z-index: 5;
 }
 
 .como-funciona-container {
-  max-width: var(--container-max);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--container-pad);
+  padding: 0 24px;
   text-align: center;
 }
 
 .como-funciona-title {
-  font-family: var(--font-title);
-  font-size: 2.75rem;
+  color: var(--color-primary);
+  font-size: 2.8rem;
   font-weight: 800;
-  color: #1C0D26;
-  margin: 12px 0 60px;
+  line-height: 1.2;
+  margin-bottom: 60px;
+  letter-spacing: -0.5px;
 }
 
 .steps-flow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 70px;
 }
 
 .step-flow-card {
   background: #FFFFFF;
-  border-radius: 24px;
-  padding: 40px 24px;
+  border-radius: 20px;
+  padding: 36px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -234,35 +255,35 @@
 }
 
 .step-icon-circle {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: #FFF0F5;
   color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   position: relative;
 }
 
 .step-svg-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
 }
 
 .step-badge-num {
   position: absolute;
   top: -4px;
   right: -4px;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: var(--color-primary);
   color: #FFFFFF;
   font-family: var(--font-title);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -271,14 +292,14 @@
 
 .step-flow-card h3 {
   font-family: var(--font-title);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #1C0D26;
   margin-bottom: 12px;
 }
 
 .step-flow-card p {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: #5C527F;
   line-height: 1.6;
 }
@@ -345,17 +366,19 @@
 }
 
 .beneficios-container {
-  max-width: var(--container-max);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--container-pad);
+  padding: 0 24px;
 }
 
 .beneficios-title {
-  font-family: var(--font-title);
-  font-size: 2.75rem;
+  color: var(--color-primary);
+  font-size: 2.8rem;
   font-weight: 800;
-  color: #1C0D26;
-  margin: 12px 0 50px;
+  line-height: 1.2;
+  margin-bottom: 50px;
+  letter-spacing: -0.5px;
 }
 
 .beneficios-split {
@@ -632,32 +655,34 @@
 /* 4.5 FAQ Section ("Preguntas Frecuentes") */
 .faq-section {
   padding: 100px 0;
-  background-color: #F8F5FA;
+  background-color: #FAF8FB;
   position: relative;
   z-index: 5;
   border-top: 1px solid #F0E6E9;
 }
 
 .faq-container {
-  max-width: 920px;
+  width: 100%;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 0 var(--container-pad);
+  padding: 0 24px;
 }
 
 .faq-header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 12px 0 50px;
+  margin-bottom: 50px;
   gap: 20px;
 }
 
 .faq-title {
-  font-family: var(--font-title);
-  font-size: 2.75rem;
+  color: var(--color-primary);
+  font-size: 2.8rem;
   font-weight: 800;
-  color: #1C0D26;
+  line-height: 1.2;
   margin: 0;
+  letter-spacing: -0.5px;
 }
 
 .btn-whatsapp {

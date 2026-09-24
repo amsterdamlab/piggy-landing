@@ -28,7 +28,7 @@ function initMobileMenu() {
     menuToggle.classList.toggle('active');
   });
 
-  // Close when clicking on any nav link
+  // Close menu when clicking a link
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('open');
@@ -36,7 +36,7 @@ function initMobileMenu() {
     });
   });
 
-  // Close when clicking outside of menu
+  // Close menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
       navMenu.classList.remove('open');
@@ -46,22 +46,21 @@ function initMobileMenu() {
 }
 
 /**
- * Scroll Spy / Active Section Nav Highlighting
- * Highlights the nav link corresponding to the section in view
+ * Highlight active menu items based on scroll position & navigation clicks
  */
 function initActiveSectionHighlighting() {
   const navLinks = document.querySelectorAll('.nav-item-link');
-  const sections = ['nosotros', 'como-funciona', 'beneficios', 'faq', 'contacto']
+  const sectionIds = ['nosotros', 'como-funciona', 'beneficios', 'faq', 'contacto'];
+  const sections = sectionIds
     .map(id => ({ id, el: document.getElementById(id) }))
     .filter(item => item.el !== null);
 
-  let isManualScroll = false;
-  let manualScrollTimeout = null;
+  let isClickScrolling = false;
+  let clickTimeout = null;
 
-  const setActiveLink = (currentId) => {
+  const setActive = (id) => {
     navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (currentId && href === `#${currentId}`) {
+      if (id && link.getAttribute('href') === `#${id}`) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -69,84 +68,87 @@ function initActiveSectionHighlighting() {
     });
   };
 
-  const handleScroll = () => {
-    if (isManualScroll) return;
+  const updateActiveSection = () => {
+    if (isClickScrolling) return;
 
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
-    const fullHeight = document.documentElement.scrollHeight;
+    const docHeight = document.documentElement.scrollHeight;
 
-    // Above first section
+    // Top of page (Hero section) -> clear all active indicators
     if (scrollY < 200) {
-      setActiveLink(null);
+      setActive(null);
       return;
     }
 
-    // Near the absolute bottom of the document
-    const isAtBottom = (windowHeight + scrollY) >= (fullHeight - 60);
-    const contactoSection = sections.find(s => s.id === 'contacto');
-
-    if (isAtBottom && contactoSection && contactoSection.el.getBoundingClientRect().top < windowHeight - 60) {
-      setActiveLink('contacto');
-      return;
-    }
-
-    // Find currently active section based on top offset threshold
-    const scrollPosition = 140; // pixel offset from viewport top
-    for (const section of sections) {
-      if (section.id === 'contacto') continue;
-      const rect = section.el.getBoundingClientRect();
-      if (rect.top <= scrollPosition && rect.bottom > scrollPosition) {
-        setActiveLink(section.id);
+    // Scrolled to bottom -> highlight Contacto
+    const isAtBottom = (windowHeight + scrollY) >= (docHeight - 60);
+    const contacto = sections.find(s => s.id === 'contacto');
+    if (isAtBottom && contacto) {
+      const contactoRect = contacto.el.getBoundingClientRect();
+      if (contactoRect.top < windowHeight - 60) {
+        setActive('contacto');
         return;
       }
     }
 
-    // Secondary check for contacto if scrolled into footer view
-    if (contactoSection) {
-      const rect = contactoSection.el.getBoundingClientRect();
-      if (rect.top <= scrollPosition && rect.bottom > 0) {
-        setActiveLink('contacto');
+    // Focal point for determining active section (offset from sticky navbar)
+    const focalPoint = 140;
+
+    for (const section of sections) {
+      if (section.id === 'contacto') continue;
+      const rect = section.el.getBoundingClientRect();
+      if (rect.top <= focalPoint && rect.bottom > focalPoint) {
+        setActive(section.id);
+        return;
+      }
+    }
+
+    // If bottom section (contacto) is mostly in view
+    if (contacto) {
+      const contactoRect = contacto.el.getBoundingClientRect();
+      if (contactoRect.top <= focalPoint && contactoRect.bottom > 0) {
+        setActive('contacto');
         return;
       }
     }
   };
 
-  // Nav link clicks: smooth scroll & immediate active highlight
+  // Nav link click handling
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         const targetId = href.substring(1);
-        setActiveLink(targetId);
-        isManualScroll = true;
-        clearTimeout(manualScrollTimeout);
-        manualScrollTimeout = setTimeout(() => {
-          isManualScroll = false;
-          handleScroll();
+        setActive(targetId);
+        isClickScrolling = true;
+        clearTimeout(clickTimeout);
+        clickTimeout = setTimeout(() => {
+          isClickScrolling = false;
+          updateActiveSection();
         }, 800);
       }
     });
   });
 
-  // Throttled scroll listener
+  // Optimized scroll listener
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        handleScroll();
+        updateActiveSection();
         ticking = false;
       });
       ticking = true;
     }
   }, { passive: true });
 
-  handleScroll();
+  // Initial check on page load
+  updateActiveSection();
 }
 
 /**
  * FAQ Accordion Interaction
- * Auto collapses others when opening a new item
  */
 function initFAQAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -160,7 +162,7 @@ function initFAQAccordion() {
     trigger.addEventListener('click', () => {
       const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
 
-      // Close all other accordions first
+      // Close all other panels for accordion behavior
       faqItems.forEach(otherItem => {
         if (otherItem !== item) {
           const otherTrigger = otherItem.querySelector('.faq-trigger');
@@ -173,24 +175,24 @@ function initFAQAccordion() {
         }
       });
 
-      // Toggle clicked item
+      // Toggle current panel
       trigger.setAttribute('aria-expanded', !isExpanded);
-      if (isExpanded) {
-        panel.style.maxHeight = null;
-        item.classList.remove('active');
-      } else {
+      if (!isExpanded) {
         panel.style.maxHeight = panel.scrollHeight + 'px';
         item.classList.add('active');
+      } else {
+        panel.style.maxHeight = null;
+        item.classList.remove('active');
       }
     });
   });
 }
 
 /**
- * Smooth entrance animations via IntersectionObserver
+ * Scroll animations for premium feel (reveals cards on scroll)
  */
 function initScrollAnimations() {
-  const selectors = [
+  const animSelectors = [
     '.step-flow-card',
     '.endorsement-box',
     '.video-card-wrapper',
@@ -199,9 +201,10 @@ function initScrollAnimations() {
     '.pig-feeding-img',
     '.ally-logo-card'
   ];
+  
+  const animElements = document.querySelectorAll(animSelectors.join(', '));
 
-  const animElements = document.querySelectorAll(selectors.join(', '));
-
+  // Add initial state styles dynamically
   animElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(25px)';
@@ -242,82 +245,82 @@ function initNumberCounters() {
     threshold: 0.5
   };
 
-  const counterObserver = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateCounter(entry.target);
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  counterElements.forEach(counter => counterObserver.observe(counter));
+  counterElements.forEach(el => observer.observe(el));
 }
 
-function animateCounter(element) {
-  const type = element.dataset.type;
+function animateCounter(el) {
+  const type = el.dataset.type;
   const duration = 1800; // ms
   const startTime = performance.now();
 
   if (type === 'range') {
-    const to1 = parseFloat(element.dataset.to1) || 8;
-    const to2 = parseFloat(element.dataset.to2) || 13;
-    const suffix = element.dataset.suffix || '%';
+    const target1 = parseFloat(el.dataset.to1) || 8;
+    const target2 = parseFloat(el.dataset.to2) || 13;
+    const suffix = el.dataset.suffix || '%';
 
-    const updateRange = (currentTime) => {
+    const update = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       // Ease out cubic
       const easeProgress = 1 - Math.pow(1 - progress, 3);
 
-      const current1 = Math.floor(easeProgress * to1);
-      const current2 = Math.floor(easeProgress * to2);
+      const current1 = Math.floor(easeProgress * target1);
+      const current2 = Math.floor(easeProgress * target2);
 
-      element.textContent = `${current1}${suffix} - ${current2}${suffix}`;
+      el.textContent = `${current1}${suffix} - ${current2}${suffix}`;
 
       if (progress < 1) {
-        requestAnimationFrame(updateRange);
+        requestAnimationFrame(update);
       } else {
-        element.textContent = `${to1}${suffix} - ${to2}${suffix}`;
+        el.textContent = `${target1}${suffix} - ${target2}${suffix}`;
       }
     };
-    requestAnimationFrame(updateRange);
-  } else if (type === 'decimal') {
-    const target = parseFloat(element.dataset.target) || 4.3;
-    const suffix = element.dataset.suffix || ' meses';
+    requestAnimationFrame(update);
 
-    const updateDecimal = (currentTime) => {
+  } else if (type === 'decimal') {
+    const target = parseFloat(el.dataset.target) || 4.3;
+    const suffix = el.dataset.suffix || ' meses';
+
+    const update = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easeProgress = 1 - Math.pow(1 - progress, 3);
 
       const current = (easeProgress * target).toFixed(1);
-      element.textContent = `${current}${suffix}`;
+
+      el.textContent = `${current}${suffix}`;
 
       if (progress < 1) {
-        requestAnimationFrame(updateDecimal);
+        requestAnimationFrame(update);
       } else {
-        element.textContent = `${target}${suffix}`;
+        el.textContent = `${target}${suffix}`;
       }
     };
-    requestAnimationFrame(updateDecimal);
+    requestAnimationFrame(update);
   }
 }
 
 /**
- * Mobile Phone Mockup Interactive Scrolling
- * Adds discreet hint disappearance and smooth touch interaction
+ * Handle scroll hint fading and seamless mobile touch scroll chaining
  */
 function initPhoneScrollInteractions() {
   const viewport = document.getElementById('phone-screen-viewport');
-  const scrollHint = document.getElementById('phone-scroll-hint');
+  const hint = document.getElementById('phone-scroll-hint');
 
   if (!viewport) return;
 
-  // Hide the scroll hint once the user interacts with the mockup viewport
-  if (scrollHint) {
+  if (hint) {
     const hideHint = () => {
-      scrollHint.classList.add('hidden');
+      hint.classList.add('hidden');
       viewport.removeEventListener('scroll', hideHint);
       viewport.removeEventListener('touchstart', hideHint);
       viewport.removeEventListener('mousedown', hideHint);
@@ -328,25 +331,26 @@ function initPhoneScrollInteractions() {
     viewport.addEventListener('mousedown', hideHint, { passive: true });
   }
 
-  // Prevent parent page scroll lock when reaching ends of viewport scroll
-  let startY = 0;
+  // Seamless Mobile Touch Scroll Chaining when reaching top/bottom boundary
+  let touchStartY = 0;
+
   viewport.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) {
-      startY = e.touches[0].clientY;
+      touchStartY = e.touches[0].clientY;
     }
   }, { passive: true });
 
   viewport.addEventListener('touchmove', (e) => {
     if (e.touches.length !== 1) return;
-    const currentY = e.touches[0].clientY;
-    const deltaY = startY - currentY;
+    const touchCurrentY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchCurrentY; // positive = dragging content upwards (scrolling down)
+
     const isAtBottom = viewport.scrollTop + viewport.clientHeight >= viewport.scrollHeight - 2;
     const isAtTop = viewport.scrollTop <= 2;
 
-    // If scrolling past boundaries, allow window to take over scroll
     if ((isAtBottom && deltaY > 0) || (isAtTop && deltaY < 0)) {
       window.scrollBy(0, deltaY);
-      startY = currentY;
+      touchStartY = touchCurrentY;
     }
   }, { passive: true });
 }
