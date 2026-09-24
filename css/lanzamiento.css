@@ -136,52 +136,29 @@
 .lz-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 24px;
+  justify-content: center;
+  padding-top: 16px;
+  padding-bottom: 28px;
+  width: 100%;
 }
 
 .lz-logo-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
 .lz-logo-link:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .lz-logo-img {
-  height: 44px;
+  height: 74px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(233, 30, 99, 0.25));
-}
-
-.lz-nav-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--lz-text-muted);
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--lz-border-subtle);
-  transition: all 0.2s ease;
-}
-
-.lz-nav-back:hover {
-  color: var(--lz-text-main);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.lz-back-icon {
-  width: 16px;
-  height: 16px;
+  filter: drop-shadow(0 8px 24px rgba(233, 30, 99, 0.4));
 }
 
 /* ==========================================================================
@@ -486,7 +463,7 @@
 .lz-card-action {
   width: 100%;
   max-width: 440px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 .lz-btn-whatsapp {
@@ -525,57 +502,6 @@
   height: 24px;
 }
 
-.lz-btn-badge {
-  background: rgba(0, 0, 0, 0.25);
-  color: #FFFFFF;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.lz-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-size: 0.8125rem;
-  color: var(--lz-text-dim);
-}
-
-.lz-security-icon {
-  font-size: 0.875rem;
-}
-
-/* ==========================================================================
-   Footer y Acciones Secundarias
-   ========================================================================== */
-
-.lz-footer-action {
-  margin-bottom: 24px;
-}
-
-.lz-footer-text {
-  font-size: 0.875rem;
-  color: var(--lz-text-dim);
-  margin-bottom: 6px;
-}
-
-.lz-link-secondary {
-  color: #FFA4C8;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
-}
-
-.lz-link-secondary:hover {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
 .lz-footer {
   text-align: center;
   padding-top: 24px;
@@ -594,12 +520,7 @@
   }
 
   .lz-logo-img {
-    height: 38px;
-  }
-
-  .lz-nav-back {
-    padding: 6px 12px;
-    font-size: 0.8125rem;
+    height: 56px;
   }
 
   .lz-countdown-grid {
