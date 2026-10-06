@@ -192,7 +192,7 @@ function initWhatsAppTracking() {
 }
 
 /**
- * 5. Efecto de Aumento Numérico (Counters) para 60 días y 33 Piggys
+ * 5. Efecto de Aumento Numérico (Counters) para 60 días y 24 Piggys
  */
 function initCounters() {
   const counters = document.querySelectorAll('.camp-counter');
