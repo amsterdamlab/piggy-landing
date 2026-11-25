@@ -263,8 +263,8 @@ function animateCounter(el) {
   const startTime = performance.now();
 
   if (type === 'range') {
-    const target1 = parseFloat(el.dataset.to1) || 8;
-    const target2 = parseFloat(el.dataset.to2) || 13;
+    const target1 = parseFloat(el.dataset.to1) || 12;
+    const target2 = parseFloat(el.dataset.to2) || 18;
     const suffix = el.dataset.suffix || '%';
 
     const update = (currentTime) => {
@@ -282,6 +282,29 @@ function animateCounter(el) {
         requestAnimationFrame(update);
       } else {
         el.textContent = `${target1}${suffix} - ${target2}${suffix}`;
+      }
+    };
+    requestAnimationFrame(update);
+
+  } else if (type === 'range-unit') {
+    const target1 = parseFloat(el.dataset.to1) || 4;
+    const target2 = parseFloat(el.dataset.to2) || 5;
+    const suffix = el.dataset.suffix || ' meses';
+
+    const update = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+      const current1 = Math.floor(easeProgress * target1);
+      const current2 = Math.floor(easeProgress * target2);
+
+      el.textContent = `${current1} - ${current2}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = `${target1} - ${target2}${suffix}`;
       }
     };
     requestAnimationFrame(update);

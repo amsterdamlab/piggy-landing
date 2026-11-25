@@ -6,7 +6,8 @@
   position: relative;
   min-height: 100vh;
   padding: 140px 0 0 0;
-  background: radial-gradient(circle at 70% 45%, var(--hero-bg-light) 0%, var(--hero-bg-dark) 80%);
+  background-color: #5e0738;
+  background: radial-gradient(circle at 70% 45%, #730a45 0%, #5e0738 75%);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -16,7 +17,7 @@
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(233, 30, 99, 0.15) 0%, rgba(44, 14, 86, 0) 70%);
+  background: radial-gradient(circle, rgba(233, 30, 99, 0.18) 0%, rgba(94, 7, 56, 0) 70%);
   top: 20%;
   right: 5%;
   pointer-events: none;
